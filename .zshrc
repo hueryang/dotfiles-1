@@ -69,6 +69,7 @@ plugins=(
   helm
   autojump
   mvn
+  rbenv 
   # customized plugins
   goext
   android
@@ -115,7 +116,11 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 if [ -x "$(command -v yarn)" ]; then
     export PATH=`yarn global bin`:$PATH
 fi	
-
+#if [ -x "$(command -v gem)" ]; then
+#    export PATH=/home/zhoumingjun/.gem/ruby/2.6.0/bin:/usr/lib/ruby/gems/2.6.0/bin:$PATH
+#fi
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias tps="export http_proxy=socks5://localhost:1080;export https_proxy=socks5://localhost:1080"
 alias tph="export http_proxy=http://localhost:1081;export https_proxy=http://localhost:1081"
+alias tpu="unset http_proxy; unset https_proxy"
+
