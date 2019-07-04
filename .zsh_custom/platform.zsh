@@ -1,4 +1,5 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    export EDITOR=/usr/bin/vim
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "cygwin" ]]; then
 elif [[ "$OSTYPE" == "msys" ]]; then
