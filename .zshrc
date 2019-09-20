@@ -70,6 +70,7 @@ plugins=(
   autojump
   mvn
   rbenv 
+  nodenv
   # customized plugins
   goext
   android
