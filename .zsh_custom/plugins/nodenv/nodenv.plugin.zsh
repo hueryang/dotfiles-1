@@ -1,27 +1,8 @@
-FOUND_NODENV=0
-nodenvdirs=("$HOME/.nodenv" "$HOME/.local/nodenv" "/usr/local/opt/nodenv" "/usr/local/nodenv" "/opt/nodenv")
+[[ -z "$NODENV_HOME" ]] && export NODENV_HOME="$HOME/.nodenv"
 
-for nodenvdir in "${nodenvdirs[@]}" ; do
-  if [ -d $nodenvdir/bin -a $FOUND_NODENV -eq 0 ] ; then
-    FOUND_NODENV=1
-    if [[ $NODENV_ROOT = '' ]]; then
-      NODENV_ROOT=$nodenvdir
-    fi
-    export NODENV_ROOT
-    export PATH=${nodenvdir}/bin:$PATH
-    eval "$(nodenv init --no-rehash -)"
+_zsh_nodenv_load() {
 
-    function current_node() {
-      echo "$(nodenv version-name)"
-    }
+    eval "$(nodenv init -)"
+}
+_zsh_nodenv_load
 
-    function nodenv_prompt_info() {
-      echo "$(current_node)"
-    }
-  fi
-done
-unset nodenvdir
-
-if [ $FOUND_NODENV -eq 0 ] ; then
-  function nodenv_prompt_info() { echo "system: $(node --version)" }
-fi
