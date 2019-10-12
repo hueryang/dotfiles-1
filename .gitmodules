@@ -16,3 +16,9 @@
 [submodule ".vim/pack/minpac/opt/minpac"]
     path = .vim/pack/minpac/opt/minpac
     url = https://github.com/k-takata/minpac.git
+[submodule ".rbenv"]
+	path = .rbenv
+	url = https://github.com/rbenv/rbenv.git
+[submodule ".nodenv"]
+	path = .nodenv
+	url = https://github.com/nodenv/nodenv.git
