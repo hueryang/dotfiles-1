@@ -22,6 +22,6 @@
 [submodule ".nodenv"]
 	path = .nodenv
 	url = https://github.com/nodenv/nodenv.git
-[submodule "/home/zhoumingjun/.pyenv"]
-	path = /home/zhoumingjun/.pyenv
+[submodule ".pyenv"]
+	path = .pyenv
 	url = https://github.com/pyenv/pyenv.git
