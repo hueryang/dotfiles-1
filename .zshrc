@@ -71,6 +71,7 @@ plugins=(
   mvn
   rbenv 
   nodenv
+  pyenv
   # customized plugins
   goext
   android
