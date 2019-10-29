@@ -25,3 +25,6 @@
 [submodule ".pyenv"]
         path = .pyenv
         url = https://github.com/pyenv/pyenv.git
+[submodule ".zsh_custom/plugins/adr-tools"]
+	path = .zsh_custom/plugins/adr-tools
+	url = https://github.com/zhoumingjun/adr-tools
