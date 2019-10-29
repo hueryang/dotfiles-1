@@ -78,6 +78,7 @@ plugins=(
   openresty
   login
  # miniconda
+  adr-tools
   zsh-autosuggestions
  # zsh-syntax-highlighting
 )
