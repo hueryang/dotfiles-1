@@ -7,8 +7,8 @@
   "frame": "off",
   "close": "on",
   "update": "on",
-  "width": 795,
-  "height": 638,
+  "width": 761,
+  "height": 541,
   "proxy": "on",
   "proxy-url": "socks5://127.0.0.1:1080",
   "chat-area-offset-y": "0",
@@ -23,5 +23,5 @@
     "name",
     "teamName"
   ],
-  "tray-color": "white"
+  "tray-color": "black"
 }
