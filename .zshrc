@@ -67,7 +67,6 @@ plugins=(
   kubectl
   kube-ps1
   helm
-  autojump
   mvn
   rbenv 
   nodenv
