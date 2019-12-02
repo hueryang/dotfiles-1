@@ -71,6 +71,7 @@ plugins=(
   rbenv 
   nodenv
   pyenv
+
   # customized plugins
   goext
   android
@@ -78,9 +79,10 @@ plugins=(
   login
  # miniconda
   krew
+  proxy
   adr-tools
   zsh-autosuggestions
- # zsh-syntax-highlighting
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,15 +117,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
-
-if [ -x "$(command -v yarn)" ]; then
-    export PATH=`yarn global bin`:$PATH
-fi	
-#if [ -x "$(command -v gem)" ]; then
-#    export PATH=/home/zhoumingjun/.gem/ruby/2.6.0/bin:/usr/lib/ruby/gems/2.6.0/bin:$PATH
-#fi
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias tps="export http_proxy=socks5://localhost:1080;export https_proxy=socks5://localhost:1080"
-alias tph="export http_proxy=http://localhost:1081;export https_proxy=http://localhost:1081"
-alias tpu="unset http_proxy; unset https_proxy"
-
