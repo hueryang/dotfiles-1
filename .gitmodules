@@ -28,6 +28,6 @@
 [submodule ".zsh_custom/plugins/adr-tools"]
 	path = .zsh_custom/plugins/adr-tools
 	url = git@github.com:zhoumingjun/adr-tools.git
-[submodule "/home/zhoumingjun/.emacs.d"]
-	path = /home/zhoumingjun/.emacs.d
-	url = git@github.com:zhoumingjun/emacs.d.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = git@github.com:zhoumingjun/spacemacs.git
