@@ -64,7 +64,10 @@ This function should only modify configuration layer settings."
      emacs-lisp
      lsp
      markdown
-     org
+     (org :variables
+          org-projectile-file "TODOs.org"
+
+      )
      plantuml
      protobuf
      protobuf
@@ -491,6 +494,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   (setq neo-theme 'ascii)
+  (setq org-agenda-files '("~/org"))
   )
 
 (defun dotspacemacs/user-load ()
