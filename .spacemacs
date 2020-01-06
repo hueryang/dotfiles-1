@@ -505,7 +505,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
            "* TODO %?\nCREATED: %u\nSRC: %a\n%i\n")
           ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
            "* %?\nEntered on %U\n  %i\n  %a\n %t"))) 
-  (setq x86-lookup-pdf "~/refs/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf")
+  (setq x86-lookup-pdf "~/.refs/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf")
 
   )
 
