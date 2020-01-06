@@ -18,7 +18,7 @@
 	url = git@github.com:zhoumingjun/spacemacs.git
 [submodule ".jenv"]
         path = .jenv
-        url = https://github.com/gcuisinier/jenv.git
+        url = https://github.com/jenv/jenv.git
 [submodule ".rbenv"]
         path = .rbenv
         url = https://github.com/rbenv/rbenv.git
