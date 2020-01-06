@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(rust
+   '(html
+     rust
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -91,6 +92,8 @@ This function should only modify configuration layer settings."
          gofmt-command "goimports"
          go-use-golangci-lint t
          godoc-at-point-function 'godoc-gogetdoc )
+     ;; asm
+     asm
    )
 
    ;; List of additional packages that will be installed without being
@@ -499,7 +502,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
         '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
            "* TODO %?\nCREATED: %u\nSRC: %a\n%i\n")
           ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
-           "* %?\nEntered on %U\n  %i\n  %a\n %t")))
+           "* %?\nEntered on %U\n  %i\n  %a\n %t"))) 
+  (setq x86-lookup-pdf "~/refs/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf")
+
   )
 
 (defun dotspacemacs/user-load ()
@@ -526,19 +531,43 @@ before packages are loaded."
 ;; do not write anything past this comment. this is where emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
-  "emacs custom settings.
-this is an auto-generated function, do not modify its content directly, use
-emacs customize menu instead.
-this function is called at the very end of spacemacs initialization."
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
 (custom-set-variables
- ;; custom-set-variables was added by custom.
- ;; if you edit it by hand, you could mess it up, so be careful.
- ;; your init file should contain only one such instance.
- ;; if there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(evil-want-Y-yank-to-eol nil)
  '(evil-want-y-yank-to-eol nil)
+ '(hl-todo-keyword-faces
+   (quote
+    (("TODO" . "#dc752f")
+     ("NEXT" . "#dc752f")
+     ("THEM" . "#2d9574")
+     ("PROG" . "#4f97d7")
+     ("OKAY" . "#4f97d7")
+     ("DONT" . "#f2241f")
+     ("FAIL" . "#f2241f")
+     ("DONE" . "#86dc2f")
+     ("NOTE" . "#b1951d")
+     ("KLUDGE" . "#b1951d")
+     ("HACK" . "#b1951d")
+     ("TEMP" . "#b1951d")
+     ("FIXME" . "#dc752f")
+     ("XXX+" . "#dc752f")
+     ("\\?\\?\\?+" . "#dc752f"))))
  '(package-selected-packages
    (quote
-    (toml-mode racer helm-gtags ggtags flycheck-rust counsel-gtags counsel swiper ivy cargo rust-mode treemacs-magit treemacs pfuture xterm-color vterm unfill terminal-here smeargle shell-pop orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-cliplink org-brain neotree mwim multi-term mmm-mode markdown-toc magit-svn magit-gitflow magit-popup htmlize helm-org-rifle helm-org helm-gitignore helm-git-grep gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct evil-org evil-magit magit transient git-commit async with-editor eshell-z eshell-prompt-extras esh-help diff-hl browse-at-remote auto-dictionary protobuf-mode transpose-frame plantuml-mode yaml-mode helm-ctest cmake-mode cmake-ide levenshtein stickyfunc-enhance srefactor helm-cscope xcscope dap-mode bui tree-mode helm-rtags google-c-style flycheck-ycmd flycheck-rtags disaster cquery cpp-auto-include company-ycmd ycmd request-deferred deferred company-rtags rtags company-c-headers clang-format ccls yasnippet-snippets ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox overseer org-plus-contrib org-bullets open-junk-file nameless move-text macrostep lsp-ui lsp-treemacs lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-lsp helm-ls-git helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc fuzzy font-lock+ flycheck-pos-tip flycheck-package flycheck-golangci-lint flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish devdocs define-word company-statistics company-lsp company-go column-enforce-mode clean-aindent-mode centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell)))
+    (x86-lookup nasm-mode pug-mode impatient-mode helm-css-scss haml-mode emmet-mode counsel-css company-web web-completion-data add-node-modules-path toml-mode racer helm-gtags ggtags flycheck-rust counsel-gtags counsel swiper ivy cargo rust-mode treemacs-magit treemacs pfuture xterm-color vterm unfill terminal-here smeargle shell-pop orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-cliplink org-brain neotree mwim multi-term mmm-mode markdown-toc magit-svn magit-gitflow magit-popup htmlize helm-org-rifle helm-org helm-gitignore helm-git-grep gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct evil-org evil-magit magit transient git-commit async with-editor eshell-z eshell-prompt-extras esh-help diff-hl browse-at-remote auto-dictionary protobuf-mode transpose-frame plantuml-mode yaml-mode helm-ctest cmake-mode cmake-ide levenshtein stickyfunc-enhance srefactor helm-cscope xcscope dap-mode bui tree-mode helm-rtags google-c-style flycheck-ycmd flycheck-rtags disaster cquery cpp-auto-include company-ycmd ycmd request-deferred deferred company-rtags rtags company-c-headers clang-format ccls yasnippet-snippets ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox overseer org-plus-contrib org-bullets open-junk-file nameless move-text macrostep lsp-ui lsp-treemacs lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-lsp helm-ls-git helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc fuzzy font-lock+ flycheck-pos-tip flycheck-package flycheck-golangci-lint flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish devdocs define-word company-statistics company-lsp company-go column-enforce-mode clean-aindent-mode centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell)))
+ '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(safe-local-variable-values
    (quote
     ((javascript-backend . tern)
