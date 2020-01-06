@@ -32,8 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(html
-     rust
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -48,7 +47,6 @@ This function should only modify configuration layer settings."
      spell-checking
 
      ;; ide
-     ;; neotree
      treemacs
      helm
      multiple-cursors
@@ -60,24 +58,29 @@ This function should only modify configuration layer settings."
      git
      version-control
 
-     ;; language
-     asciidoc
-     emacs-lisp
-     lsp
-     markdown
+     ;; emacs specific
      (org :variables
           org-projectile-file "TODOs.org"
 
-      )
+          )
+     emacs-lisp
+     lsp
+ 
+     ;; document language
+     asciidoc
+     markdown
      plantuml
-     protobuf
      protobuf
      yaml
 
-     ;; web related
+     ;; machine language
+     asm
+
+     ;; web
+     html
      javascript
 
-     ;; c++
+     ;; advanced language
      (c-c++ :variables
             c-c++-backend 'lsp-clangd )
 
@@ -85,15 +88,14 @@ This function should only modify configuration layer settings."
             cmake-enable-cmake-ide-support t)
      cscope
 
-     ;; golang
      (go :variables
          go-backend 'lsp
          go-tab-width 4
          gofmt-command "goimports"
          go-use-golangci-lint t
          godoc-at-point-function 'godoc-gogetdoc )
-     ;; asm
-     asm
+
+     rust
    )
 
    ;; List of additional packages that will be installed without being
