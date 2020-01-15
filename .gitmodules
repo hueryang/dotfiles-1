@@ -13,10 +13,6 @@
 [submodule ".vim/pack/minpac/opt/minpac"]
 	path = .vim/pack/minpac/opt/minpac
 	url = https://github.com/k-takata/minpac.git
-[submodule ".emacs.d"]
-	path = .emacs.d
-	url = https://github.com/syl20bnr/spacemacs.git
-	branch = develop
 [submodule ".jenv"]
 	path = .jenv
 	url = https://github.com/jenv/jenv.git
