@@ -10,6 +10,9 @@
 [submodule ".zsh_custom/plugins/adr-tools"]
 	path = .zsh_custom/plugins/adr-tools
 	url = https://github.com/zhoumingjun/adr-tools.git
+[submodule ".oh-my-zsh"]
+    path = .oh-my-zsh
+    url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule ".vim/pack/minpac/opt/minpac"]
 	path = .vim/pack/minpac/opt/minpac
 	url = https://github.com/k-takata/minpac.git
