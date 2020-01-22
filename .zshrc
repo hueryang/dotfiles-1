@@ -71,7 +71,6 @@ plugins=(
   rbenv 
   nodenv
   pyenv
-  emacs
 
   # customized plugins
   goext
