@@ -118,4 +118,3 @@ source $ZSH/oh-my-zsh.sh
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-export PATH=$PATH:~/.emacs.d/bin:/snap/bin
