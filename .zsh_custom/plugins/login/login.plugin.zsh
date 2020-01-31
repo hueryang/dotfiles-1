@@ -1,6 +1,5 @@
-if [[ -e "$HOME/.zsh_custom/plugins/login/gauth.sh" ]] ; then
-  source "$HOME/.zsh_custom/plugins/login/gauth.sh" 
-fi
-if [[ -e "$HOME/.zsh_custom/plugins/login/login.sh" ]] ; then
-  alias lg="$HOME/.zsh_custom/plugins/login/login.sh"
+#!/usr/bin/env zsh
+
+if [[ -e "$HOME/.zsh_custom/plugins/login/login.zsh" ]] ; then
+  alias lg="$HOME/.zsh_custom/plugins/login/login.zsh"
 fi
