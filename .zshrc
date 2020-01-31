@@ -80,6 +80,7 @@ plugins=(
  # miniconda
   krew
   proxy
+  gauth
   adr-tools
   zsh-autosuggestions
   zsh-syntax-highlighting
