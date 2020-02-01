@@ -76,14 +76,14 @@ plugins=(
   goext
   android
   openresty
-  login
- # miniconda
   krew
-  proxy
-  gauth
   adr-tools
   zsh-autosuggestions
   zsh-syntax-highlighting
+  proxy
+  gauth
+  login
+  vpn
 )
 
 source $ZSH/oh-my-zsh.sh
