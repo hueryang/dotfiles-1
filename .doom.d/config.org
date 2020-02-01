@@ -1,0 +1,46 @@
+#+TITLE: My emacs doom configuration
+#+AUTHOR: zhou mingjun
+#+EMAIL: zhoumingjun@gmail.com
+#+LANGUAGE: en
+#+PROPERTY: header-args :tangle yes :cache yes :results silent :padline no
+
+* Table of Contents :TOC:
+- [[#configuration][Configuration]]
+  - [[#personal-information][Personal Information]]
+  - [[#font][Font]]
+  - [[#theme][Theme]]
+  - [[#org][Org]]
+  - [[#line-number][Line-number]]
+  - [[#which-key][which-key]]
+
+* Configuration
+** Personal Information
+*** Set full name
+#+BEGIN_SRC emacs-lisp
+(setq user-full-name "zhou mingjun")
+#+END_SRC
+*** Set email address
+#+BEGIN_SRC emacs-lisp
+(setq user-mail-address "zhoumingjun@gmail.com")
+#+END_SRC
+** Font
+#+BEGIN_SRC emacs-lisp
+(setq doom-font (font-spec :family "Hack" :size 12)
+      doom-variable-pitch-font (font-spec :family "sans"))
+#+END_SRC
+** Theme
+#+BEGIN_SRC emacs-lisp
+(setq doom-theme 'doom-one)
+#+END_SRC
+** Org
+#+BEGIN_SRC emacs-lisp
+(setq org-directory "~/org/")
+#+END_SRC
+** Line-number
+#+BEGIN_SRC emacs-lisp
+(setq display-line-numbers-type t)
+#+END_SRC
+** which-key
+#+BEGIN_SRC emacs-lisp
+(setq which-key-idle-delay 0.01)
+#+END_SRC

@@ -60,30 +60,32 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  emacs
   git
   golang
-  jenv
-  yarn
-  kubectl
-  kube-ps1
   helm
+  jenv
+  kube-ps1
+  kubectl
   mvn
-  rbenv 
   nodenv
   pyenv
+  rbenv 
+  yarn
+
 
   # customized plugins
-  goext
-  android
-  openresty
-  krew
   adr-tools
+  android
+  gauth
+  goext
+  krew
+  login
+  openresty
+  proxy
+  vpn
   zsh-autosuggestions
   zsh-syntax-highlighting
-  proxy
-  gauth
-  login
-  vpn
 )
 
 source $ZSH/oh-my-zsh.sh
