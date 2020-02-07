@@ -33,6 +33,8 @@
 (setq doom-theme 'doom-one)
 #+END_SRC
 ** Org
+
+Set org-directory
 #+BEGIN_SRC emacs-lisp
 (setq org-directory "~/org/")
 #+END_SRC
