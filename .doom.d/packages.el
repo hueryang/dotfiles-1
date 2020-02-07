@@ -52,3 +52,4 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! sicp)
+(package! w3m)
