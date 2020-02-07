@@ -1,8 +1,0 @@
-(setq user-full-name "zhou mingjun")
-(setq user-mail-address "zhoumingjun@gmail.com")
-(setq doom-font (font-spec :family "Hack" :size 12)
-      doom-variable-pitch-font (font-spec :family "sans"))
-(setq doom-theme 'doom-one)
-(setq org-directory "~/org/")
-(setq display-line-numbers-type t)
-(setq which-key-idle-delay 0.01)
