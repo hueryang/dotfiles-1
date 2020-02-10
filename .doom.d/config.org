@@ -14,6 +14,7 @@
   - [[#which-key][which-key]]
   - [[#tabs][tabs]]
   - [[#doom][doom]]
+  - [[#key-bindings][key-bindings]]
 
 * Configuration
 ** Personal Information
@@ -109,4 +110,13 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
       +doom-dashboard-banner-file "emacs.svg"
       +doom-dashboard-banner-dir "~/.doom.d/"
 )
+#+END_SRC
+
+** key-bindings
+#+BEGIN_SRC emacs-lisp
+(map! :leader
+   (:prefix-map ("o" . "open")
+     :desc "Org brain"       "b"  #'org-brain-visualize
+
+   ))
 #+END_SRC
