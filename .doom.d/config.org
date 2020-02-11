@@ -42,7 +42,7 @@ Set org-directory
 (setq org-directory "~/org/"
       org-archive-location (concat org-directory "archive/%s::")
       org-ellipsis " ▼ "
-      org-bullets-bullet-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷"))
+      org-bullets-bullet-list '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷"))
 
 (after! org
   (setq org-log-done 'note
@@ -120,7 +120,7 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
 #+BEGIN_SRC emacs-lisp
 (map! :leader
    (:prefix-map ("o" . "open")
-     :desc "Org brain"       "b"  #'org-brain-visualize
+     :desc "Org brain"       "B"  #'org-brain-visualize
 
    ))
 #+END_SRC
