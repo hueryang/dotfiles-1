@@ -4,18 +4,6 @@
 #+LANGUAGE: en
 #+PROPERTY: header-args :tangle yes :cache yes :results silent :padline no
 
-* Table of Contents :TOC:
-- [[#configuration][Configuration]]
-  - [[#personal-information][Personal Information]]
-  - [[#font][Font]]
-  - [[#theme][Theme]]
-  - [[#org][Org]]
-  - [[#line-number][Line-number]]
-  - [[#which-key][which-key]]
-  - [[#tabs][tabs]]
-  - [[#doom][doom]]
-  - [[#key-bindings][key-bindings]]
-
 * Configuration
 ** Personal Information
 *** Set full name
@@ -55,6 +43,7 @@ Set org-directory
      org-projectile-per-project-filepath "todo.org" ; use an .org file named <project>.org for each project
      org-agenda-files (append org-agenda-files (org-projectile-todo-files)) ; get .org file for all known projects & add to `org-agenda-files'
      )))
+(use-package! ox-twbs)
 #+END_SRC
 ** Line-number
 #+BEGIN_SRC emacs-lisp

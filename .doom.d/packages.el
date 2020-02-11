@@ -54,3 +54,4 @@
 (package! sicp)
 (package! w3m)
 (package! org-projectile)
+(package! ox-twbs)
