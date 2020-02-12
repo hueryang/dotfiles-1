@@ -54,7 +54,8 @@ Set org-directory
 (setq which-key-idle-delay 0.01)
 #+END_SRC
 ** tabs
-#+BEGIN_SRC emacs-lisp
+disable this
+#+BEGIN_SRC emacs-lisp :exports none
 (after! centaur-tabs
   (centaur-tabs-group-by-projectile-project))
 
@@ -70,7 +71,7 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
   '(("Reload last session"
      :icon (all-the-icons-octicon "history" :face 'doom-dashboard-menu-title)
      :when (cond ((require 'persp-mode nil t)
-                  (file-exists-p (expand-file-name persp-auto-save-fname persp-save-dir)))
+                 (file-exists-p (expand-file-name persp-auto-save-fname persp-save-dir)))
                  ((require 'desktop nil t)
                   (file-exists-p (desktop-full-file-name))))
      :face (:inherit (doom-dashboard-menu-title bold))
@@ -112,4 +113,22 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
      :desc "Org brain"       "B"  #'org-brain-visualize
 
    ))
+#+END_SRC
+** Tramp
+#+BEGIN_SRC emacs-lisp
+ (use-package! tramp
+  :custom
+  (tramp-use-ssh-controlmaster-options nil) ; Don't override SSH config.
+  (tramp-default-method "ssh")    ; ssh is faster than scp and supports ports.
+  (tramp-password-prompt-regexp   ; Add verification code support.
+   (concat
+    "^.*"
+    (regexp-opt
+     '("passphrase" "Passphrase"
+       "password" "Password"
+       "Verification code"
+       "Login Ip:")
+     t)
+    ".*:\0? *")))
+
 #+END_SRC
