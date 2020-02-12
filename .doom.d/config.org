@@ -113,6 +113,8 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
      :desc "Org brain"       "B"  #'org-brain-visualize
 
    ))
+(map! "M-p" #'ivy-switch-buffer )
+
 #+END_SRC
 ** Tramp
 #+BEGIN_SRC emacs-lisp
