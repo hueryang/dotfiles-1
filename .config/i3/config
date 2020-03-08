@@ -210,13 +210,13 @@ bindsym F12 exec yakuake
 default_border pixel 1
 hide_edge_borders smart
 
-assign [class=URxvt] 1
-assign [class=Firefox|Transmission-gtk] 2
-assign [class=Thunar|File-roller] 3
-assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*|netease-cloud-music] "5:&#xf044;"
-assign [class=Audacity|vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
-assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
-for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
+assign [class=URxvt] $ws1 
+assign [class=Firefox|Transmission-gtk] $ws2
+assign [class=Thunderbird] $ws3
+assign [class=Evince|Gucharmap|Soffice|libreoffice*|wps*] $ws4
+assign [class=Audacity|vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape|netease-cloud-music] $ws5
+assign [class=dolphin|File-roller] $ws6
+for_window [class=yakuake|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
 for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
