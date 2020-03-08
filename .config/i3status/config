@@ -19,7 +19,7 @@ order += "volume master"
 #order += "disk /"
 #order += "load"
 #order += "memory"
-#order += "tztime local"
+order += "tztime local"
 volume master {
         format = "♪: %volume"
         format_muted = "♪: muted (%volume)"
@@ -56,5 +56,6 @@ memory {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        #format = "%Y-%m-%d %H:%M:%S"
+        format = "%m-%d %H:%M"
 }
