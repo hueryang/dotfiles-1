@@ -8,7 +8,8 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
+# Also see the following configurations
+# https://github.com/addy-dclxvi/i3-starterpack/blob/master/.config/i3/config
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -121,6 +122,8 @@ set $ws9 "9:&#xf121;"
 set $ws10 "10:ℰ"
 
 # switch to workspace
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -210,7 +213,7 @@ hide_edge_borders smart
 assign [class=URxvt] 1
 assign [class=Firefox|Transmission-gtk] 2
 assign [class=Thunar|File-roller] 3
-assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
+assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*|netease-cloud-music] "5:&#xf044;"
 assign [class=Audacity|vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
 assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
 for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
