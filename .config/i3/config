@@ -30,7 +30,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
+exec --no-startup-id blueman-applet
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -185,19 +185,21 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-colors {
-#        background #2f343f
-#        statusline #2f343f
-#        separator #4b5262
+    colors {
+       #        background #2f343f
+       #        statusline #2f343f
+       #        separator #4b5262
 
-# colour of border, background, and text
-focused_workspace       #2f343f #bf616a #d8dee8
-active_workspace        #2f343f #2f343f #d8dee8
-inactive_workspace      #2f343f #2f343f #d8dee8
-urgent_workspacei       #2f343f #ebcb8b #2f343f
-}
-status_command i3status
-position top
+       # colour of border, background, and text
+       focused_workspace       #2f343f #bf616a #d8dee8
+       active_workspace        #2f343f #2f343f #d8dee8
+       inactive_workspace      #2f343f #2f343f #d8dee8
+       urgent_workspacei       #2f343f #ebcb8b #2f343f
+    }
+    output primary
+    tray_output primary
+    status_command i3status
+    position top
 }
 
 
@@ -214,7 +216,7 @@ hide_edge_borders smart
 assign [class=URxvt] $ws1 
 assign [class=Firefox|Transmission-gtk] $ws2
 assign [class=Thunderbird] $ws3
-assign [class=Evince|Gucharmap|Soffice|libreoffice*|wps*] $ws4
+assign [class=Slack|electronic-wechat|Evince|Gucharmap|Soffice|libreoffice*|wps*] $ws4
 assign [class=Audacity|vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape|netease-cloud-music] $ws5
 assign [class=dolphin|File-roller] $ws6
 for_window [class=yakuake|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
