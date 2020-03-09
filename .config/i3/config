@@ -59,7 +59,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # start dmenu (a program launcher)
 bindsym $mod+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=10'"
-bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 10'
+bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show run -sidebar-mode -columns 3 -font 'Noto Sans 10'
 
 
 # alternatively, you can use the cursor keys:
@@ -216,9 +216,10 @@ hide_edge_borders smart
 assign [class=URxvt] $ws1 
 assign [class=Firefox|Transmission-gtk] $ws2
 assign [class=Thunderbird] $ws3
-assign [class=Slack|electronic-wechat|Evince|Gucharmap|Soffice|libreoffice*|wps*] $ws4
-assign [class=Audacity|vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape|netease-cloud-music] $ws5
-assign [class=dolphin|File-roller] $ws6
+assign [class=Slack|electronic-wechat] $ws4
+assign [class=Evince|Gucharmap|Soffice|libreoffice*|wps*] $ws5
+assign [class=Audacity|vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape|netease-cloud-music] $ws6
+assign [class=dolphin|File-roller] $ws7
 for_window [class=yakuake|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
 for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
