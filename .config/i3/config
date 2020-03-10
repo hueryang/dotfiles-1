@@ -33,7 +33,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
 exec --no-startup-id ibus-daemon --xim -drm
-
+exec --no-startup-id dropbox
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
