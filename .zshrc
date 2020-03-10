@@ -122,3 +122,4 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 export PATH=$PATH:~/.emacs.d/bin
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
