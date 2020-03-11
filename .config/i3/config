@@ -112,10 +112,10 @@ bindsym $mod+a focus parent
 set $ws1 "1:☯"
 # command center
 set $ws2 "2:🦸‍♂"
-# email
-set $ws3 "3:💌"
 # chat
-set $ws4 "4:💬 "
+set $ws3 "3:💬 "
+# email
+set $ws4 "4:💌"
 # editor
 set $ws5 "5:✍"
 # music/vidoo
@@ -224,11 +224,11 @@ hide_edge_borders smart
 
 assign [class=URxvt] $ws1 
 assign [class=Firefox|Transmission-gtk] $ws2
-assign [class=Thunderbird] $ws3
-assign [class=Slack|electronic-wechat] $ws4
+assign [class=Slack|electronic-wechat] $ws3
+assign [class=Thunderbird] $ws4
 assign [class=Evince|Gucharmap|Soffice|libreoffice*|wps*] $ws5
 assign [class=Audacity|vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape|netease-cloud-music] $ws6
-assign [class=dolphin|File-roller] $ws7
+#assign [class=dolphin|File-roller] $ws7
 for_window [class=yakuake|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
 for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
