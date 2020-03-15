@@ -208,7 +208,7 @@ bar {
     output primary
     tray_output primary
     status_command i3status
-    position top
+    position bottom
 
 
     mode hide
@@ -227,7 +227,7 @@ bindsym F12 exec yakuake
 default_border pixel 1
 hide_edge_borders smart
 
-assign [class=URxvt] $ws1 
+assign [class=URxvt] $ws2
 assign [class=Firefox|Transmission-gtk] $ws2
 assign [class=Slack|electronic-wechat] $ws3
 assign [class=Thunderbird] $ws4
