@@ -16,7 +16,7 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-(setq doom-font (font-spec :family "Hack" :size 12)
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 12)
       doom-variable-pitch-font (font-spec :family "sans"))
 #+END_SRC
 ** Theme
