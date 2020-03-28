@@ -214,8 +214,6 @@ bar {
         binding_mode        #229c56 #229c56 #ffffff
     }
 }
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
 default_border pixel 1
 hide_edge_borders smart
 #######################################################################
@@ -249,6 +247,8 @@ for_window [class="Lightdm-gtk-greeter-settings"]   floating enable
 for_window [class="Lxappearance"]                   floating enable
 for_window [class="Menu"]                           floating enable
 for_window [class="Nm-connection-editor"]           floating enable
+for_window [class="jetbrains-toolbox"]        floating enable
+for_window [class="Software-properties-gtk"]        floating enable
 for_window [class="Software-properties-gtk"]        floating enable
 
 
