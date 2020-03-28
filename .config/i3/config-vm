@@ -11,6 +11,7 @@
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
+# please refer to https://github.com/dikiaap/dotfiles/blob/master/.i3/config
 font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -120,17 +121,16 @@ bindsym Mod1+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1    "1:   Terminal "
-set $ws2    "2:   Code "
-set $ws3    "3:   Chromium "
-set $ws4    "4:   Files "
-set $ws5    "5:   Documents "
-set $ws6    "6:   Media "
-set $ws7    "7:   Design "
-set $ws8    "8:   Chat "
-set $ws9    "9:   General "
-set $ws10   "10:   Settings "
-
+set $ws1    "1:  Terminal"
+set $ws2    "2:  Browser "
+set $ws3    "3:  Chat "
+set $ws4    "4:  VSCode "
+set $ws5    "5:  Goland "
+set $ws6    "6:  DataGrid "
+set $ws7    "7:  General "
+set $ws8    "8:  General "
+set $ws9    "8:  Remote "
+set $ws10   "10:  Emacs "
 
 # switch to workspace
 bindsym Mod1+1 workspace number $ws1
@@ -214,9 +214,10 @@ bar {
         binding_mode        #229c56 #229c56 #ffffff
     }
 }
-
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
 default_border pixel 1
-hide_edge_borders none
+hide_edge_borders smart
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used their favorite modifier (alt or windows)
@@ -232,5 +233,28 @@ exec i3-config-wizard
 bindsym Mod1+d exec "rofi -combi-modi window,drun -show combi -show-icons"
 
 
-for_window [class=yakuake|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
-for_window [class="Emacs"] border none
+# set specific windows to floating mode
+for_window [window_role="app"]                      floating enable
+for_window [window_role="pop-up"]                   floating enable
+for_window [window_role="task_dialog"]              floating enable
+for_window [title="Preferences$"]                   floating enable
+for_window [class="File-roller"]                    floating enable
+for_window [class="Galculator"]                     floating enable
+for_window [class="Gcolor2"]                        floating enable
+for_window [class="Gkamus"]                         floating enable
+for_window [class="Go-for-it"]                      floating enable
+for_window [class="KBBI-Qt"]                        floating enable
+for_window [class="Lightdm-gtk-greeter-settings"]   floating enable
+for_window [class="Lxappearance"]                   floating enable
+for_window [class="Menu"]                           floating enable
+for_window [class="Nm-connection-editor"]           floating enable
+for_window [class="Software-properties-gtk"]        floating enable
+
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #2b83a6 #2b83a6 #ffffff #dddddd   #2b83a6
+client.focused_inactive #212121 #212121 #86888c #292d2e   #5a5a5a
+client.unfocused        #212121 #212121 #86888c #292d2e   #5a5a5a
+client.urgent           #d64e4e #d64e4e #ffffff #d64e4e   #d64e4e
+client.placeholder      #212121 #0c0c0c #ffffff #212121   #262626
+client.background       #212121
