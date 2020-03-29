@@ -1,18 +1,6 @@
-[submodule ".zsh_custom/plugins/zsh-syntax-highlighting"]
-	path = .zsh_custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule ".zsh_custom/plugins/zsh-autosuggestions"]
-	path = .zsh_custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule ".zsh_custom/themes/powerlevel9k"]
-	path = .zsh_custom/themes/powerlevel9k
-	url = https://github.com/bhilburn/powerlevel9k.git
-[submodule ".zsh_custom/plugins/adr-tools"]
-	path = .zsh_custom/plugins/adr-tools
-	url = https://github.com/zhoumingjun/adr-tools.git
 [submodule ".oh-my-zsh"]
-    path = .oh-my-zsh
-    url = https://github.com/ohmyzsh/ohmyzsh.git
+	path = .oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule ".jenv"]
 	path = .jenv
 	url = https://github.com/jenv/jenv.git
@@ -25,6 +13,18 @@
 [submodule ".pyenv"]
 	path = .pyenv
 	url = https://github.com/pyenv/pyenv.git
-[submodule "/home/zhoumingjun/.config/i3blocks/blocklets"]
+[submodule ".config/i3blocks/blocklets"]
 	path = .config/i3blocks/blocklets
 	url = https://github.com/vivien/i3blocks-contrib.git
+[submodule ".zsh_custom/plugins/zsh-syntax-highlighting"]
+	path = .zsh_custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".zsh_custom/plugins/zsh-autosuggestions"]
+	path = .zsh_custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".zsh_custom/themes/powerlevel9k"]
+	path = .zsh_custom/themes/powerlevel9k
+	url = https://github.com/bhilburn/powerlevel9k.git
+[submodule ".zsh_custom/plugins/adr-tools"]
+	path = .zsh_custom/plugins/adr-tools
+	url = https://github.com/zhoumingjun/adr-tools.git
