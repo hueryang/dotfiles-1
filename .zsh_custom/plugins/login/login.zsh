@@ -7,14 +7,14 @@ fi
 
 source "$HOME/.secret/$1" 
 
-verificationcode=`oathtool --totp --base32 -d6 $OATH_SECRET` 
+code=`oathtool --totp --base32 -d6 $OATH_SECRET` 
 
 
 expect <(cat <<EOD
 spawn ssh $JUMPER_SERVER 
 
 expect  "*Verification code:" 
-send "$verificationcode\r"  
+send "$code\r"  
 
 expect  "*Password:" 
 send "$AD_PASSWORD\r" 
