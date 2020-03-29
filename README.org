@@ -1,0 +1,45 @@
+* Overview
+  :PROPERTIES:
+  :CUSTOM_ID: overview
+  :END:
+
+This repo follows best practice from
+https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
+
+
+* Usage
+  :PROPERTIES:
+  :CUSTOM_ID: usage
+  :END:
+
+** Installation
+   :PROPERTIES:
+   :CUSTOM_ID: installation
+   :END:
+
+#+BEGIN_SRC sh
+bash -c "$(curl -sSL https://raw.githubusercontent.com/zhoumingjun/dotfiles/master/.bin/dotfiles-install.sh)"
+$HOME/.bin/dotfiles-init-submodules.sh
+#+END_SRC
+
+** Update 3rd modules
+   :PROPERTIES:
+   :CUSTOM_ID: update-3rd-modules
+   :END:
+
+#+BEGIN_SRC sh
+$HOME/.bin/dotfiles-update-submodules.sh
+#+END_SRC
+
+* Tips
+** How to remove sensitive information
+Do not save any sensetive data in your dotfiles.
+If you have ever pushed any sensetive data in github.
+Please use the following cmd to remove it from git repo.
+
+#+BEGIN_SRC sh
+  # e.g. remove .m2/settings.xml
+dotfiles filter-branch --force --index-filter \
+    'git rm --cached --ignore-unmatch .m2/settings.xml' \
+    --prune-empty --tag-name-filter cat -- --all
+#+END_SRC
