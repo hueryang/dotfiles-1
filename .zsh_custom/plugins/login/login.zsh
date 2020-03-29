@@ -17,7 +17,7 @@ expect  "*Verification code:"
 send "$code\r"  
 
 expect  "*Password:" 
-send "$AD_PASSWORD\r" 
+send "$AD_SECRET\r" 
 
 expect "*Please enter your Login Ip:" 
 send "$2\r" 

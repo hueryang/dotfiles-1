@@ -80,10 +80,10 @@ plugins=(
   goext
   krew
   openresty
-  vpn
   zsh-autosuggestions
   zsh-syntax-highlighting
 
+  login
   oath
   proxy
   vpn
