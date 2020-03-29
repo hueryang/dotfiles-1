@@ -77,15 +77,16 @@ plugins=(
   # customized plugins
   adr-tools
   android
-  gauth
   goext
   krew
-  login
   openresty
-  proxy
   vpn
   zsh-autosuggestions
   zsh-syntax-highlighting
+
+  oath
+  proxy
+  vpn
 )
 
 source $ZSH/oh-my-zsh.sh
