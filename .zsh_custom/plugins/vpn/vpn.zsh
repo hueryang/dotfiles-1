@@ -1,14 +1,28 @@
 #!/usr/bin/env zsh
 
+# For Tunnelblick on macos, please refer to 
+# https://ifritltd.com/2018/01/15/automating-vpn-connection-when-using-multifactor-authentication-with-tunnelblick-on-macos/
+#
+
 function vpn(){
-    
-    if [[ "$1" == "sensetime" ]]; then
-        code=`oathtool --totp --base32 -d6 WASBPQMYOM4HI2W5`     
-        if [[ "$OSTYPE" == "linux-gnu" ]]; then
-            echo "vpn.secrets.password:Passw0rd@123$code" | nmcli con up id 'sensetime-auth-bj' passwd-file /dev/stdin
-        elif [[ "$OSTYPE" == "darwin"* ]]; then
-            echo -e "zhoumingjun\nPassw0rd@123$code" > /Users/zhoumingjun/.zsh_custom/plugins/vpn/secret
-            osascript -e "tell application \"/Applications/Tunnelblick.app\"" -e "connect \"sensetime-auth-bj\"" -e "end tell"
-        fi
+    if [[ ! -e "$HOME/.secret/$1" ]] ; then
+        echo "$HOME/.secret/$1 does not exist"
+        exit 1
+    fi
+
+    source "$HOME/.secret/$1" 
+
+    code=`oathtool --totp --base32 -d6 $OATH_SECRET`     
+
+    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+
+        echo "vpn.secrets.password:$AD_PASSWORD$code" > $HOME/.secret/$1-vpn
+        nmcli con up id '$1' passwd-file $HOME/.secret/$1-vpn
+        
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+
+        echo -e "$AD_ID\n$AD_SECRET$code" > $HOME/.secret/$1-vpn
+        osascript -e "tell application \"/Applications/Tunnelblick.app\"" -e "connect \"$1\"" -e "end tell"
+
     fi
 }
