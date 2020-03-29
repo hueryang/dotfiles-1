@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function gauth(){
+function oath(){
     if [[ ! -e "$HOME/.secret/$1" ]] ; then
         echo "$HOME/.secret/$1 does not exist"
         exit 1
