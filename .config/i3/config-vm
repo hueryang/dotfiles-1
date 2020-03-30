@@ -24,10 +24,7 @@ font pango:monospace 8
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-#exec --no-startup-id ibus-daemon --xim -d -r
-exec --no-startup-id fcitx -rd
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id ibus-daemon --xim -d -r
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 
@@ -104,7 +101,7 @@ bindsym Mod1+e layout toggle split
 bindsym Mod1+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod1+space focus mode_toggle
+# bindsym Mod1+space focus mode_toggle
 
 # focus the parent container
 bindsym Mod1+a focus parent
@@ -121,16 +118,16 @@ bindsym Mod1+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1    "1:  Terminal"
-set $ws2    "2:  Browser "
-set $ws3    "3:  Chat "
-set $ws4    "4:  VSCode "
-set $ws5    "5:  Goland "
-set $ws6    "6:  DataGrid "
-set $ws7    "7:  General "
-set $ws8    "8:  General "
-set $ws9    "9:  Remote "
-set $ws10   "10:  Emacs "
+set $ws1    "1"
+set $ws2    "2"
+set $ws3    "3"
+set $ws4    "4"
+set $ws5    "5"
+set $ws6    "6"
+set $ws7    "7"
+set $ws8    "8"
+set $ws9    "9"
+set $ws10   "10"
 
 # switch to workspace
 bindsym Mod1+1 workspace number $ws1
