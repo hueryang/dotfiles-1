@@ -41,7 +41,7 @@ set $up l
 set $down k
 set $left j
 set $right semicolon
-
+set $mod Mod1
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
@@ -118,40 +118,31 @@ bindsym Mod1+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1    "1"
-set $ws2    "2"
-set $ws3    "3"
-set $ws4    "4"
-set $ws5    "5"
-set $ws6    "6"
-set $ws7    "7"
-set $ws8    "8"
-set $ws9    "9"
-set $ws10   "10"
 
-# switch to workspace
-bindsym Mod1+1 workspace number $ws1
-bindsym Mod1+2 workspace number $ws2
-bindsym Mod1+3 workspace number $ws3
-bindsym Mod1+4 workspace number $ws4
-bindsym Mod1+5 workspace number $ws5
-bindsym Mod1+6 workspace number $ws6
-bindsym Mod1+7 workspace number $ws7
-bindsym Mod1+8 workspace number $ws8
-bindsym Mod1+9 workspace number $ws9
-bindsym Mod1+0 workspace number $ws10
+
+# workspaces from 1-10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym Mod1+Shift+1 move container to workspace number $ws1
-bindsym Mod1+Shift+2 move container to workspace number $ws2
-bindsym Mod1+Shift+3 move container to workspace number $ws3
-bindsym Mod1+Shift+4 move container to workspace number $ws4
-bindsym Mod1+Shift+5 move container to workspace number $ws5
-bindsym Mod1+Shift+6 move container to workspace number $ws6
-bindsym Mod1+Shift+7 move container to workspace number $ws7
-bindsym Mod1+Shift+8 move container to workspace number $ws8
-bindsym Mod1+Shift+9 move container to workspace number $ws9
-bindsym Mod1+Shift+0 move container to workspace number $ws10
+bindsym Mod1+Shift+1 move container to workspace 1
+bindsym Mod1+Shift+2 move container to workspace 2
+bindsym Mod1+Shift+3 move container to workspace 3
+bindsym Mod1+Shift+4 move container to workspace 4
+bindsym Mod1+Shift+5 move container to workspace 5
+bindsym Mod1+Shift+6 move container to workspace 6
+bindsym Mod1+Shift+7 move container to workspace 7
+bindsym Mod1+Shift+8 move container to workspace 8
+bindsym Mod1+Shift+9 move container to workspace 9
+bindsym Mod1+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym Mod1+Shift+c reload
@@ -193,8 +184,8 @@ bar {
     status_command          i3blocks
     bindsym button4         nop
     bindsym button5         nop
-    position                bottom
-    #tray_output             primary
+    position                top
+    #tray_output            primary
     separator_symbol        "·"
     workspace_buttons       yes
     strip_workspace_numbers no
