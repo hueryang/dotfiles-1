@@ -50,8 +50,7 @@ bindsym XF86MonBrightnessUp exec sudo light -A 10
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -112,22 +111,31 @@ bindsym $mod+a focus parent
 # please refer to https://fontawesome.com/cheatsheet/free/solid
 
 # home
-set $ws1 "1:☯"
-# command center
-set $ws2 "2:🦸‍♂"
-# chat
-set $ws3 "3:💬 "
-# email
-set $ws4 "4:💌"
-# editor
-set $ws5 "5:✍"
-# music/vidoo
-set $ws6 "6:🎧"
-# dirs
-set $ws7 "7:📂"
-set $ws8 "8:💥"
-set $ws9 "9:🔥"
-set $ws10 "10:⚛"
+
+set $ws1    "1: Terminal"
+set $ws2    "2: Web Browser "
+set $ws3    "3: Chat "
+set $ws4    "4: Document"
+set $ws5    "5: General"
+set $ws6    "6: Enjoy "
+set $ws7    "7: Code"
+set $ws8    "8: Code"
+set $ws9    "9: Code"
+set $ws10   "10: Emacs "
+
+
+workspace 1 output DP-1
+workspace 2 output DP-1
+workspace 3 output DP-1
+workspace 4 output DP-1
+workspace 5 output DP-1
+workspace 6 output DP-1
+workspace 7 output HDMI-2
+workspace 8 output HDMI-2
+workspace 9 output HDMI-2
+workspace 10 output HDMI-2
+
+
 
 # switch to workspace
 bindsym $mod+n workspace next
@@ -197,6 +205,10 @@ bindsym $mod+minus scratchpad show
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    status_command          i3blocks
+    tray_output primary
+    position bottom
+
     colors {
        #        background #2f343f
        #        statusline #2f343f
@@ -208,15 +220,9 @@ bar {
        inactive_workspace      #2f343f #2f343f #d8dee8
        urgent_workspacei       #2f343f #ebcb8b #2f343f
     }
-    output primary
-    tray_output primary
-    status_command i3status
-    position bottom
 
 
-    mode hide
-    hidden_state hide
-    modifier Mod4
+
 }
 
 
