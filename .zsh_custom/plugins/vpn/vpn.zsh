@@ -16,7 +16,7 @@ function vpn(){
 
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
-        echo "vpn.secrets.password:$AD_PASSWORD$code" > $HOME/.secret/$1-vpn
+        echo "vpn.secrets.password:$AD_SECRET$code" > $HOME/.secret/$1-vpn
         nmcli con up id '$1' passwd-file $HOME/.secret/$1-vpn
         
     elif [[ "$OSTYPE" == "darwin"* ]]; then
