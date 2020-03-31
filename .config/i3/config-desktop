@@ -112,16 +112,16 @@ bindsym $mod+a focus parent
 
 # home
 
-set $ws1    "1: Terminal"
-set $ws2    "2: Web Browser "
-set $ws3    "3: Chat "
-set $ws4    "4: Document"
-set $ws5    "5: General"
-set $ws6    "6: Enjoy "
-set $ws7    "7: Code"
-set $ws8    "8: Code"
-set $ws9    "9: Code"
-set $ws10   "10: Emacs "
+set $ws1    "1"
+set $ws2    "2"
+set $ws3    "3"
+set $ws4    "4"
+set $ws5    "5"
+set $ws6    "6"
+set $ws7    "7"
+set $ws8    "8"
+set $ws9    "9"
+set $ws10   "10"
 
 
 workspace 1 output DP-1
@@ -209,7 +209,7 @@ bindsym $mod+minus scratchpad show
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command          i3blocks
+    status_command          i3status
     tray_output primary
     position bottom
 
@@ -225,8 +225,6 @@ bar {
        urgent_workspacei       #2f343f #ebcb8b #2f343f
     }
 
-
-
 }
 
 
@@ -235,21 +233,34 @@ bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
 bindsym $mod+l exec i3lock -c 000000
 bindsym F12 exec yakuake
 
-
 # window rules, you can find the window class using xprop
 default_border pixel 1
 hide_edge_borders smart
 
-assign [class=URxvt] $ws2
-assign [class=Firefox|Transmission-gtk] $ws2
-assign [class=Slack|electronic-wechat] $ws3
-assign [class=Thunderbird] $ws4
-assign [class=Evince|Gucharmap|Soffice|libreoffice*|wps*] $ws5
-assign [class=Audacity|vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape|netease-cloud-music] $ws6
-#assign [class=dolphin|File-roller] $ws7
-for_window [class=yakuake|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
+# focus
 for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
+
+# float
+for_window [class=yakuake|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
+for_window [class=yakuake|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|KeePassXC] floating enable
+for_window [window_role="app"]                      floating enable
+for_window [window_role="pop-up"]                   floating enable
+for_window [window_role="task_dialog"]              floating enable
+for_window [title="Preferences$"]                   floating enable
+for_window [class="File-roller"]                    floating enable
+for_window [class="Galculator"]                     floating enable
+for_window [class="Gcolor2"]                        floating enable
+for_window [class="Gkamus"]                         floating enable
+for_window [class="Go-for-it"]                      floating enable
+for_window [class="KBBI-Qt"]                        floating enable
+for_window [class="Lightdm-gtk-greeter-settings"]   floating enable
+for_window [class="Lxappearance"]                   floating enable
+for_window [class="Menu"]                           floating enable
+for_window [class="Nm-connection-editor"]           floating enable
+for_window [class="jetbrains-toolbox"]              floating enable
+for_window [class="Software-properties-gtk"]        floating enable
+for_window [class="Software-properties-gtk"]        floating enable
 
 # colour of border, background, text, indicator, and child_border
 client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
