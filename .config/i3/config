@@ -119,7 +119,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
@@ -204,9 +204,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
-bindsym Mod1+Tab  exec --no-startup-id rofi -modi combi -combi-modi window -show combi
+bindsym $mod+Tab  exec --no-startup-id rofi -modi combi -combi-modi window -show combi
 
-
+bindsym $mod+g exec i3-input -F 'workspace %s' -P 'go to workspace: '
+bindsym $mod+m exec i3-input -F 'move container to workspace %s' -P 'move to workspace: '
 
 
 # Open applications on specific workspaces
@@ -378,10 +379,6 @@ bar {
 #   font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
 
-    mode hide
-    hidden_state hide
-    modifier $mod
-
     colors {
         background #222D31
         statusline #F9FAF9
@@ -397,7 +394,7 @@ bar {
 }
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
