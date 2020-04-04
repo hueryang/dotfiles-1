@@ -206,8 +206,8 @@ bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 bindsym $mod+Tab  exec --no-startup-id rofi -modi combi -combi-modi window -show combi
 
-bindsym $mod+g exec i3-input -F 'workspace %s' -P 'go to workspace: '
-bindsym $mod+m exec i3-input -F 'move container to workspace %s' -P 'move to workspace: '
+bindsym $mod+o exec i3-input -F 'workspace %s' -P 'go to workspace: '
+bindsym $mod+Shift+o exec i3-input -F 'move container to workspace %s' -P 'move to workspace: '
 
 
 # Open applications on specific workspaces
