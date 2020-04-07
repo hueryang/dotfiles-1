@@ -27,8 +27,8 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec konsole
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+F4 kill
@@ -220,6 +220,7 @@ bindsym $mod+Shift+o exec i3-input -F 'move container to workspace %s' -P 'move 
 for_window [class="(?i)System-config-printer.py"]   floating enable border normal
 for_window [class="(?i)virtualbox"]                 floating enable border normal
 for_window [class="Clipgrab"]                       floating enable
+for_window [class="electronic-wechat"]              floating enable
 for_window [class="File-roller"]                    floating enable
 for_window [class="GParted"]                        floating enable border normal
 for_window [class="Galculator"]                     floating enable border pixel 1
@@ -227,6 +228,7 @@ for_window [class="Gcolor2"]                        floating enable
 for_window [class="Gkamus"]                         floating enable
 for_window [class="Go-for-it"]                      floating enable
 for_window [class="KBBI-Qt"]                        floating enable
+for_window [class="KeePassXC"]                      floating enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"]   floating enable
 for_window [class="Lightdm-settings"]               floating enable
 for_window [class="Lxappearance"]                   floating enable sticky enable border normal
@@ -316,8 +318,8 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+l exec --no-startup-id blurlock
-
+#bindsym $mod+l exec --no-startup-id blurlock
+bindsym $mod+l exec --no-startup-id i3lock -c "000000"
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
@@ -326,9 +328,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
@@ -371,7 +373,7 @@ bar {
 	status_command i3status
 	position top
     mode invisible
-
+    tray_output primary
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
