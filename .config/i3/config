@@ -405,7 +405,8 @@ bar {
 
 # hide/unhide i3status bar
 # bindsym $mod+m bar mode toggle
-
+bindsym $mod+m bar mode invisible
+bindsym $mod+Shift+m bar mode dock
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
   client.focused          #556064 #556064 #80FFF9 #FDF6E3
