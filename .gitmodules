@@ -25,3 +25,6 @@
 [submodule ".zsh_custom/plugins/adr-tools"]
 	path = .zsh_custom/plugins/adr-tools
 	url = https://github.com/zhoumingjun/adr-tools.git
+[submodule "/home/zhoumingjun/.zsh_custom/themes/powerlevel10k"]
+	path = /home/zhoumingjun/.zsh_custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
