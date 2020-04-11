@@ -36,14 +36,15 @@ Set org-directory
 (after! org
   (setq org-log-done 'note
         org-log-into-drawer t))
-(use-package! org-projectile
-  :config
-  (progn
-    (org-projectile-per-project) ; strategy to use a separate .org file within each project
-    (setq
-     org-projectile-per-project-filepath "todo.org" ; use an .org file named <project>.org for each project
-     org-agenda-files (append org-agenda-files (org-projectile-todo-files)) ; get .org file for all known projects & add to `org-agenda-files'
-     )))
+;; (use-package! org-projectile
+;;   :config
+;;   (progn
+;;     (org-projectile-per-project) ; strategy to use a separate .org file within each project
+;;     (setq
+;;      org-projectile-per-project-filepath "todo.org" ; use an .org file named <project>.org for each project
+;;      org-agenda-files (append org-agenda-files (org-projectile-todo-files)) ; get .org file for all known projects & add to `org-agenda-files'
+;;      )))
+
 (use-package! ox-twbs)
 #+END_SRC
 ** Line-number
