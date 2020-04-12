@@ -8,19 +8,14 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 60
 }
 
 order += "ethernet _first_"
-order += "tztime local"
+
 ethernet _first_ {
     align = "left"
 
         format_up = "%ip"
         format_down = "E: down"
 }
-
-tztime local {
-    format = "%Y-%-m-%d %I:%M:%S"
-}
-
