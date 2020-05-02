@@ -80,7 +80,7 @@ plugins=(
   pyenv
   rbenv 
   yarn
-
+  fzf
 
   # customized plugins
   adr-tools
