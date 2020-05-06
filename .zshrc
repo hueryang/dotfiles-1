@@ -68,7 +68,9 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  docker
   emacs
+  fzf
   git
   golang
   helm
@@ -78,9 +80,9 @@ plugins=(
   mvn
   nodenv
   pyenv
-  rbenv 
+  rbenv
+  ripgrep
   yarn
-  fzf
 
   # customized plugins
   adr-tools
@@ -128,9 +130,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 export PATH=$PATH:~/.emacs.d/bin
+
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
