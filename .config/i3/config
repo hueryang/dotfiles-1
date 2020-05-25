@@ -257,7 +257,7 @@ for_window [class="qt5ct"]                          floating enable sticky enabl
 for_window [class="yakuake"]                        floating enable
 for_window [class="realvnc-vncviewer"]              floating enable
 for_window [class="netease-cloud-music"]            floating enable
-
+for_window [class="dolphin"]            floating enable
 for_window [title="About Pale Moon"]                floating enable
 for_window [title="File Transfer*"]                 floating enable
 for_window [title="MuseScore: Play Panel"]          floating enable
