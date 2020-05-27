@@ -21,5 +21,6 @@ ethernet _first_ {
         format_down = "E: down"
 }
 tztime local {
-    format = "%Y-%-m-%d %I:%M:%S"
+#    format = "%Y-%-m-%d %I:%M:%S"
+    format = "%H:%M:%S"
 }
