@@ -1,26 +1,73 @@
-# i3wm
+# 配置VNC客户端 
 
-参考 https://i3wm.org/docs/userguide.html  
-具体配置在 ~/.config/i3/config
-
-# vnc viewer
-
-在 mac 上用这个  
-https://www.realvnc.com/en/connect/download/viewer/macos/
-
-1. 修改连接属性，将 cmd 和 opt 键的配置设置正确，
-2. 用全屏模式，保证特殊按键能够被正确捕获
+1. 下载客户端[VNC® Viewer](https://www.realvnc.com/en/connect/download/viewer/)
+2. 修改连接属性，将 cmd 和 opt 键的配置设置正确，
+3. 用全屏模式，保证特殊按键能够被正确捕获
    ![配置](images/vnc-connect.jpg)
 
-# 基本命令
+# 桌面系统i3-gaps
 
+详细参考 https://i3wm.org/docs/userguide.html  
+具体配置在 ```~/.config/i3/config```
+
+# 使用
+
+## 按键配置
+
+```$mod = Mod4```  ：使用Mod4作为i3的Modifier 
+
+ Mod4在不同平台上的对应按键     
+|   os   |       key        |
+| :----: | :--------------: |
+| macosx | <kbd>super</kbd> |
+| linux  |  <kbd>win</kbd>  |
+ 
+ 
+## 基本命令
+| 按键                                          | 用途           |
+| --------------------------------------------- | :------------- |
+| <kbd>$mod</kbd>+<kbd>数字</kbd>               | 切换桌面       |
+| <kbd>$mod</kbd>+<kbd>Enter</kbd>              | 打开 terminal  |
+| <kbd>$mod</kbd>+<kbd>d </kbd>                 | 打开应用菜单   |
+| <kbd>$mod</kbd>+<kbd>F4</kbd>                 | 关闭当前应用   |
+| <kbd>F12</kbd>                                | 打开 yakuake   |
+| <kbd>$mod</kbd>+<kbd>m</kbd>                  | 隐藏顶部状态栏 |
+| <kbd>$mod</kbd>+<kbd>shift</kbd>+<kbd>m</kbd> | 打开顶部状态栏 |
+
+## 中文输入法
+启动命令： ```fcitx -dr```  
+切换输入法: <kbd>$mod</kbd>+<kbd>space</kbd>  
+ 
+
+## 远程桌面
+
+```bash
+#开启远程桌面
+/opt/TurboVNC/bin/vncserver -geometry 1440x900
+#查看当前远程桌面会话
+/opt/TurboVNC/bin/vncserver -list
+#杀掉远程桌面会话
+/opt/TurboVNC/bin/vncserver -kill  :1
+#修改远程桌面密码
+/opt/TurboVNC/bin/vncpasswd
+```
+
+## 修改桌面分辨率
+```bash
+# 参考脚本
+~/.bin/screen-mackbook.sh
+~/.bin/screen-desktop.sh
+```
+或者使用 arandr
+ 
+# 附录
 ## 查看键盘映射
 
 i3wm 的 mod 键配置
 `set $mod Mod4`  
 通过命令`xmodmap` 查看本机键盘映射
 
-```
+```bash
 xmodmap
 xmodmap:  up to 4 keys per modifier, (keycodes in parentheses):
 
@@ -34,47 +81,3 @@ mod4        Super_L (0x73),  Super_R (0x74),  Super_L (0x7f),  Hyper_L (0x80)
 mod5        Mode_switch (0x8),  ISO_Level3_Shift (0x7c)
 
 ```
-
-| 按键          | 用途           |
-| ------------- | :------------- |
-| \$mod+Enter   | 打开 terminal  |
-| \$mod+数字    | 切换桌面       |
-| \$mod+m       | 隐藏顶部状态栏 |
-| \$mod+shift+m | 打开顶部状态栏 |
-| \$mod+d       | 打开应用菜单   |
-| \$mod+F4      | 杀掉当前应用   |
-| F12           | 打开 yakuake   |
-
-## 中文输入法
-
-已经配置了 fcitx-rime 输入法  
-用 \$mod + space 切换输入法,  
-右上角有输入法图标
-
-# 远程桌面
-
-```
-#如何开启远程桌面
-/opt/TurboVNC/bin/vncserver -geometry 1440x900
-#查看当前远程桌面会话
-/opt/TurboVNC/bin/vncserver -list
-#杀掉远程桌面会话
-/opt/TurboVNC/bin/vncserver -kill  :1
-
-修改远程桌面密码
-/opt/TurboVNC/bin/vncpasswd
-```
-
-# 修改桌面分辨率
-
-```
-参考脚本
-~/.screenlayout/macbook.sh
-~/.screenlayout/desktop.sh
-```
-
-或者使用 arandr
-
-# enjoy
-
-申请开发这个机器的 5901 端口，然后可以在家里用

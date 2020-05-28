@@ -42,7 +42,7 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 
 fc-cache -fv
 
-# enable i3 ppa
+# install i3
 sudo add-apt-repository -y ppa:kgilmer/speed-ricer
 
 sudo apt install git \
