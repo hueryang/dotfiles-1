@@ -33,7 +33,6 @@ mod3
 mod4        Super_L (0x73),  Super_R (0x74),  Super_L (0x7f),  Hyper_L (0x80)
 mod5        Mode_switch (0x8),  ISO_Level3_Shift (0x7c)
 
- od4
 ```
 
 | 按键          | 用途           |
@@ -60,7 +59,7 @@ mod5        Mode_switch (0x8),  ISO_Level3_Shift (0x7c)
 #查看当前远程桌面会话
 /opt/TurboVNC/bin/vncserver -list
 #杀掉远程桌面会话
-/opt/TurboVNC/bin/vncserver -kill  :n
+/opt/TurboVNC/bin/vncserver -kill  :1
 
 修改远程桌面密码
 /opt/TurboVNC/bin/vncpasswd
@@ -78,5 +77,4 @@ mod5        Mode_switch (0x8),  ISO_Level3_Shift (0x7c)
 
 # enjoy
 
-慢慢探索吧，玩的开心：）  
 申请开发这个机器的 5901 端口，然后可以在家里用

@@ -2,6 +2,7 @@
 
 ```bash
 # clean existing dotfiles
+cd $HOME
 rm -rf .dotfiles \
     .bin \
     .config/i3 \
@@ -78,4 +79,10 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microso
 sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install code # or code-insiders
+
+
+# install turbovnc
+wget https://astuteinternet.dl.sourceforge.net/project/turbovnc/2.2.5/turbovnc_2.2.5_amd64.deb
+
+sudo dpkg -i turbovnc_2.2.5_amd64.deb
 ```
