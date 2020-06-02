@@ -258,6 +258,7 @@ for_window [class="octopi"]                         floating enable
 for_window [class="qt5ct"]                          floating enable sticky enable border normal
 for_window [class="realvnc-vncviewer"]              floating enable
 for_window [class="wxwork.exe"]                     floating enable
+for_window [class="Wine"]                           floating enable
 for_window [class="yakuake"]                        floating enable
 for_window [title="About Pale Moon"]                floating enable
 for_window [title="File Transfer*"]                 floating enable
