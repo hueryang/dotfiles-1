@@ -25,6 +25,7 @@ rm -rf .dotfiles \
     .npmrc \
     .p10k.zsh \
     .zshrc \
+    .ew.json \
     README.org
 
 # install dotfiles
