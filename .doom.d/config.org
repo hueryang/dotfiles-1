@@ -46,7 +46,14 @@ Set org-directory
 ;;      )))
 
 (use-package! ox-twbs)
+
+
+(setq deft-directory "~/org/"
+      deft-recursive t)
 #+END_SRC
+
+
+
 ** Line-number
 #+BEGIN_SRC emacs-lisp
 (setq display-line-numbers-type t)
