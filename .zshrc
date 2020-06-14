@@ -73,6 +73,7 @@ plugins=(
   fzf
   git
   golang
+  gitignore
   helm
   jenv
   kube-ps1
