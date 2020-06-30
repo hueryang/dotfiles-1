@@ -83,7 +83,21 @@ sudo apt-get install code # or code-insiders
 
 
 # install turbovnc
-wget https://astuteinternet.dl.sourceforge.net/project/turbovnc/2.2.5/turbovnc_2.2.5_amd64.deb
+apt install tigervnc*
+```
 
-sudo dpkg -i turbovnc_2.2.5_amd64.deb
+# vnc
+xstartup
+```
+#!/bin/sh
+
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid black
+
+#Fix to make GNOME work
+export XKL_XMODMAP_DISABLE=1
+
+vncconfig -nowin &
+i3 &
+
 ```

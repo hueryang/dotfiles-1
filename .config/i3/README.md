@@ -43,20 +43,20 @@
 
 ```bash
 #开启远程桌面
-/opt/TurboVNC/bin/vncserver -geometry 1440x900
+vncserver -geometry 1440x900
 #查看当前远程桌面会话
-/opt/TurboVNC/bin/vncserver -list
+vncserver -list
 #杀掉远程桌面会话
-/opt/TurboVNC/bin/vncserver -kill  :1
+vncserver -kill  :1
 #修改远程桌面密码
-/opt/TurboVNC/bin/vncpasswd
+vncpasswd
 ```
 
 ## 修改桌面分辨率
 ```bash
 # 参考脚本
-~/.bin/screen-mackbook.sh
-~/.bin/screen-desktop.sh
+~/.bin/vm-mackbook.sh
+~/.bin/vm-desktop.sh
 ```
 或者使用 arandr
  
