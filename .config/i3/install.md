@@ -90,6 +90,9 @@ apt install tigervnc*
 xstartup
 ```
 #!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+XDG_SESSION_TYPE=x11;  export XDG_SESSION_TYPE
 
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 xsetroot -solid black
@@ -97,7 +100,12 @@ xsetroot -solid black
 #Fix to make GNOME work
 export XKL_XMODMAP_DISABLE=1
 
+MYIM=fcitx
+export GTK_IM_MODULE=$MYIM
+export QT_IM_MODULE=$MYIM
+export XMODIFIERS=@im=$MYIM
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 vncconfig -nowin &
 i3 &
-
 ```
