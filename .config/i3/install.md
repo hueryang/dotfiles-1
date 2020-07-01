@@ -51,7 +51,9 @@ sudo apt install git \
     dbus-x11 \
     dolphin \
     dunst \
-    fcitx-rime \
+    ibus-rime \
+    ibus-gtk \
+    ibus-gtk3 \
     firefox \
     flameshot \
     fonts-noto-cjk \
@@ -88,7 +90,8 @@ apt install tigervnc*
 
 # vnc
 xstartup
-```
+
+```bash
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -100,7 +103,7 @@ xsetroot -solid black
 #Fix to make GNOME work
 export XKL_XMODMAP_DISABLE=1
 
-MYIM=fcitx
+MYIM=ibus
 export GTK_IM_MODULE=$MYIM
 export QT_IM_MODULE=$MYIM
 export XMODIFIERS=@im=$MYIM
@@ -109,3 +112,17 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 vncconfig -nowin &
 i3 &
 ```
+
+# doom emacs
+
+```bash
+
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt-get update
+sudo apt-get install emacs26
+
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+
+```
+
