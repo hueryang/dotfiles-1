@@ -83,6 +83,14 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > package
 sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
+# kubectl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+
+
+
+
+
 sudo apt update
 
 #########################################################################################################
@@ -128,6 +136,7 @@ sudo apt install -y \
     tree \
     yakuake \
     docker-ce docker-ce-cli containerd.io \
+    kubectl \
     zsh 
 
 wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb -P ~/tmp/
@@ -135,6 +144,17 @@ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0
  
 sudo apt install -y  ~/tmp/*.deb
 sudo usermod -aG docker $USER 
+
+# install krew
+
+(
+  set -x; cd "$(mktemp -d)" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" &&
+  tar zxvf krew.tar.gz &&
+  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" &&
+  "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz &&
+  "$KREW" update
+)
 
 #########################################################################################################
 #
