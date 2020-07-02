@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 ## Add this to your wm startup file.
 
@@ -11,6 +11,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch bar1 and bar2
 monitors=(`xrandr -q | grep " connected" | awk '{print $1}'`)
 
-for i in ${!monitors[@]}; do
+for i in "${!monitors[@]}" ; do
     MONITOR=${monitors[$i]} polybar -c ~/.config/polybar/config.ini $i &
 done
