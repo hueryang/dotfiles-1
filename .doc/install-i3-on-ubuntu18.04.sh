@@ -63,17 +63,24 @@ EOF
 
 # i3-gaps
 sudo add-apt-repository -y ppa:kgilmer/speed-ricer
+
 # golang
 sudo add-apt-repository -y ppa:longsleep/golang-backports
+
 # emacs26
 sudo add-apt-repository -y ppa:kelleyk/emacs
-# docker
 
+# docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository -y \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
+
+# kitwware
+wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+sudo apt-add-repository -y 'deb https://apt.kitware.com/ubuntu/ bionic main'
+
 # chrome
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
@@ -100,15 +107,18 @@ sudo apt update
 #########################################################################################################
 
 sudo apt install -y \
-    arch-install-scripts \
-    git \
     arandr \
+    arch-install-scripts \
     breeze \
+    cmake \
+    cmake \
     code \
     dbus-x11 \
     default-jdk \
+    docker-ce docker-ce-cli containerd.io \
     dolphin \
     dunst \
+    editorconfig \
     emacs26 \
     feh \
     firefox \
@@ -116,31 +126,32 @@ sudo apt install -y \
     fontconfig \
     fonts-noto-cjk \
     fonts-noto-cjk-extra \
+    git \
     golang-go \
     google-chrome-stable \
+    graphviz \
     i3-gaps \
     ibus-gtk \
     ibus-gtk3 \
     ibus-rime \
     inxi \
+    libtool \
+    libtool-bin \
+    jq \
     konsole \
+    kubectl \
     lxappearance \
+    markdown \
     neofetch \
     qt5ct \
     rofi \
     screenfetch \
     shellcheck \
-    markdown \
+    sqlite3 \
     tigervnc-standalone-server \
     tigervnc-xorg-extension \
     tree \
     yakuake \
-    cmake \
-    jq \
-    graphviz \
-    editorconfig \
-    docker-ce docker-ce-cli containerd.io \
-    kubectl \
     zsh 
 
 wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb -P ~/tmp/
