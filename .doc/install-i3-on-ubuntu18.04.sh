@@ -135,6 +135,10 @@ sudo apt install -y \
     tigervnc-xorg-extension \
     tree \
     yakuake \
+    cmake \
+    jq \
+    graphviz \
+    editorconfig \
     docker-ce docker-ce-cli containerd.io \
     kubectl \
     zsh 
