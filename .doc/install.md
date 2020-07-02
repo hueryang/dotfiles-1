@@ -103,14 +103,15 @@ xsetroot -solid black
 #Fix to make GNOME work
 export XKL_XMODMAP_DISABLE=1
 
-MYIM=ibus
-export GTK_IM_MODULE=$MYIM
-export QT_IM_MODULE=$MYIM
-export XMODIFIERS=@im=$MYIM
+export GTK_IM_MODULE=xim
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 vncconfig -nowin &
 i3 &
+
 ```
 
 # doom emacs
