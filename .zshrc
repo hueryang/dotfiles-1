@@ -132,7 +132,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 export PATH=$PATH:~/.emacs.d/bin
 
