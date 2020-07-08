@@ -1,0 +1,90 @@
+#+TITLE: software engineering
+
+* software engineering
+
+** workflow
+#+BEGIN_SRC plantuml :exports results  :file workflow.svg
+skinparam arrowColor #000000
+skinparam rectangleBackgroundColor #CFE2F3
+skinparam fileBackgroundColor #CFE2F3
+skinparam databaseBackgroundColor #CFE2F3
+skinparam defaultFontSize 18
+
+rectangle  requirement
+rectangle  design
+rectangle  coding
+rectangle deploy
+rectangle  operation
+
+requirement -> design
+design -> coding
+coding -> deploy
+deploy -> operation
+
+#+END_SRC
+
+#+RESULTS:
+[[file:workflow.svg]]
+
+| phase       |                         | theory |   |   | other |
+|-------------+-------------------------+--------+---+---+-------|
+| requirement |                         |        |   |   |       |
+| design      |                         |        |   |   |       |
+| coding      |                         |        |   |   |       |
+| deploy      |                         |        |   |   |       |
+| operation   | t爱牛逼了 asdf asdfasdf |        |   |   |       |
+
+*** requirement
+- user
+- role
+- use case
+- authn & authz
+
+*** design
+**** openAPI
+**** database
+*** coding
+**** architecture
+**** name convention
+**** code layout
+**** test
+*** deploy
+*** operation
+** Tools
+*** drawing:
++ kroki: [[https://kroki.io/][Kroki!]]
++ c4model/plantuml: [[https://c4model.com/][visualising software architecture]]
+
+*** modeling
++ [[https://c4model.com/][The C4 model for visualising software architecture]]
+*** documentation
++ [[https://arc42.org/documentation/][arc42 Documentation - arc42]]
+*** OpenAPI
++ specification: https://github.com/OAI/OpenAPI-Specification
++ generator: https://github.com/OpenAPITools/openapi-generator
+*** grpc:
++ bloomrpc
+** plantuml
+some tricks:
+- layout:
+  [[https://docs-as-co.de/news/plantuml-revisited/][plantUML revisited - Docs-as-Code]]
+* clean architecture
+
+articles:
+- [[https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html][Clean Coder Blog]]
+- [[https://crosp.net/blog/software-architecture/clean-architecture-part-1-databse-vs-domain/][Clean Architecture : Part 1 - Database vs Domain | Alexander Molochko]]
+- [[https://crosp.net/blog/software-architecture/clean-architecture-part-2-the-clean-architecture/][Clean Architecture : Part 2 – The Clean Architecture | Alexander Molochko]]
+- [[https://jfeng45.github.io/introduction/][码农工匠简介 |]]
+
+* varirous diagrams
+** blockdiag
+#+BEGIN_SRC blockdiag  :file ololo.png
+blockdiag {
+   A [label = "foo"];
+   B [label = "bar"];
+   C [label = "baz"];
+   A -> B [label = "click bar", textcolor="red"];
+e  B -> C [label = "click baz"];
+   C -> A;
+}
+#+END_SRC
