@@ -1,3 +1,0 @@
-# org mode
-
-This is the org repo to save all org files.

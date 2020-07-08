@@ -1,7 +1,0 @@
-#+TITLE: emacs
-
-* Overview
-
-[[https://orgmode.org/worg/org-tutorials/][Org tutorials]]
-
-[[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!]]

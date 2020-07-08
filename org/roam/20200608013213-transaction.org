@@ -1,3 +1,0 @@
-#+TITLE: transaction
-* BASE
-[[https://queue.acm.org/detail.cfm?id=1394128][BASE: An Acid Alternative - ACM Queue]]
