@@ -58,8 +58,13 @@ vncpasswd
 ~/.bin/vm-mackbook.sh
 ~/.bin/vm-desktop.sh
 ```
-或者使用 arandr
- 
+或者使用 xrandr
+[添加自定义分辨率](https://wiki.archlinux.org/index.php/Xrandr#Adding_undetected_resolutions)
+```bash
+xrandr --newmode "2560x1440" 241.50 2560 2600 2632 2720 1440 1443 1448 1481 -hsync +vsync
+xrandr --addmode VNC-0 2560x1440
+xrandr --output VNC-0 --mode 2560x1440
+```
 # 附录
 ## 查看键盘映射
 
