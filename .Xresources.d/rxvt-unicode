@@ -1,8 +1,8 @@
 !! URxvt Appearance
-URxvt.font: xft:JetBrainsMono Nerd Font Mono:style=Regular:pixelsize=11:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
-URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:style=Bold:pixelsize=11:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
-URxvt.italicFont: xft:JetBrainsMono Nerd Font Mono:style=Italic:pixelsize=11:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
-URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font Mono:style=Bold Italic:pixelsize=11:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
+URxvt.font: xft:JetBrainsMono Nerd Font Mono:style=Regular:pixelsize=12:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
+URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:style=Bold:pixelsize=12:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
+URxvt.italicFont: xft:JetBrainsMono Nerd Font Mono:style=Italic:pixelsize=12:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
+URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font Mono:style=Bold Italic:pixelsize=12:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
 
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
