@@ -42,6 +42,3 @@ URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
 
 
-URxvt.keysym.Control-t: perl:tabbedex:new_tab
-URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
-URxvt.keysym.Control-Shift-Tab: perl:tabbedex:prev_tab
