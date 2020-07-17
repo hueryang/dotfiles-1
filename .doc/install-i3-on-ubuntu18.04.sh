@@ -161,16 +161,7 @@ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0
 sudo apt install -y  ~/tmp/*.deb
 sudo usermod -aG docker $USER 
 
-# install krew
 
-(
-  set -x; cd "$(mktemp -d)" &&
-  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" &&
-  tar zxvf krew.tar.gz &&
-  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" &&
-  "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz &&
-  "$KREW" update
-)
 
 #########################################################################################################
 #
