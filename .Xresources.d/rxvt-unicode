@@ -1,3 +1,7 @@
+!! color
+URxvt.depth: 32
+URxvt.background: [90]#141c21
+
 !! URxvt Appearance
 URxvt.font: xft:JetBrainsMono Nerd Font Mono:style=Regular:pixelsize=12:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
 URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:style=Bold:pixelsize=12:antialias=true:hinting=true:autohint=true, xft:font4:pixelsize=14
@@ -19,7 +23,6 @@ URxvt.scrollBar_floating: false
 URxvt.scrollstyle: rxvt
 
 URxvt.urgentOnBell: true
-URxvt.depth: 24
 URxvt.iso14755: false
 
 
