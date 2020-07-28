@@ -23,7 +23,7 @@ font-2 = "Font Awesome 5 Free Solid:style=solid:antialias=false:size=7;2"
 font-3 = "Font Awesome 5 Free:style=regular:antialias=false:size=7;2"
 font-4 = "Font Awesome 5 Brands:style=regular:antialias=false:size=7;2"
 
-modules-right = alsa memory cpu date
+modules-right = alsa date
 modules-center = i3
 modules-left =  
 ; Position of the system tray window
@@ -43,11 +43,14 @@ label-pseudotiled = P
 [bar/0]
 inherit = bar/base
 monitor = ${env:MONITOR:}
+modules-right = alsa date
 
 [bar/1]
 inherit = bar/base
 monitor = ${env:MONITOR:}
+modules-right = memory cpu
 tray-position = none
+
 
 [settings]
 label-focused-underline= ${colors.background}
