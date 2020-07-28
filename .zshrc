@@ -139,7 +139,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export XAUTHORITY="$HOME/.config/X11/xauthority"
 
 
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
