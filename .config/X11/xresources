@@ -1,0 +1,3 @@
+#include "colorschemes/default"
+#include "fonts"
+#include "rxvt-unicode"
