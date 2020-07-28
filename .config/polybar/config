@@ -2,7 +2,8 @@ include-file = ~/.config/polybar/colors
 include-file = ~/.config/polybar/modules
 
 [bar/base]
-override-redirect = false 
+override-redirect = false
+enable-ipc = true
 bottom = false
 background = ${colors.background}
 foreground = ${colors.foreground}
