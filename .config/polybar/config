@@ -48,7 +48,7 @@ modules-right = alsa date
 [bar/1]
 inherit = bar/base
 monitor = ${env:MONITOR:}
-modules-right = memory cpu
+modules-right = cpu memory
 tray-position = none
 
 
