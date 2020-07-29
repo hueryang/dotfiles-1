@@ -12,8 +12,8 @@ URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
 URxvt.internalBorder:20
-URxvt.cursorBlink: true
-URxvt.cursorUnderline: false
+URxvt.cursorBlink: false 
+URxvt.cursorUnderline: true 
 URxvt.saveline: 2048
 
 !! Scroll bar
