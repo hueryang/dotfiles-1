@@ -36,7 +36,7 @@
 
 ## 中文输入法
 启动命令： ```fcitx -dr```  
-切换输入法: <kbd>$mod</kbd>+<kbd>space</kbd>  
+切换输入法: <kbd>$ctrl</kbd>+<kbd>space</kbd>  
  
 
 ## 远程桌面
