@@ -31,8 +31,7 @@
 | <kbd>$mod</kbd>+<kbd>d </kbd>                 | 打开应用菜单   |
 | <kbd>$mod</kbd>+<kbd>F4</kbd>                 | 关闭当前应用   |
 | <kbd>F12</kbd>                                | 打开 yakuake   |
-| <kbd>$mod</kbd>+<kbd>m</kbd>                  | 隐藏顶部状态栏 |
-| <kbd>$mod</kbd>+<kbd>shift</kbd>+<kbd>m</kbd> | 打开顶部状态栏 |
+| <kbd>$mod</kbd>+<kbd>m</kbd>                  | toogle顶部状态栏 |
 
 ## 中文输入法
 启动命令： ```fcitx -dr```  
