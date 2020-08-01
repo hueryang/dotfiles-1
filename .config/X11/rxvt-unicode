@@ -2,28 +2,29 @@
 URxvt.depth: 32
 URxvt.background: [90]#141c21
 
-!! URxvt Appearance
+!! font
 URxvt.font: xft:JetBrainsMono Nerd Font Mono:style=Regular:size=9:antialias=true:hinting=true:autohint=true, xft:Noto Serif CJK SC:size=12:antialias=true:hinting=true:autohint=true
 URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:style=Bold:size=9:antialias=true:hinting=true:autohint=true, xft:Noto Serif CJK SC:size=12:antialias=true:hinting=true:autohint=true
 URxvt.italicFont: xft:JetBrainsMono Nerd Font Mono:style=Italic:size=9:antialias=true:hinting=true:autohint=true, xft:Noto Serif CJK SC:size=12:antialias=true:hinting=true:autohint=true
 URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font Mono:style=Bold Italic:size=9:antialias=true:hinting=true:autohint=true, xft:Noto Serif CJK SC:size=12:antialias=true:hinting=true:autohint=true
 
-URxvt.letterSpace: -1
-URxvt.lineSpace: 0
-URxvt.geometry: 92x24
-URxvt.internalBorder:20
-URxvt.cursorBlink: false 
-URxvt.cursorUnderline: true 
-URxvt.saveLines: 20000
-
-!! Scroll bar
+!! scroll bar
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.scrollBar_floating: false
 URxvt.scrollstyle: rxvt
 
-URxvt.urgentOnBell: true
+!! cursor
+URxvt.cursorBlink: false
+URxvt.cursorUnderline: true
+
+URxvt.geometry: 92x24
+URxvt.internalBorder: 12
 URxvt.iso14755: false
+URxvt.letterSpace: -1
+URxvt.lineSpace: 0
+URxvt.saveLines: 20000
+URxvt.urgentOnBell: true
 
 
 !-*- Perl extensions -*-
