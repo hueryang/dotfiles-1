@@ -14,7 +14,7 @@ URxvt.geometry: 92x24
 URxvt.internalBorder:20
 URxvt.cursorBlink: false 
 URxvt.cursorUnderline: true 
-URxvt.saveline: 20480
+URxvt.saveLines: 20000
 
 !! Scroll bar
 URxvt.scrollBar: false
