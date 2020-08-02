@@ -4,30 +4,35 @@ include-file = ~/.config/polybar/modules
 [bar/base]
 override-redirect = false
 enable-ipc = true
-bottom = false
+
 background = ${colors.background}
 foreground = ${colors.foreground}
-fixed-center = true
-width = 100%
-height = 20
-radius = 0.0
-line-size = 0
+
 line-color = #f00
-offset-y = 0
+line-size = 0
+
+height = 20
+width = 100%
 offset-x = 0
+offset-y = 0
+fixed-center = true
+bottom = false
 padding = 1
+radius = 0.0
 
 font-0 = "JetBrainsMono Nerd Font Mono:style=Regular:pixelsize=10,2"
 
-modules-right = alsa date
 modules-center = i3
-modules-left =  
+modules-left =
+modules-right = alsa date
+
 ; Position of the system tray window
 tray-position = left
 tray-maxsize = 15
 tray-background = ${colors.background}
 tray-offset-x = 0
 tray-offset-y = 0
+
 ; Pad the sides of each tray icon
 tray-padding = 1
 
