@@ -17,10 +17,11 @@ offset-x = 0
 offset-y = 0
 fixed-center = true
 bottom = false
-padding = 1
+padding = 0
 radius = 0.0
 
 font-0 = "JetBrainsMono Nerd Font Mono:style=Regular:pixelsize=10,2"
+font-1 = "Material Icons:style=Regular:pixelsize=10,2"
 
 modules-center = i3
 modules-left =
