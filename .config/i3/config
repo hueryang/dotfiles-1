@@ -45,7 +45,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio
+exec --no-startup-id pulseaudio -D
 exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 
@@ -79,7 +79,7 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-# focus_follows_mouse no
+focus_follows_mouse yes 
 
 # change focus
 #bindsym $mod+j focus left
