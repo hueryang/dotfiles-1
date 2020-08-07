@@ -1,4 +1,4 @@
-[module/bspwm]
+[Module/bspwm]
 type = internal/bspwm
 format = <label-state> <label-mode>
 
@@ -57,7 +57,7 @@ label-urgent-padding = 1
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = "  "
+format-prefix = ""
 format = <label>
 exec = python   path/to/.config/polybar/spotify.py  -f '{play_pause} {song} - {artist} - {album}'
 
@@ -71,7 +71,7 @@ date-alt = %%{F#fff} %A, %B %d, %Y %%{F-} %%{F#fff} %I:%M%p %{F#666} %%{F#fba922
 time = %H:%M
 format = <label>
 format-foreground = ${colors.color1}
-format-padding = 2
+format-padding = 0
 label = %date% %time%
 label-foreground = ${colors.foreground}
 
@@ -145,7 +145,7 @@ type = internal/alsa
 
 format-volume = <ramp-volume> <label-volume>
 format-muted-prefix = 
-label-muted = " Muted"
+label-muted = "Muted"
 format-muted-padding = 1
 label-muted-foreground = ${colors.foreground}
 format-muted-foreground = ${colors.color5}
