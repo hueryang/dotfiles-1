@@ -1,57 +1,139 @@
-;; -*- no-byte-compile: t; -*-
-;;; $DOOMDIR/packages.el
+;; [[file:packages.org::*Wakatime][Wakatime:1]]
+(package! wakatime-mode)
+;; Wakatime:1 ends here
 
-;; This is where you install packages, by declaring them with the `package!'
-;; macro, then running 'doom refresh' on the command line. You'll need to
-;; restart Emacs for your changes to take effect! Or at least, run M-x
-;; `doom/reload'.
-;;
-;; WARNING: Don't disable core packages listed in ~/.emacs.d/core/packages.el.
-;; Doom requires these, and disabling them may have terrible side effects.
-;;
-;; Here are a couple examples:
+;; [[file:packages.org::*Evil Colemak][Evil Colemak:1]]
+(package! evil-colemak-basics)
+(package! evil-better-visual-line)
+;; Evil Colemak:1 ends here
 
+;; [[file:packages.org::*Firestarter][Firestarter:1]]
+(package! firestarter)
+;; Firestarter:1 ends here
 
-;; All of Doom's packages are pinned to a specific commit, and updated from
-;; release to release. To un-pin all packages and live on the edge, do:
-;(setq doom-pinned-packages nil)
+;; [[file:packages.org::*Org Download][Org Download:1]]
+(package! org-download
+  :recipe (:host github
+            :repo "abo-abo/org-download"))
+;; Org Download:1 ends here
 
-;; ...but to unpin a single package:
-;(package! pinned-package :pin nil)
+;; [[file:packages.org::*Org Protocol Updates][Org Protocol Updates:1]]
+(package! org-protocol-capture-html
+  :recipe (:host github
+           :repo "alphapapa/org-protocol-capture-html"))
+;; Org Protocol Updates:1 ends here
 
+;; [[file:packages.org::*Org Noter][Org Noter:1]]
+(package! org-noter)
+;; Org Noter:1 ends here
 
-;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
-;(package! some-package)
+;; [[file:packages.org::*Org Ref][Org Ref:1]]
+(package! org-ref)
+;; Org Ref:1 ends here
 
-;; To install a package directly from a particular repo, you'll need to specify
-;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
-;; https://github.com/raxod502/straight.el#the-recipe-format
-;(package! another-package
-;  :recipe (:host github :repo "username/repo"))
+;; [[file:packages.org::*Org Mind Map][Org Mind Map:1]]
+(package! org-mind-map
+  :recipe (:host github
+            :repo "theodorewiles/org-mind-map"))
+;; Org Mind Map:1 ends here
 
-;; If the package you are trying to install does not contain a PACKAGENAME.el
-;; file, or is located in a subdirectory of the repo, you'll need to specify
-;; `:files' in the `:recipe':
-;(package! this-package
-;  :recipe (:host github :repo "username/repo"
-;           :files ("some-file.el" "src/lisp/*.el")))
+;; [[file:packages.org::*Org Rifle][Org Rifle:1]]
+(package! helm-org-rifle)
+;; Org Rifle:1 ends here
 
-;; If you'd like to disable a package included with Doom, for whatever reason,
-;; you can do so here with the `:disable' property:
-;(package! builtin-package :disable t)
+;; [[file:packages.org::*Org Async][Org Async:1]]
+(package! org-babel-eval-in-repl)
+;; Org Async:1 ends here
 
-;; You can override the recipe of a built in package without having to specify
-;; all the properties for `:recipe'. These will inherit the rest of its recipe
-;; from Doom or MELPA/ELPA/Emacsmirror:
-;(package! builtin-package :recipe (:nonrecursive t))
-;(package! builtin-package-2 :recipe (:repo "myfork/package"))
+;; [[file:packages.org::*Org Roam Bibtex][Org Roam Bibtex:1]]
+(package! org-roam-bibtex)
+;; Org Roam Bibtex:1 ends here
 
-;; Specify a `:branch' to install a package from a particular branch or tag.
-;; This is required for some packages whose default branch isn't 'master' (which
-;; our package manager can't deal with; see raxod502/straight.el#279)
-;(package! builtin-package :recipe (:branch "develop"))
+;; [[file:packages.org::*Dockerfile Mode][Dockerfile Mode:1]]
+(package! dockerfile-mode)
+;; Dockerfile Mode:1 ends here
 
+;; [[file:packages.org::*Zotero][Zotero:1]]
+(package! zotxt)
+;; Zotero:1 ends here
+
+;; [[file:packages.org::*Tup Mode][Tup Mode:1]]
+(package! tup-mode
+:recipe (:host github
+           :repo "ejmr/tup-mode"))
+;; Tup Mode:1 ends here
+
+;; [[file:packages.org::*SaltStack Mode][SaltStack Mode:1]]
+(package! salt-mode
+:recipe (:host github
+         :repo "glynnforrest/salt-mode"))
+;; SaltStack Mode:1 ends here
+
+;; [[file:packages.org::*PKGBUILD Mode][PKGBUILD Mode:1]]
+(package! pkgbuild-mode
+  :recipe (:host github
+            :repo "juergenhoetzel/pkgbuild-mode"))
+;; PKGBUILD Mode:1 ends here
+
+;; [[file:packages.org::*LAMMPS Mode][LAMMPS Mode:1]]
+(package! lammps-mode
+  :recipe (:host github
+                    :repo "HaoZeke/lammps-mode"))
+;; LAMMPS Mode:1 ends here
+
+;; [[file:packages.org::*Pug Mode][Pug Mode:1]]
+(package! pug-mode)
+;; Pug Mode:1 ends here
+
+;; [[file:packages.org::*Nix Mode][Nix Mode:1]]
+(package! nix-mode)
+;; Nix Mode:1 ends here
+
+;; [[file:packages.org::*JVM Languages][JVM Languages:1]]
+; Kotlin > Java
+(package! kotlin-mode)
+; Groovy -> Testing
+(package! groovy-mode)
+;; JVM Languages:1 ends here
+
+;; [[file:packages.org::*Systemd Mode][Systemd Mode:1]]
+(package! systemd)
+;; Systemd Mode:1 ends here
+
+;; [[file:packages.org::*Wolfram Mode][Wolfram Mode:1]]
+(package! wolfram-mode)
+;; Wolfram Mode:1 ends here
+
+;; [[file:packages.org::*Polymode][Polymode:1]]
+(package! poly-R)
+(package! poly-org)
+;; Polymode:1 ends here
+
+;; [[file:packages.org::*MELPA Helper][MELPA Helper:1]]
+(package! package-lint)
+(package! flycheck-package)
+;; MELPA Helper:1 ends here
+
+;; [[file:packages.org::*Doom][Doom:1]]
+(package! emacs-snippets
+  :recipe (:host github
+           :repo "hlissner/emacs-snippets"
+           :files ("*")))
+;; Doom:1 ends here
+
+;; [[file:packages.org::*Standard][Standard:1]]
+(package! yasnippet-snippets
+  :recipe (:host github
+           :repo "AndreaCrotti/yasnippet-snippets"
+           :files ("*")))
+;; Standard:1 ends here
+
+;; [[file:packages.org::*Math support][Math support:1]]
+(package! cdlatex)
+;; Math support:1 ends here
+
+;; [[file:packages.org::*Misc][Misc:1]]
 (package! sicp)
 (package! w3m)
-;;#(package! org-projectile)
 (package! ox-twbs)
+;; Misc:1 ends here

@@ -52,8 +52,6 @@ Set org-directory
       deft-recursive t)
 #+END_SRC
 
-
-
 ** Line-number
 #+BEGIN_SRC emacs-lisp
 (setq display-line-numbers-type t)
@@ -142,4 +140,14 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
      t)
     ".*:\0? *")))
 
+#+END_SRC
+
+** Mathematica
+Apparently, [[https://github.com/kawabata/wolfram-mode][wolfram-mode]] is the best for syntax highlighting.
+#+BEGIN_SRC emacs-lisp
+;; Load it
+(use-package! wolfram-mode
+  :config
+  (setq mathematica-command-line "~/.local/bin/mash")
+  (add-to-list 'org-src-lang-modes '("mathematica" . wolfram)))
 #+END_SRC
