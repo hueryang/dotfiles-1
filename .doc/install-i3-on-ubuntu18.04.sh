@@ -143,7 +143,7 @@ sudo apt install -y \
     lxappearance \
     markdown \
     neofetch \
-    polybar \ 
+    polybar \
     qt5ct \
     rofi \
     screenfetch \
