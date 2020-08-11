@@ -3,6 +3,9 @@
 #+EMAIL: zhoumingjun@gmail.com
 #+LANGUAGE: en
 #+PROPERTY: header-args :tangle yes :cache yes :results silent :padline no
+#+OPTIONS: toc:2          (only include two levels in TOC)
+
+#+TOC: headlines 2        insert TOC here, with two headline levels
 
 * Configuration
 ** Personal Information
@@ -148,6 +151,7 @@ Apparently, [[https://github.com/kawabata/wolfram-mode][wolfram-mode]] is the be
 ;; Load it
 (use-package! wolfram-mode
   :config
-  (setq mathematica-command-line "~/.local/bin/mash")
+  (setq mathematica-command-line "wolframscript")
+  (setq wolfram-path "~/.WolframEngine")
   (add-to-list 'org-src-lang-modes '("mathematica" . wolfram)))
 #+END_SRC
