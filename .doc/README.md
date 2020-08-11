@@ -27,14 +27,13 @@
 | 按键                                          | 用途           |
 | --------------------------------------------- | :------------- |
 | <kbd>$mod</kbd>+<kbd>数字</kbd>               | 切换桌面       |
-| <kbd>$mod</kbd>+<kbd>Enter</kbd>              | 打开 terminal  |
+| <kbd>$mod</kbd>+<kbd>Enter</kbd>              | 打开 terminal:urxvt  |
 | <kbd>$mod</kbd>+<kbd>d </kbd>                 | 打开应用菜单   |
 | <kbd>$mod</kbd>+<kbd>F4</kbd>                 | 关闭当前应用   |
-| <kbd>F12</kbd>                                | 打开 yakuake   |
 | <kbd>$mod</kbd>+<kbd>m</kbd>                  | toogle顶部状态栏 |
 
 ## 中文输入法
-启动命令： ```fcitx -dr```  
+启动命令： ```ibus-daemon -drm```  
 切换输入法: <kbd>$ctrl</kbd>+<kbd>space</kbd>  
  
 
