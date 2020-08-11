@@ -16,50 +16,22 @@ sudo apt-get install \
     wget \
     gnupg-agent \
     software-properties-common
-#########################################################################################################
-#
-# configuration file 
-#
-#########################################################################################################
-
-# .vnc/xstartup
-mkdir -p ~/.vnc
-cat << EOF > ~/.vnc/xstartup
-#!/bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
-XDG_SESSION_TYPE=x11;  export XDG_SESSION_TYPE
-
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-xsetroot -solid black
-
-#Fix to make GNOME work
-export XKL_XMODMAP_DISABLE=1
-
-export GTK_IM_MODULE=xim
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -drx
-export QT_QPA_PLATFORMTHEME="qt5ct"
-
-vncconfig -nowin &
-i3 &
-EOF
-
-# /etc/docker/daemon.json
-sudo mkdir -p /etc/docker/
-cat << EOF | sudo tee /etc/docker/daemon.json
-{
-        "exec-root":"/work/var/run/docker",
-        "data-root":"/work/var/lib/docker"
-}
-EOF
 
 #########################################################################################################
 #
 #  Repositories
 #
 #########################################################################################################
+
+sudo rm -rf /etc/apt/sources.list
+sudo rm -rf /etc/apt/sources.list.d/*
+
+cat << EOF | sudo tee /etc/apt/sources.list
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ $(lsb_release -cs) main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ $(lsb_release -cs)-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ $(lsb_release -cs)-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ $(lsb_release -cs)-security main restricted universe multiverse
+EOF
 
 # i3-gaps
 sudo add-apt-repository -y ppa:kgilmer/speed-ricer
@@ -72,14 +44,11 @@ sudo add-apt-repository -y ppa:kelleyk/emacs
 
 # docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository -y \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 # kitwware
 wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
-sudo apt-add-repository -y 'deb https://apt.kitware.com/ubuntu/ bionic main'
+sudo apt-add-repository -y "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
 
 # chrome
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -93,10 +62,6 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.micr
 # kubectl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-
-
-
-
 
 sudo apt update
 
@@ -161,31 +126,6 @@ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0
 sudo apt install -y  ~/tmp/*.deb
 sudo usermod -aG docker $USER 
 
-
-
-#########################################################################################################
-#
-# configuration
-#
-#########################################################################################################
-
-# install dotfiles
-bash -c "$(curl -sSL https://raw.githubusercontent.com/zhoumingjun/dotfiles/master/.bin/dotfiles-install.sh)"
-$HOME/.bin/dotfiles-init-submodules.sh
-
-# fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --key-bindings --completion --no-update-rc
-
-# node-build
-mkdir -p "$(nodenv root)"/plugins
-git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
-
-# doom emacs
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
-
-
 #########################################################################################################
 #
 # fonts
@@ -210,5 +150,32 @@ unzip IBMPlexMono.zip
 fc-cache -fv
 
 cd ~
+
+
+#########################################################################################################
+#
+# configuration
+#
+#########################################################################################################
+
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --key-bindings --completion --no-update-rc
+
+# node-build
+mkdir -p "$(nodenv root)"/plugins
+git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
+
+#########################################################################################################
+#
+# emacs 
+#
+#########################################################################################################
+
+
+# doom emacs
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+
 
 
