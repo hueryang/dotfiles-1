@@ -22,15 +22,16 @@ sudo apt-get install \
 #  Repositories
 #
 #########################################################################################################
+RELEASE=$(lsb_release -cs)
 
 sudo rm -rf /etc/apt/sources.list
-sudo rm -rf /etc/apt/sources.list.d/*
+sudo rm -f  /etc/apt/sources.list.d/*
 
 cat << EOF | sudo tee /etc/apt/sources.list
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ $(lsb_release -cs) main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ $(lsb_release -cs)-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ $(lsb_release -cs)-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ $(lsb_release -cs)-security main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ ${RELEASE} main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ ${RELEASE}-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ ${RELEASE}-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ ${RELEASE}-security main restricted universe multiverse
 EOF
 
 # i3-gaps
@@ -44,11 +45,11 @@ sudo add-apt-repository -y ppa:kelleyk/emacs
 
 # docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${RELEASE} stable"
 
 # kitwware
 wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
-sudo apt-add-repository -y "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
+sudo apt-add-repository -y "deb https://apt.kitware.com/ubuntu/ ${RELEASE} main"
 
 # chrome
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -111,6 +112,7 @@ sudo apt install -y \
     polybar \
     qt5ct \
     rofi \
+    rxvt-unicode \
     screenfetch \
     shellcheck \
     sqlite3 \
@@ -140,7 +142,6 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
-
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/IBMPlexMono.zip
 
@@ -166,6 +167,10 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 mkdir -p "$(nodenv root)"/plugins
 git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
 
+# ruby-build
+mkdir -p "$(rbenv root)"/plugins
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
 #########################################################################################################
 #
 # emacs 
@@ -176,6 +181,3 @@ git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node
 # doom emacs
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
-
-
-
