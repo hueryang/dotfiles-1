@@ -417,7 +417,7 @@ set_from_resource $term_color15    color15
 # bindsym $mod+m bar mode toggle
 
 
-bindsym $mod+m exec echo "cmd:toggle" | tee /tmp/polybar_mqueue.* >/dev/null
+bindsym $mod+m exec $HOME/.config/polybar/toggle.sh
 # bindsym $mod+Shift+m bar mode dock
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
