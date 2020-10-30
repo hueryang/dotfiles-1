@@ -1,0 +1,122 @@
+* 配置VNC客户端
+  :PROPERTIES:
+  :CUSTOM_ID: 配置vnc客户端
+  :END:
+
+1. 下载客户端[[https://www.realvnc.com/en/connect/download/viewer/][VNC®
+   Viewer]]
+2. 修改连接属性，将 cmd 和 opt 键的配置设置正确，
+3. 用全屏模式，保证特殊按键能够被正确捕获
+   [[file:images/vnc-connect.jpg]]
+
+* 桌面系统i3-gaps
+  :PROPERTIES:
+  :CUSTOM_ID: 桌面系统i3-gaps
+  :END:
+
+详细参考 https://i3wm.org/docs/userguide.html\\
+具体配置在 =~/.config/i3/config=
+
+* 使用
+  :PROPERTIES:
+  :CUSTOM_ID: 使用
+  :END:
+
+** 按键配置
+   :PROPERTIES:
+   :CUSTOM_ID: 按键配置
+   :END:
+
+=$mod = Mod4= ：使用Mod4作为i3的Modifier
+
+Mod4在不同平台上的对应按键\\
+| os    | key   |
+| macos | super |
+| linux | win   |
+
+
+
+** 基本命令
+   :PROPERTIES:
+   :CUSTOM_ID: 基本命令
+   :END:
+
+| 按键         | 用途                |
+|--------------+---------------------|
+| $mod + num   | 切换桌面            |
+| $mod + Enter | 打开 terminal:urxvt |
+| $mod + d     | 打开应用菜单        |
+| $mod + F4    | 关闭当前应用        |
+| $mod + m     | toogle顶部状态栏    |
+
+** 中文输入法
+   :PROPERTIES:
+   :CUSTOM_ID: 中文输入法
+   :END:
+
+启动命令： =ibus-daemon -drm=\\
+切换输入法:
+
+C-SPACE
+** 远程桌面
+   :PROPERTIES:
+   :CUSTOM_ID: 远程桌面
+   :END:
+
+#+BEGIN_SRC sh
+    #开启远程桌面
+    vncserver -geometry 1440x900
+    #查看当前远程桌面会话
+    vncserver -list
+    #杀掉远程桌面会话
+    vncserver -kill  :1
+    #修改远程桌面密码
+    vncpasswd
+#+END_SRC
+
+** 修改桌面分辨率
+   :PROPERTIES:
+   :CUSTOM_ID: 修改桌面分辨率
+   :END:
+
+#+BEGIN_SRC sh
+    # 参考脚本
+    ~/.bin/vm-mackbook.sh
+    ~/.bin/vm-desktop.sh
+#+END_SRC
+
+或者使用 xrandr
+[[https://wiki.archlinux.org/index.php/Xrandr#Adding_undetected_resolutions][添加自定义分辨率]]
+
+#+BEGIN_SRC sh
+    xrandr --newmode "2560x1440" 241.50 2560 2600 2632 2720 1440 1443 1448 1481 -hsync +vsync
+    xrandr --addmode VNC-0 2560x1440
+    xrandr --output VNC-0 --mode 2560x1440
+#+END_SRC
+
+* 附录
+  :PROPERTIES:
+  :CUSTOM_ID: 附录
+  :END:
+
+** 查看键盘映射
+   :PROPERTIES:
+   :CUSTOM_ID: 查看键盘映射
+   :END:
+
+i3wm 的 mod 键配置 =set $mod Mod4=\\
+通过命令=xmodmap= 查看本机键盘映射
+
+#+BEGIN_SRC sh
+    xmodmap
+    xmodmap:  up to 4 keys per modifier, (keycodes in parentheses):
+
+    shift       Shift_L (0x32),  Shift_R (0x3e)
+    lock        Caps_Lock (0x42)
+    control     Control_L (0x25),  Control_R (0x6d)
+    mod1        Alt_L (0x40),  Alt_R (0x71),  Meta_L (0x9c)
+    mod2        Num_Lock (0x4d)
+    mod3
+    mod4        Super_L (0x73),  Super_R (0x74),  Super_L (0x7f),  Hyper_L (0x80)
+    mod5        Mode_switch (0x8),  ISO_Level3_Shift (0x7c)
+#+END_SRC
