@@ -98,6 +98,7 @@ plugins=(
   oath
   proxy
   vpn
+  kubetail
 )
 
 source $ZSH/oh-my-zsh.sh
