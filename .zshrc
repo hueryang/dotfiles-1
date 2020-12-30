@@ -72,6 +72,7 @@ plugins=(
   emacs
   fzf
   git
+  asdf
   golang
   gitignore
   helm
@@ -80,7 +81,6 @@ plugins=(
   mvn
   ripgrep
   yarn
-  asdf
 
   # customized plugins
   adr-tools
@@ -138,12 +138,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
-
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 export PATH=$PATH:~/.emacs.d/bin
-
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
