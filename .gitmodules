@@ -1,18 +1,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule ".jenv"]
-	path = .jenv
-	url = https://github.com/jenv/jenv.git
-[submodule ".rbenv"]
-	path = .rbenv
-	url = https://github.com/rbenv/rbenv.git
-[submodule ".nodenv"]
-	path = .nodenv
-	url = https://github.com/nodenv/nodenv.git
-[submodule ".pyenv"]
-	path = .pyenv
-	url = https://github.com/pyenv/pyenv.git
 [submodule ".zsh_custom/plugins/zsh-syntax-highlighting"]
 	path = .zsh_custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
@@ -28,3 +16,6 @@
 [submodule ".zsh_custom/plugins/kubetail"]
 	path = .zsh_custom/plugins/kubetail
 	url = https://github.com/johanhaleby/kubetail.git
+[submodule "/home/zhoumingjun/.asdf"]
+	path = /home/zhoumingjun/.asdf
+	url = https://github.com/asdf-vm/asdf.git

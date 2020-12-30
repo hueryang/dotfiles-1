@@ -75,15 +75,12 @@ plugins=(
   golang
   gitignore
   helm
-  jenv
   kube-ps1
   kubectl
   mvn
-  nodenv
-  pyenv
-  rbenv
   ripgrep
   yarn
+  asdf
 
   # customized plugins
   adr-tools
