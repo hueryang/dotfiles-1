@@ -109,7 +109,6 @@ sudo apt install -y \
     lxappearance \
     markdown \
     neofetch \
-    polybar \
     qt5ct \
     rofi \
     rxvt-unicode \
