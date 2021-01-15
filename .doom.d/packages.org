@@ -36,6 +36,7 @@
     - [[#anki-mode][Anki Mode]]
     - [[#org-re-reveal-ref][Org Re-Reveal Ref]]
     - [[#org-roam-bibtex][Org Roam Bibtex]]
+    - [[#org-roam-server][Org-Roam-Server]]
   - [[#dockerfile-mode][Dockerfile Mode]]
   - [[#reference-management][Reference Management]]
   - [[#syntax-highlighting][Syntax Highlighting]]
@@ -208,6 +209,11 @@ This should be a part of the main ~+roam~ setup, but until then.
 #+begin_src emacs-lisp :tangle yes
 (package! org-roam-bibtex)
 #+end_src
+*** Org-Roam-Server
+Allows me to see my org-roam-graph. This is a fantastic package and I have my roam -server almost always open as I take notes.
+#+BEGIN_SRC elisp
+(package! org-roam-server :recipe (:host github :repo "org-roam/org-roam-server" :files ("*")))
+#+END_SRC
 ** Dockerfile Mode
 For syntax highlighting and inline builds. [[https://github.com/spotify/dockerfile-mode][From spotify]] weirdly.
 ~## -*- docker-image-name: "your-image-name-here" -*-~ can be used to specify
