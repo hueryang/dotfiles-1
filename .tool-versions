@@ -9,3 +9,4 @@ golang 1.15.6
 k9s 0.24.2
 opa 0.25.2
 gohugo extended_0.80.0
+kubectl 1.20.2
