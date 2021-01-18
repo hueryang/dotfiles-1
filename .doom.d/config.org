@@ -181,3 +181,8 @@ Apparently, [[https://github.com/kawabata/wolfram-mode][wolfram-mode]] is the be
   (setq wolfram-path "~/.WolframEngine")
   (add-to-list 'org-src-lang-modes '("mathematica" . wolfram)))
 #+END_SRC
+
+** EAF
+#+begin_src emacs-lisp
+
+#+end_src

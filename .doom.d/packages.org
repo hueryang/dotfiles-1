@@ -355,6 +355,9 @@ I like [[https://github.com/cdominik/cdlatex][cdlatex]].
 (package! sicp)
 (package! w3m)
 (package! ox-twbs)
-
+(package! eaf
+  :recipe (:host github
+           :repo "manateelazycat/emacs-application-framework"
+           :files ("*")))
 
 #+END_SRC
