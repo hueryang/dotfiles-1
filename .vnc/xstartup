@@ -1,6 +1,6 @@
 #!/bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
+#unset SESSION_MANAGER
+#unset DBUS_SESSION_BUS_ADDRESS
 
 XDG_SESSION_TYPE=x11 
 export XDG_SESSION_TYPE
@@ -33,4 +33,5 @@ fi
 # wm
 vncconfig -nowin &
 hsetroot -solid black
-i3 &
+eval $(dbus-launch --sh-syntax)
+exec i3
