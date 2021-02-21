@@ -145,6 +145,4 @@ export PATH=$PATH:~/.emacs.d/bin
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH=~/go/bin:$PATH
-
 setopt no_nomatch
