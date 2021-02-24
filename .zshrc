@@ -148,3 +148,5 @@ export PATH=$PATH:~/.emacs.d/bin
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 setopt no_nomatch
+export GOPATH=$HOME/go
+export GOPROXY="https://goproxy.io,direct"
