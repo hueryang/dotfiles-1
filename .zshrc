@@ -142,6 +142,6 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # emacs
-export PATH=~/apps/bin:~/.emacs.d/bin:$PATH
+export PATH=~/apps/bin:~/go/bin:~/.emacs.d/bin:$PATH
 
 setopt no_nomatch
