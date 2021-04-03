@@ -62,4 +62,6 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 #exec dbus-launch --exit-with-session i3
+xsetroot -cursor_name left_ptr
+
 exec bspwm

@@ -35,4 +35,6 @@ vncconfig -nowin &
 hsetroot -solid black
 eval $(dbus-launch --sh-syntax)
 #exec i3
+xsetroot -cursor_name left_ptr
+
 exec bspwm
