@@ -1,28 +1,53 @@
-[Module/bspwm]
+[module/bspwm]
 type = internal/bspwm
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+enable-click = true
+enable-scroll = true
+
+wrapping-scroll = false
+reverse-scroll = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-default =
+
 format = <label-state> <label-mode>
+# format = <label-state>
 
-ws-icon-0 = term;
-ws-icon-1 = web;
-ws-icon-2 = code;
-ws-icon-3 = files;
-ws-icon-4 = media;
-ws-icon-5 = extra;
-ws-icon-default = 
+label-focused = "  "
+# label-focused = %index%
+label-focused-foreground = ${color.cyan}
+label-focused-background = ${color.alt-bg}
+label-focused-padding = 0
 
-label-empty-foreground = ${colors.color8}
-label-focused-foreground = ${colors.color2}
-label-focused = %icon% %name%
-label-focused-padding = 2
-label-occupied = %icon%
-label-occupied-padding = 2
-label-empty = %icon%
-label-empty-padding = 2
+label-occupied = ""
+label-occupied-foreground = ${color.fg}
+label-occupied-background = ${color.alt-bg}
+label-occupied-padding = 1
 
-label-monocle = M 
-label-tiled = T
-label-floating = F
-label-pseudotiled = P
+label-empty = ""
+label-empty-foreground = ${color.fg}
+label-empty-background = ${color.alt-bg}
+label-empty-padding = 1
+
+label-urgent = "  "
+label-urgent-foreground = ${color.red}
+label-urgent-background = ${color.alt-bg}
+label-urgent-padding = 0
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-foreground = ${color.fg}
+label-mode-background = ${color.alt-bg}
+
 
 [module/i3]
 type = internal/i3

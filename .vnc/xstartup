@@ -34,4 +34,5 @@ fi
 vncconfig -nowin &
 hsetroot -solid black
 eval $(dbus-launch --sh-syntax)
-exec i3
+#exec i3
+exec bspwm

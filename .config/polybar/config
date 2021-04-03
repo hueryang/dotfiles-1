@@ -11,19 +11,19 @@ foreground = ${colors.foreground}
 line-color = #f00
 line-size = 0
 
-height = 20
+height = 26
 width = 100%
 offset-x = 0
 offset-y = 0
 fixed-center = true
 bottom = false
-padding = 0
+padding = 1
 radius = 0.0
 
-font-0 = "JetBrainsMono Nerd Font Mono:style=Regular:pixelsize=10,2"
-font-1 = "Material Icons:style=Regular:pixelsize=10,2"
+font-0 = "JetBrainsMono Nerd Font Mono:style=Regular:pixelsize=10;2"
+font-1 = "Material Icons:style=Regular:pixelsize=10;3"
 
-modules-center = i3
+modules-center = bspwm 
 modules-left =
 modules-right = alsa date
 

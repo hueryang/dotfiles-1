@@ -17,3 +17,17 @@ color12 = ${xrdb:color12}
 color13 = ${xrdb:color13}
 color14 = ${xrdb:color14}
 color15 = ${xrdb:color15}
+
+[color]
+;# Active Colors
+bg = #13141D
+fg = #CFD1DD
+
+;; Colors
+
+alt-bg = #161825
+white = #CFD1DD
+red = #E27878
+green = #A3BE8C
+yellow = #EBCB8B
+cyan = #89B8C2
