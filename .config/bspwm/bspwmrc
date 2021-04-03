@@ -10,6 +10,9 @@ dunst --config $HOME/.config/dunst/dunstrc &
 picom --config $HOME/.config/picom/picom.conf &
 $HOME/.config/polybar/launch.sh
 
+#auto lock
+command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 000000"
+
 # ##############################################################################
 # #                            GENERAL CONFIGURATION                           #
 # ##############################################################################
@@ -44,3 +47,4 @@ bspc rule -a Thunar desktop=^4
 bspc rule -a Spotify desktop=^5
 
 bspc rule -a alacritty state=floating
+bspc rule -a keepassxc state=floating
