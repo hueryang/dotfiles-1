@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env bash
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
@@ -6,27 +6,36 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # #                                AUTOSTART APPS                              #
 # ##############################################################################
 
-dunst --config $HOME/.config/dunst/dunstrc &
-picom --config $HOME/.config/picom/picom.conf &
+command -v dunstk &> /dev/null &&  dunst --config $HOME/.config/dunst/dunstrc &
+command -v picom &> /dev/null && picom --config $HOME/.config/picom/picom.conf &
+command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 000000"
+
 $HOME/.config/polybar/launch.sh
 
 #auto lock
-command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 000000"
+
+# ##############################################################################
+# #                                Monitors                                    #
+# ##############################################################################
+
+monitors=(`xrandr -q | grep " connected" | awk '{print $1}'`)
+echo $monitors > ~/log 
+
+if [ ${#monitors[@]} -eq 1 ]
+then
+    echo "monitor number is 1" >> ~/log
+    bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+elif [ ${#monitors[@]} -eq 2 ]
+then
+    echo "monitor number is 2" >> ~/log
+    bspc monitor ${monitors[1]} -d 1 2 3 4 5
+    bspc monitor ${monitors[2]} -d 6 7 8 9 0
+fi
+
 
 # ##############################################################################
 # #                            GENERAL CONFIGURATION                           #
 # ##############################################################################
-
-monitors=(`xrandr -q | grep " connected" | awk '{print $1}'`)  
-
-if [ ${#monitors} -eq 1 ]
-then
-    bspc monitor -d 1 2 3 4 5 6 7 8 9 0 
-elif [${#monitors} -eq 2]
-then
-    bspc monitor ${monitors[1]} -d 1 2 3 4 5
-    bspc monitor ${monitors[2]} -d 6 7 8 9 0
-fi
 
 bspc config border_width         1 
 bspc config window_gap           2
@@ -48,7 +57,7 @@ bspc config single_monocle       true
 # #                                 WINDOW RULES                               #
 # ##############################################################################
 
-bpsc rule -a Vivaldi-stable desktop=^1
+bspc rule -a Vivaldi-stable desktop=^1
 bspc rule -a discord desktop=^2
 bspc rule -a Code desktop=^3
 bspc rule -a Thunar desktop=^4
@@ -56,3 +65,4 @@ bspc rule -a Spotify desktop=^5
 
 bspc rule -a alacritty state=floating
 bspc rule -a keepassxc state=floating
+bspc rule -a dolphin   state=floating
