@@ -12,5 +12,5 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 monitors=(`xrandr -q | grep " connected" | awk '{print $1}'`)
 
 for i in "${!monitors[@]}" ; do
-    MONITOR=${monitors[$i]} polybar -c ~/.config/polybar/config $i &
+    MONITOR=${monitors[$i]} polybar -c ~/.config/polybar/config.ini $i &
 done
