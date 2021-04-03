@@ -11,7 +11,7 @@ super + @space
 	dmenu_run
 
 super + d
-	rofi -combi-modi window,drun -show combi -show-icons
+	rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode
 
 
 # make sxhkd reload its configuration files:

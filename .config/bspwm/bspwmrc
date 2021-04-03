@@ -17,8 +17,16 @@ command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 00000
 # #                            GENERAL CONFIGURATION                           #
 # ##############################################################################
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 0 
+monitors=(`xrandr -q | grep " connected" | awk '{print $1}'`)  
 
+if [ ${#monitors} -eq 1 ]
+then
+    bspc monitor -d 1 2 3 4 5 6 7 8 9 0 
+elif [${#monitors} -eq 2]
+then
+    bspc monitor ${monitors[1]} -d 1 2 3 4 5
+    bspc monitor ${monitors[2]} -d 6 7 8 9 0
+fi
 
 bspc config border_width         1 
 bspc config window_gap           2
