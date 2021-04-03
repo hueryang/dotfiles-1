@@ -43,6 +43,17 @@ super + g
 	bspc node -s biggest
 
 #
+# app hotkeys
+#
+
+F12
+    	tdrop -ma -w -4 -y 28 -s dropdown urxvt 
+
+Print
+	flameshot gui
+
+
+#
 # state/flags
 #
 
@@ -53,9 +64,11 @@ super + {t,shift + t,s,f}
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
+# hide/show node
+super + shift + i
+	$HOME/.config/sxhkd/winhide.sh	
 
-F12
-    tdrop -ma -w -4 -y 28 -s dropdown urxvt 
+
 #
 # focus/swap
 #
@@ -89,7 +102,6 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
-
 #
 # preselect
 #
