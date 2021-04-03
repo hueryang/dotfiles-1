@@ -59,5 +59,7 @@ export XDG_CURRENT_DESKTOP=KDE
 export KDE_SESSION_VERSION=5
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
+export _JAVA_AWT_WM_NONREPARENTING=1
 
-exec dbus-launch --exit-with-session i3
+#exec dbus-launch --exit-with-session i3
+exec bspwm
