@@ -10,7 +10,7 @@ command -v dunstk &> /dev/null &&  dunst --config $HOME/.config/dunst/dunstrc &
 command -v picom &> /dev/null && picom --config $HOME/.config/picom/picom.conf &
 command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 000000"
 
-#$HOME/.config/polybar/launch.sh
+$HOME/.config/polybar/launch.sh
 
 #auto lock
 
@@ -40,7 +40,7 @@ fi
 bspc config border_width         1 
 bspc config window_gap           2
 
-bspc config top_padding          0 
+bspc config top_padding          26
 bspc config bottom_padding       0
 
 bspc config presel_feedback_color "#6272a4"
