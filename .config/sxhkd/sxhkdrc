@@ -30,8 +30,14 @@ super + alt + {q,r}
 super + {_,shift + }w
 	bspc node -{c,k}
 
-super + alt + s 
+# lock system
+super + alt + s; l 
 	i3lock -c 000000
+
+# toggle polybar
+super + alt + s; b 
+	~/.config/polybar/toggle.sh
+
 
 # alternate between the tiled and monocle layout
 super + m
@@ -55,8 +61,6 @@ F12
 Print
 	flameshot gui
 
-super + b
-	~/.config/polybar/toggle.sh
 
 #
 # state/flags
