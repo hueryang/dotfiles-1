@@ -69,11 +69,14 @@ super + {t,shift + t,s,f}
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
-# hide/show node
+	
+# Push focused window to scratchpad (background)
 super + shift + i
-	$HOME/.config/sxhkd/winhide.sh	
+	  "$HOME"/.config/bspwm/scratchpad.sh toggle-flag
 
-
+# Hide/Un-Hide a window pushed to scratchpad previously
+super + i
+	  "$HOME"/.config/bspwm/scratchpad.sh switch-app
 #
 # focus/swap
 #
