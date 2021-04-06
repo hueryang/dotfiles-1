@@ -145,3 +145,4 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 export PATH=~/apps/bin:~/go/bin:~/.emacs.d/bin:$PATH
 
 setopt no_nomatch
+export WINEARCH=win32

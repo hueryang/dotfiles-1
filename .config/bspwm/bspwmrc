@@ -5,33 +5,13 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # ##############################################################################
 # #                                AUTOSTART APPS                              #
 # ##############################################################################
-
-command -v dunstk &> /dev/null &&  dunst --config $HOME/.config/dunst/dunstrc &
-command -v picom &> /dev/null && picom --config $HOME/.config/picom/picom.conf &
-command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 000000"
-
-$HOME/.config/polybar/launch.sh
-
-#auto lock
+$HOME/.config/bspwm/autostart.sh &
 
 # ##############################################################################
 # #                                Monitors                                    #
 # ##############################################################################
 
-monitors=(`xrandr -q | grep " connected" | awk '{print $1}'`)
-echo $monitors > ~/log 
-
-if [ ${#monitors[@]} -eq 1 ]
-then
-    echo "monitor number is 1" >> ~/log
-    bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-elif [ ${#monitors[@]} -eq 2 ]
-then
-    echo "monitor number is 2" >> ~/log
-    bspc monitor ${monitors[1]} -d 1 2 3 4 5
-    bspc monitor ${monitors[2]} -d 6 7 8 9 0
-fi
-
+$HOME/.config/bspwm/monitor.sh &
 
 # ##############################################################################
 # #                            GENERAL CONFIGURATION                           #
@@ -53,6 +33,8 @@ bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
+bspc config leaf_monocle true
+
 
 
 bspc config focus_follows_pointer true

@@ -47,13 +47,16 @@ super + g
 #
 
 F12
-    tdrop -ma -w -4 -y 26 -s dropdown urxvt 
+	tdrop -ma -w -4 -y 26 -s dropdown urxvt 
 
 Print
 	flameshot gui
 
+super + alt + l
+	i3lock -c 000000
+
 super + b
-    ~/.config/polybar/toggle.sh
+	~/.config/polybar/toggle.sh
 
 #
 # state/flags
