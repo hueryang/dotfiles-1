@@ -1,6 +1,6 @@
-#
+#################################################################################
 # wm independent hotkeys
-#
+#################################################################################
 
 # terminal emulator
 super + Return
@@ -18,18 +18,6 @@ super + d
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
-# bspwm hotkeys
-#
-
-# quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
-
-# close and kill
-super + {_,shift + }w
-	bspc node -{c,k}
-
 # lock system
 super + alt + s; l 
 	i3lock -c 000000
@@ -38,6 +26,25 @@ super + alt + s; l
 super + alt + s; b 
 	~/.config/polybar/toggle.sh
 
+# dropdown terminal
+F12
+	tdrop -ma -w -4 -y 26 -s dropdown urxvt 
+
+# flameshot
+Print
+	flameshot gui
+
+#################################################################################
+# bspwm hotkeys
+#################################################################################
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
 super + m
@@ -51,20 +58,11 @@ super + y
 super + g
 	bspc node -s biggest
 
-#
-# app hotkeys
-#
-
-F12
-	tdrop -ma -w -4 -y 26 -s dropdown urxvt 
-
-Print
-	flameshot gui
 
 
-#
+#################################################################################
 # state/flags
-#
+#################################################################################
 
 # set the window state
 super + {t,shift + t,s,f}
@@ -81,6 +79,7 @@ super + shift + i
 # Hide/Un-Hide a window pushed to scratchpad previously
 super + i
 	  "$HOME"/.config/bspwm/scratchpad.sh switch-app
+
 # hide window
 super + v
   bspc node -g hidden
@@ -88,9 +87,10 @@ super + v
 # unhide window
 super + shift + v
   bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
-#
+
+#################################################################################
 # focus/swap
-#
+#################################################################################
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -121,9 +121,10 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
-#
+
+#################################################################################
 # preselect
-#
+#################################################################################
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
@@ -141,9 +142,9 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-#
+#################################################################################
 # move/resize
-#
+#################################################################################
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
@@ -156,3 +157,11 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# rotate the whole desktop
+super + shift + r
+	bspc node @/ -R 90
+
+# rotate the parent of current focused
+super + r
+	bspc node @parent -R 90
