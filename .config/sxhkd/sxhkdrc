@@ -30,6 +30,9 @@ super + alt + {q,r}
 super + {_,shift + }w
 	bspc node -{c,k}
 
+super + alt + s 
+	i3lock -c 000000
+
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
@@ -51,9 +54,6 @@ F12
 
 Print
 	flameshot gui
-
-super + alt + l
-	i3lock -c 000000
 
 super + b
 	~/.config/polybar/toggle.sh
