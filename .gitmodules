@@ -19,6 +19,6 @@
 [submodule ".asdf"]
 	path = .asdf
 	url = https://github.com/asdf-vm/asdf.git
-[submodule "/home/zhoumingjun/.tmux/plugins/tpm"]
-	path = /home/zhoumingjun/.tmux/plugins/tpm
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
