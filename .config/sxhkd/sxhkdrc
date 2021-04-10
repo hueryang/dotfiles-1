@@ -28,7 +28,7 @@ super + alt + s; b
 
 # dropdown terminal
 F12
-	tdrop -ma -w -2  -y 0 -s dropdown urxvt 
+	tdrop -ma -w -2 -s dropdown urxvt 
 
 # flameshot
 Print
@@ -165,3 +165,16 @@ super + shift + r
 # rotate the parent of current focused
 super + r
 	bspc node @parent -R 90
+#################################################################################
+# volume settings
+#################################################################################
+
+XF86AudioMute
+ pactl set-sink-mute 0 toggle
+
+XF86AudioRaiseVolume
+ pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+ pactl set-sink-volume 0 -5%
+
