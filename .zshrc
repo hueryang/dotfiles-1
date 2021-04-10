@@ -142,7 +142,7 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # alias
-command -v colorls && alias ls='colorls --sd'
+command -v colorls > /dev/null && alias ls='colorls --sd'
 
 # emacs
 export PATH=~/apps/bin:~/go/bin:~/.emacs.d/bin:$PATH
