@@ -113,7 +113,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
+export EDITOR='/home/zhoumingjun/.oh-my-zsh/plugins/emacs/emacsclient.sh -nw'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -140,6 +140,7 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 # dotfiles
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias ls='colorls --sd'
 
 # emacs
 export PATH=~/apps/bin:~/go/bin:~/.emacs.d/bin:$PATH

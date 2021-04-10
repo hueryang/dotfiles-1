@@ -3,10 +3,10 @@ URxvt.depth: 32
 URxvt.background: [90]#141c21
 
 !! font
-URxvt.font: xft:MesloLGS NF:style=Regular:size=9:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Regular:size=9:antialias=true:hinting=true:autohint=true
-URxvt.boldFont: xft:MesloLGS NF:style=Bold:size=9:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Bold:size=9:antialias=true:hinting=true:autohint=true
-URxvt.italicFont: xft:MesloLGS NF:style=Italic:size=9:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Italic:size=9:antialias=true:hinting=true:autohint=true
-URxvt.boldItalicFont: xft:MesloLGS NF:style=Bold Italic:size=9:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Bold Italic:size=9:antialias=true:hinting=true:autohint=true
+URxvt.font: xft:MesloLGS NF:style=Regular:size=9:antialias=true:hinting=true:autohint=true,xft:JetBrainsMono Nerd Font Mono:style=Regular:size=9:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Regular:size=9:antialias=true:hinting=true:autohint=true
+URxvt.boldFont: xft:MesloLGS NF:style=Bold:size=9:antialias=true:hinting=true:autohint=true,xft:JetBrainsMono Nerd Font Mono:style=Bold:size=9:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Bold:size=9:antialias=true:hinting=true:autohint=true
+URxvt.italicFont: xft:MesloLGS NF:style=Italic:size=9:antialias=true:hinting=true:autohint=true,xft:JetBrainsMono Nerd Font Mono:style=Italic:size=9:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Italic:size=9:antialias=true:hinting=true:autohint=true
+URxvt.boldItalicFont: xft:MesloLGS NF:style=Bold Italic:size=9:antialias=true:hinting=true:autohint=true,xft:JetBrainsMono Nerd Font Mono:style=Bold Italic:size=9:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Bold Italic:size=9:antialias=true:hinting=true:autohint=true
 
 !! scroll bar
 URxvt.scrollBar: false
