@@ -3,10 +3,10 @@ URxvt.depth: 32
 URxvt.background: [90]#141c21
 
 !! font
-URxvt.font: xft:MesloLGS NF:style=Regular:size=10:antialias=true:hinting=true:autohint=true,xft:JetBrainsMono Nerd Font Mono:style=Regular:size=10:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Regular:size=10:antialias=true:hinting=true:autohint=true
-URxvt.boldFont: xft:MesloLGS NF:style=Bold:size=10:antialias=true:hinting=true:autohint=true,xft:JetBrainsMono Nerd Font Mono:style=Bold:size=10:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Bold:size=10:antialias=true:hinting=true:autohint=true
-URxvt.italicFont: xft:MesloLGS NF:style=Italic:size=10:antialias=true:hinting=true:autohint=true,xft:JetBrainsMono Nerd Font Mono:style=Italic:size=10:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Italic:size=10:antialias=true:hinting=true:autohint=true
-URxvt.boldItalicFont: xft:MesloLGS NF:style=Bold Italic:size=10:antialias=true:hinting=true:autohint=true,xft:JetBrainsMono Nerd Font Mono:style=Bold Italic:size=10:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Bold Italic:size=10:antialias=true:hinting=true:autohint=true
+URxvt.font: xft:JetBrainsMono Nerd Font Mono:style=Regular:size=10:antialias=true:hinting=true:autohint=true,xft:MesloLGS NF:style=Regular:size=10:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Regular:size=10:antialias=true:hinting=true:autohint=true
+URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:style=Bold:size=10:antialias=true:hinting=true:autohint=true,xft:MesloLGS NF:style=Bold:size=10:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Bold:size=10:antialias=true:hinting=true:autohint=true
+URxvt.italicFont: xft:JetBrainsMono Nerd Font Mono:style=Italic:size=10:antialias=true:hinting=true:autohint=true,xft:MesloLGS NF:style=Italic:size=10:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Italic:size=10:antialias=true:hinting=true:autohint=true
+URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font Mono:style=Bold Italic:size=10:antialias=true:hinting=true:autohint=true,xft:MesloLGS NF:style=Bold Italic:size=10:antialias=true:hinting=true:autohint=true,xft:Noto Sans Mono CJK SC:style=Bold Italic:size=10:antialias=true:hinting=true:autohint=true
 
 !! scroll bar
 URxvt.scrollBar: false
@@ -28,7 +28,7 @@ URxvt.urgentOnBell: true
 
 
 !-*- Perl extensions -*-
-URxvt.perl-ext-common: default,selection-to-clipboard,matcher,keyboard-select,font-size,tabbedex
+URxVt.perl-ext-common: default,selection-to-clipboard,matcher,keyboard-select,font-size,tabbedex
 URxvt.keysym.M-u:     perl:url-select:select_next
 URxvt.url-launcher:   /usr/bin/firefox
 URxvt.underlineURLs:  True
