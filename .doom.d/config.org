@@ -32,17 +32,22 @@
 
 *** Set org-directory
 #+BEGIN_SRC emacs-lisp
-(setq org-directory "~/org/"
-      org-archive-location (concat org-directory "archive/%s::"))
 
 
-;; Set different bullets, with one getting a terminal fallback.
-(setq org-superstar-headline-bullets-list
-      '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷"))
 
 (after! org
   (setq org-log-done 'note
-        org-log-into-drawer t))
+        org-log-into-drawer t)
+
+  ;; set org file directory
+  (setq org-files-directory "~/org/")
+
+  ;; set agenda files
+  (setq org-agenda-files (list org-files-directory))
+
+  ;; Set different bullets, with one getting a terminal fallback.
+  (setq org-superstar-headline-bullets-list
+    '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷")))
 ;; (use-package! org-projectile
 ;;   :config
 ;;   (progn

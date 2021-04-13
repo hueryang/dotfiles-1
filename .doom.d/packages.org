@@ -29,6 +29,7 @@
     - [[#later-org-drill][LATER Org Drill]]
     - [[#org-protocol-updates][Org Protocol Updates]]
     - [[#org-noter][Org Noter]]
+    - [[#org-kankan][Org kankan]]
     - [[#org-ref][Org Ref]]
     - [[#org-mind-map][Org Mind Map]]
     - [[#org-rifle][Org Rifle]]
@@ -160,7 +161,7 @@ This needs to be installed specially, [[https://github.com/alphapapa/org-protoco
   :recipe (:host github
            :repo "alphapapa/org-protocol-capture-html"))
 #+END_SRC
-*** TODO Org Noter
+*** Org Noter
 This is sort of more of a ~pdf-tools~ extension and it needs it's own ~biblatex~
 setup and stuff as well so this might move into a tree of it's own.
 
@@ -170,6 +171,10 @@ setup and stuff as well so this might move into a tree of it's own.
 
 This actually breaks the ~pdf-tools~ bindings.
 
+*** Org kankan
+#+begin_src emacs-lisp
+(package! org-kanban)
+#+end_src
 *** Org Ref
 This is probably not the best thing in my current setup.. Now part of the ~init.el~ setup.
 
