@@ -37,11 +37,6 @@ bspc rule -a KeePassXC          state=floating
 bspc rule -a Zathura            state=tiled
 bspc rule -a dolphin            state=floating
 
-##############################################################################
-#                                AUTOSTART APPS                              #
-##############################################################################
-
-$HOME/.config/bspwm/autostart.sh &
 
 ##############################################################################
 #                                Monitors                                    #
@@ -49,3 +44,8 @@ $HOME/.config/bspwm/autostart.sh &
 
 $HOME/.config/bspwm/monitor.sh &
 
+##############################################################################
+#                                AUTOSTART APPS                              #
+##############################################################################
+
+$HOME/.config/bspwm/autostart.sh &

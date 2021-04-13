@@ -45,4 +45,7 @@ URxvt.keysym.C-S-Down: font-size:decglobal
 URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
 
+!! input method
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
 
