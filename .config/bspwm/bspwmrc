@@ -32,12 +32,14 @@ bspc config ignore_ewmh_focus true
 ##############################################################################
 #                                 WINDOW RULES                               #
 ##############################################################################
+bspc rule -a Zathura            state=tiled
+
 bspc rule -a Blueman-manager    state=floating
 bspc rule -a KeePassXC          state=floating
-bspc rule -a Zathura            state=tiled
 bspc rule -a dolphin            state=floating
 bspc rule -a wxwork.exe         state=floating
 bspc rule -a wechat.exe         state=floating
+bspc rule -a netease-cloud-music state=floating
 
 
 ##############################################################################
