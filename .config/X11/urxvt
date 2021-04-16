@@ -28,14 +28,13 @@ URxvt.urgentOnBell: true
 
 
 !-*- Perl extensions -*-
-URxVt.perl-ext-common: default,selection-to-clipboard,matcher,keyboard-select,font-size,tabbedex
-URxvt.keysym.M-u:     perl:url-select:select_next
-URxvt.url-launcher:   /usr/bin/firefox
-URxvt.underlineURLs:  True
-URxvt.matcher.button: 1
-URxvt.keysym.M-Escape:perl:keyboard-select:activate
-
 URxvt.clipboard.autocopy: true
+URxvt.keysym.M-Escape:perl:keyboard-select:activate
+URxvt.keysym.M-u:     perl:url-select:select_next
+URxvt.matcher.button: 1
+URxvt.perl-ext-common: default,selection-to-clipboard,matcher,keyboard-select,font-size,tabbedex
+URxvt.underlineURLs:  True
+URxvt.url-launcher:   /usr/bin/firefox
 
 ! font-size
 URxvt.keysym.C-Up:     font-size:increase
