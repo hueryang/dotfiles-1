@@ -40,7 +40,7 @@ bspc rule -a dolphin            state=floating
 bspc rule -a wxwork.exe         state=floating
 bspc rule -a wechat.exe         state=floating
 bspc rule -a netease-cloud-music state=floating
-
+bspc rule -a youtube-music-desktop-app state=floating
 
 ##############################################################################
 #                                Monitors                                    #
