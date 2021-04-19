@@ -76,7 +76,7 @@ cursor:
 
 colors:
   primary:
-    background: '0x111111'
+    background: '0x010101'
     foreground: '0xf8f8f2'
   cursor:
     text: CellBackground
