@@ -165,6 +165,21 @@ super + shift + r
 # rotate the parent of current focused
 super + r
 	bspc node @parent -R 90
+
+#################################################################################
+# tab
+#################################################################################
+
+# Add focused window to a tabbed instance in given direction
+super + alt +  t; {h,j,k,l}
+    ~/.config/sxhkd/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
+
+# Remove one tab from tabbed
+super + alt + t; r
+    tabbed=$(bspc query -N -n focused); \
+    child=$(~/.config/sxhkd/tabc.sh $tabbed list | head -n1); \
+    ~/.config/sxhkd/tabc.sh $tabbed remove $child
+
 #################################################################################
 # volume settings
 #################################################################################
