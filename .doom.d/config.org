@@ -32,9 +32,6 @@
 
 *** Set org-directory
 #+BEGIN_SRC emacs-lisp
-
-
-
 (after! org
   (setq org-log-done 'note
         org-log-into-drawer t)
@@ -50,19 +47,21 @@
   (lambda (directory)
   (directory-files-recursively
     directory org-agenda-file-regexp))
-       '("~/org/" ))))
+       '("~/org/todo/" ))))
 
   ;; Set different bullets, with one getting a terminal fallback.
   (setq org-superstar-headline-bullets-list
     '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷")))
-;; (use-package! org-projectile
-;;   :config
-;;   (progn
-;;     (Org-Projectile-Per-project) ; strategy to use a separate .org file within each project
-;;     (setq
-;;      org-projectile-per-project-filepath "todo.org" ; use an .org file named <project>.org for each project
-;;      org-agenda-files (append org-agenda-files (org-projectile-todo-files)) ; get .org file for all known projects & add to `org-agenda-files'
-;;      )))
+
+(use-package! org-projectile
+   :after org
+   :config
+   (progn
+     (org-projectile-per-project) ; strategy to use a separate .org file within each project
+     (setq
+      org-projectile-per-project-filepath "todo.org" ; use an .org file named <project>.org for each project
+      org-agenda-files (append org-agenda-files (org-projectile-todo-files)) ; get .org file for all known projects & add to `org-agenda-files'
+      )))
 
 (use-package! ox-twbs)
 

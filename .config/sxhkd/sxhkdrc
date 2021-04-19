@@ -28,7 +28,7 @@ super + alt + s; b
 
 # dropdown terminal
 F12
-	tdrop -ma -w -2 -s dropdown urxvt 
+	tdrop -ma -w -2 -s dropdown alacritty 
 
 # flameshot
 Print
