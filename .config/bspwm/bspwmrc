@@ -47,9 +47,33 @@ bspc rule -a Zathura                    state=tiled
 ##############################################################################
 #                                Monitors                                    #
 ##############################################################################
-$HOME/.config/bspwm/monitor.sh &
+monitors=(`xrandr -q | grep " connected" | awk '{print $1}'`)
+
+if [ ${#monitors[@]} -eq 1 ]
+then
+    bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+elif [ ${#monitors[@]} -eq 2 ]
+then
+    xrandr --output DP1 --primary --mode 1920x1080 --pos 0x184 --rotate normal \
+        --output HDMI1 --off \
+        --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate left  \
+        --output HDMI3 --off  
+    bspc monitor ${monitors[0]} -d 1 2 3 4 5
+    bspc monitor ${monitors[1]} -d 6 7 8 9 0
+fi
 
 ##############################################################################
 #                                AUTOSTART APPS                              #
 ##############################################################################
-$HOME/.config/bspwm/autostart.sh &
+command -v dunst &> /dev/null &&  dunst --config $HOME/.config/dunst/dunstrc &
+command -v picom &> /dev/null && picom --config $HOME/.config/picom/picom.conf &
+command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 000000" &
+
+# set background
+feh --bg-fill ~/Pictures/dracula-gentoo.png  
+
+# launch sxhkd
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# launch polybar
+$HOME/.config/polybar/launch.sh &
