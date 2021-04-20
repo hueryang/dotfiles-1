@@ -74,11 +74,11 @@ super + ctrl + {m,x,y,z}
 	
 # Push focused window to scratchpad (background)
 super + shift + i
-	  "$HOME"/.config/bspwm/scratchpad.sh toggle-flag
+	  ~/.config/bspwm/scratchpad.sh toggle-flag
 
 # Hide/Un-Hide a window pushed to scratchpad previously
 super + i
-	  "$HOME"/.config/bspwm/scratchpad.sh switch-app
+	  ~/.config/bspwm/scratchpad.sh switch-app
 
 # hide window
 super + v
@@ -172,13 +172,13 @@ super + r
 
 # Add focused window to a tabbed instance in given direction
 super + alt +  t; {h,j,k,l}
-    ~/.config/sxhkd/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
+    ~/.config/bspwm/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
 
 # Remove one tab from tabbed
 super + alt + t; r
     tabbed=$(bspc query -N -n focused); \
-    child=$(~/.config/sxhkd/tabc.sh $tabbed list | head -n1); \
-    ~/.config/sxhkd/tabc.sh $tabbed remove $child
+    child=$(~/.config/bspwm/tabc.sh $tabbed list | head -n1); \
+    ~/.config/bspwm/tabc.sh $tabbed remove $child
 
 #################################################################################
 # volume settings
