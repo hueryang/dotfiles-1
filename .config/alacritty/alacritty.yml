@@ -71,12 +71,12 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: 'Beam'
+  style: 'Underline'
 
 
 colors:
   primary:
-    background: '0x111111'
+    background: '0x010101'
     foreground: '0xf8f8f2'
   cursor:
     text: CellBackground
@@ -128,3 +128,4 @@ colors:
     cyan:    '0x59dffc'
     white:   '0xe6e6d1'
 
+background_opacity: 0.8

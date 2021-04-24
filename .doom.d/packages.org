@@ -34,6 +34,7 @@
     - [[#org-mind-map][Org Mind Map]]
     - [[#org-rifle][Org Rifle]]
     - [[#org-async][Org Async]]
+    - [[#org-projectile][Org Projectile]]
     - [[#anki-mode][Anki Mode]]
     - [[#org-re-reveal-ref][Org Re-Reveal Ref]]
     - [[#org-roam-bibtex][Org Roam Bibtex]]
@@ -198,6 +199,10 @@ Technically a helm addition. Perfect for monolithic ~org~ files. More details
 We will use this.
 #+begin_src emacs-lisp :tangle yes
 (package! org-babel-eval-in-repl)
+#+end_src
+*** Org Projectile
+#+begin_src emacs-lisp :tangle yes
+(package! org-projectile)
 #+end_src
 *** Anki Mode
 This is put here since it only works with ~org-mode~ stuff.
