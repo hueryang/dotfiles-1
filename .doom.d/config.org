@@ -75,7 +75,7 @@
   :after org-roam
   :config
   (setq org-roam-server-host "0.0.0.0"
-        org-roam-server-port 8080
+        org-roam-server-port 8000
         org-roam-server-authenticate nil
         org-roam-server-export-inline-images t
         org-roam-server-serve-files nil
@@ -91,9 +91,6 @@
     (interactive)
     (org-roam-server-mode 1)
     (browse-url-xdg-open (format "http://localhost:%d" org-roam-server-port))))
-
-(after! org-roam
-  (org-roam-server-mode))
 
 #+end_src
 ** Line-number
