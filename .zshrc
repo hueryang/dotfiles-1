@@ -113,7 +113,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='/home/zhoumingjun/.oh-my-zsh/plugins/emacs/emacsclient.sh -nw'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
