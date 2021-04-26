@@ -62,7 +62,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 12
+  size: 14
 
 cursor:
   # Cursor style
