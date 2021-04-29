@@ -33,5 +33,6 @@ elif [ -x "$(command -v ibus-daemon)" ]; then
     export QT_IM_MODULE=ibus
     ibus-daemon -d -r -x &
 fi
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 exec bspwm
