@@ -30,35 +30,16 @@
     - [[#org-protocol-updates][Org Protocol Updates]]
     - [[#org-noter][Org Noter]]
     - [[#org-kankan][Org kankan]]
-    - [[#org-ref][Org Ref]]
-    - [[#org-mind-map][Org Mind Map]]
     - [[#org-rifle][Org Rifle]]
-    - [[#org-async][Org Async]]
-    - [[#org-projectile][Org Projectile]]
-    - [[#anki-mode][Anki Mode]]
-    - [[#org-re-reveal-ref][Org Re-Reveal Ref]]
-    - [[#org-roam-bibtex][Org Roam Bibtex]]
-    - [[#org-roam-server][Org-Roam-Server]]
   - [[#dockerfile-mode][Dockerfile Mode]]
-  - [[#reference-management][Reference Management]]
   - [[#syntax-highlighting][Syntax Highlighting]]
-    - [[#tup-mode][Tup Mode]]
-    - [[#saltstack-mode][SaltStack Mode]]
     - [[#pkgbuild-mode][PKGBUILD Mode]]
-    - [[#lammps-mode][LAMMPS Mode]]
-    - [[#pug-mode][Pug Mode]]
-    - [[#nix-mode][Nix Mode]]
-    - [[#jvm-languages][JVM Languages]]
-    - [[#systemd-mode][Systemd Mode]]
     - [[#dart-mode][Dart Mode]]
-    - [[#wolfram-mode][Wolfram Mode]]
-    - [[#polymode][Polymode]]
   - [[#flycheck-additions][Flycheck Additions]]
     - [[#melpa-helper][MELPA Helper]]
   - [[#snippets][Snippets]]
     - [[#doom][Doom]]
     - [[#standard][Standard]]
-  - [[#math-support][Math support]]
   - [[#misc][Misc]]
 
 ** Reference
@@ -132,7 +113,6 @@ I guess I just gave up, [[https://github.com/wbolster/evil-colemak-basics][from 
 
 ** Firestarter
 For running shell commands on-save.
-
 #+BEGIN_SRC emacs-lisp :tangle yes
 (package! firestarter)
 #+END_SRC
@@ -176,53 +156,11 @@ This actually breaks the ~pdf-tools~ bindings.
 #+begin_src emacs-lisp
 (package! org-kanban)
 #+end_src
-*** Org Ref
-This is probably not the best thing in my current setup.. Now part of the ~init.el~ setup.
-
-#+BEGIN_SRC emacs-lisp
-(package! org-ref)
-#+END_SRC
-*** Org Mind Map
-Not on MELPA yet. From [[https://github.com/theodorewiles/org-mind-map][here]].
-#+BEGIN_SRC emacs-lisp
-(package! org-mind-map
-  :recipe (:host github
-            :repo "theodorewiles/org-mind-map"))
-#+END_SRC
 *** Org Rifle
 Technically a helm addition. Perfect for monolithic ~org~ files. More details
 [[https://github.com/alphapapa/helm-org-rifle][here]].
 #+BEGIN_SRC emacs-lisp
 (package! helm-org-rifle)
-#+END_SRC
-*** Org Async
-We will use this.
-#+begin_src emacs-lisp :tangle yes
-(package! org-babel-eval-in-repl)
-#+end_src
-*** Org Projectile
-#+begin_src emacs-lisp :tangle yes
-(package! org-projectile)
-#+end_src
-*** Anki Mode
-This is put here since it only works with ~org-mode~ stuff.
-#+BEGIN_SRC emacs-lisp :tangle no
-(package! anki-editor)
-#+END_SRC
-*** Org Re-Reveal Ref
-An [[https://gitlab.com/oer/org-re-reveal-ref][extension]] to ~org-re-reveal-ref~.
-#+begin_src emacs-lisp :tangle no
-(package! org-re-reveal-ref)
-#+end_src
-*** Org Roam Bibtex
-This should be a part of the main ~+roam~ setup, but until then.
-#+begin_src emacs-lisp :tangle yes
-(package! org-roam-bibtex)
-#+end_src
-*** Org-Roam-Server
-Allows me to see my org-roam-graph. This is a fantastic package and I have my roam -server almost always open as I take notes.
-#+BEGIN_SRC elisp
-(package! org-roam-server)
 #+END_SRC
 ** Dockerfile Mode
 For syntax highlighting and inline builds. [[https://github.com/spotify/dockerfile-mode][From spotify]] weirdly.
@@ -231,39 +169,9 @@ the image name.
 #+BEGIN_SRC emacs-lisp
 (package! dockerfile-mode)
 #+END_SRC
-** Reference Management
-**** Zotero
-There are a bunch of ~zotero~ integrations for emacs, most notably, [[https://github.com/vspinu/zotelo][zotelo]], but
-they don't seem to be all that well mantained. [[https://github.com/emacsmirror/zotxt][Zotxt]] seems to be updated pretty
-often though.
-
-#+BEGIN_SRC emacs-lisp
-(package! zotxt)
-#+END_SRC
 ** Syntax Highlighting
 These are additionally required to work with the sort of files I use often.
 The configuration and settings are as usual in ~config.org~
-*** Tup Mode
-Because honestly there isn't anything better than [[http://gittup.org/tup/][tup]]. Who doesn't need a build
-system which [[http://gittup.org/tup/tup_vs_mordor.html][scales with the eye of Mordor]]?
-
-#+BEGIN_SRC emacs-lisp
-(package! tup-mode
-:recipe (:host github
-           :repo "ejmr/tup-mode"))
-#+END_SRC
-
-**** LATER Caveats
-The repo is unmaintained so I ought to fork it and take a look into maintaining it.
-*** SaltStack Mode
-I have recently decided that [[https://saltstack.com/][saltstack]] ought to be used for working on multiple
-systems.
-
-#+BEGIN_SRC emacs-lisp
-(package! salt-mode
-:recipe (:host github
-         :repo "glynnforrest/salt-mode"))
-#+END_SRC
 *** PKGBUILD Mode
 No point using ~emacs~ if I can't get highlighting for all my needs. This needs
 some extra configuration. +Must figure out if this is well mantained+. The
@@ -274,57 +182,12 @@ developer is very responsive to pull requests and the like.
   :recipe (:host github
             :repo "juergenhoetzel/pkgbuild-mode"))
 #+END_SRC
-*** LAMMPS Mode
-+This could do with some updates. Will look into this soon. Also it takesunbearably long this way. Must figure out how to stop it from downloading the
-whole repo.+
-Mantained [[https://github.com/HaoZeke/lammps-mode][by me]] now.
-#+BEGIN_SRC emacs-lisp
-(package! lammps-mode
-  :recipe (:host github
-                    :repo "HaoZeke/lammps-mode"))
-#+END_SRC
-*** Pug Mode
-I just like pugs.
-#+BEGIN_SRC emacs-lisp
-(package! pug-mode)
-#+END_SRC
-*** Nix Mode
-For building more cross-os stuff. This is the [[https://github.com/NixOS/nix-mode][official package]], but will look
-into binding and using [[https://github.com/travisbhartwell/nix-emacs][nix-emacs]] as well.
-#+BEGIN_SRC emacs-lisp
-(package! nix-mode)
-#+END_SRC
-*** JVM Languages
-Currently the languages I care about (apart from Java) are:
-#+BEGIN_SRC emacs-lisp
-; Kotlin > Java
-(package! kotlin-mode)
-; Groovy -> Testing
-(package! groovy-mode)
-#+END_SRC
-*** Systemd Mode
-Since I use a lot of user systemd units, it makes sense to have pretty
-highlighting.
-#+BEGIN_SRC emacs-lisp
-(package! systemd)
-#+END_SRC
 *** Dart Mode
 Might eventually want to also get the companion [[https://github.com/bradyt/dart-server][dart server]] sometime, but for
 now this syntax-highlighter will do. Might actually want to see if ~prettier~
 has anything for it.
 #+BEGIN_SRC emacs-lisp :tangle no
 (package! dart-mode)
-#+END_SRC
-*** Wolfram Mode
-Actually ~wolfram-mode~ seems to be able to do more than just syntax highlighting, but at the moment I just need font-locking.
-#+BEGIN_SRC emacs-lisp
-(package! wolfram-mode)
-#+END_SRC
-*** Polymode
-For working with ~.Rmd~ files and better ~orgmode~ R support.
-#+BEGIN_SRC emacs-lisp
-(package! poly-R)
-(package! poly-org)
 #+END_SRC
 ** Flycheck Additions
 *** MELPA Helper
@@ -350,24 +213,9 @@ These are from the [[https://github.com/AndreaCrotti/yasnippet-snippets][officia
            :repo "AndreaCrotti/yasnippet-snippets"
            :files ("*")))
 #+END_SRC
-** Math support
-I like [[https://github.com/cdominik/cdlatex][cdlatex]].
-#+BEGIN_SRC emacs-lisp
-(package! cdlatex)
-#+END_SRC
-
-# Local Variables:
-# eval: (add-hook (quote after-save-hook) (lambda nil (org-babel-tangle)) nil t)
-# End:
-
 ** Misc
 #+BEGIN_SRC emacs-lisp
 (package! sicp)
 (package! w3m)
 (package! ox-twbs)
-(package! eaf
-  :recipe (:host github
-           :repo "manateelazycat/emacs-application-framework"
-           :files ("*")))
-
 #+END_SRC

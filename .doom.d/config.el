@@ -1,34 +1,8 @@
-#+TITLE: My emacs doom configuration
-#+AUTHOR: zhou mingjun
-#+EMAIL: zhoumingjun@gmail.com
-#+LANGUAGE: en
-#+PROPERTY: header-args :tangle yes :cache yes :results silent :padline no
-#+OPTIONS: toc:2          (only include two levels in TOC)
-
-#+TOC: headlines 2        insert TOC here, with two headline levels
-
-* Configuration
-** Personal Information
-*** Set full name
-#+BEGIN_SRC emacs-lisp
 (setq user-full-name "zhou mingjun")
-#+END_SRC
-*** Set email address
-#+BEGIN_SRC emacs-lisp
 (setq user-mail-address "zhoumingjun@gmail.com")
-#+END_SRC
-** Font
-#+BEGIN_SRC emacs-lisp
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 12)
       doom-variable-pitch-font (font-spec :family "sans"))
-#+END_SRC
-** Theme
-#+BEGIN_SRC emacs-lisp
 (setq doom-theme 'doom-dracula) ;; << This line enables the theme
-#+END_SRC
-** Org
-*** Set org-directory
-#+BEGIN_SRC emacs-lisp
 (after! org
   (setq org-log-done 'note
         org-log-into-drawer t)
@@ -65,9 +39,6 @@
 
 (setq deft-directory "~/org/"
       deft-recursive t)
-#+END_SRC
-*** org roam
-#+begin_src emacs-lisp
 (use-package! org-roam-server
   :after org-roam
   :config
@@ -88,31 +59,11 @@
     (interactive)
     (org-roam-server-mode 1)
     (browse-url-xdg-open (format "http://localhost:%d" org-roam-server-port))))
-
-#+end_src
-*** org plantuml
-#+begin_src emacs-lisp
 (setq plantuml-default-exec-mode 'jar)
-#+end_src
-** Line-number
-#+BEGIN_SRC emacs-lisp
 (setq display-line-numbers-type t)
-#+END_SRC
-** which-key
-#+BEGIN_SRC emacs-lisp
 (setq which-key-idle-delay 0.01)
-#+END_SRC
-** tabs
-disable this
-#+BEGIN_SRC emacs-lisp :exports none
 (after! centaur-tabs
   (centaur-tabs-group-by-projectile-project))
-#+END_SRC
-** doom
-*** dashboard
-Setup Doom dashboard
-logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
-#+BEGIN_SRC emacs-lisp
 (setq +doom-dashboard-banner-padding '(0 . 2)
       +doom-dashboard-menu-sections
   '(("Reload last session"
@@ -146,10 +97,6 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
       +doom-dashboard-banner-file "emacs.svg"
       +doom-dashboard-banner-dir "~/.doom.d/"
 )
-#+END_SRC
-
-** Tramp
-#+BEGIN_SRC emacs-lisp
  (use-package! tramp
   :custom
   (tramp-use-ssh-controlmaster-options nil) ; Don't override SSH config.
@@ -164,6 +111,3 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
        "Login Ip:")
      t)
     ".*:\0? *")))
-
-#+END_SRC
-
