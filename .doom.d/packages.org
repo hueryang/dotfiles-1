@@ -162,6 +162,11 @@ Technically a helm addition. Perfect for monolithic ~org~ files. More details
 #+BEGIN_SRC emacs-lisp
 (package! helm-org-rifle)
 #+END_SRC
+*** Org Projectile
+#+begin_src emacs-lisp :tangle yes
+(package! org-projectile)
+#+end_src
+
 ** Dockerfile Mode
 For syntax highlighting and inline builds. [[https://github.com/spotify/dockerfile-mode][From spotify]] weirdly.
 ~## -*- docker-image-name: "your-image-name-here" -*-~ can be used to specify

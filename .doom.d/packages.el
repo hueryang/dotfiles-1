@@ -35,6 +35,10 @@
 (package! helm-org-rifle)
 ;; Org Rifle:1 ends here
 
+;; [[file:packages.org::*Org Projectile][Org Projectile:1]]
+(package! org-projectile)
+;; Org Projectile:1 ends here
+
 ;; [[file:packages.org::*Dockerfile Mode][Dockerfile Mode:1]]
 (package! dockerfile-mode)
 ;; Dockerfile Mode:1 ends here
