@@ -13,16 +13,20 @@
   ;; set agenda files
   ;; (setq org-agenda-files (list org-files-directory))
 
-(setq org-agenda-files (apply 'append
-  (mapcar
-  (lambda (directory)
-  (directory-files-recursively
-    directory org-agenda-file-regexp))
-       '("~/org/todo/" ))))
+  (setq org-agenda-files
+    (apply 'append
+      (mapcar
+        (lambda (directory)
+          (directory-files-recursively
+            directory org-agenda-file-regexp))
+              '("~/plan" ))))
 
   ;; Set different bullets, with one getting a terminal fallback.
   (setq org-superstar-headline-bullets-list
-    '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷")))
+      '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷"))
+
+  ;; set org
+  (add-to-list 'org-latex-default-packages-alist '("" "xeCJK" t ("xelatex"))))
 
 (use-package! org-projectile
    :after org
@@ -35,7 +39,10 @@
       )))
 
 (use-package! ox-twbs)
-
+(use-package ox-latex
+  :defer t
+  :init
+  (setq org-latex-compiler "xelatex"))
 
 (setq deft-directory "~/org/"
       deft-recursive t)
@@ -98,16 +105,21 @@
       +doom-dashboard-banner-dir "~/.doom.d/"
 )
 (use-package! tramp
- :custom
- (tramp-use-ssh-controlmaster-options nil) ; Don't override SSH config.
- (tramp-default-method "ssh")    ; ssh is faster than scp and supports ports.
- (tramp-password-prompt-regexp   ; Add verification code support.
-  (concat
-   "^.*"
-   (regexp-opt
-    '("passphrase" "Passphrase"
-      "password" "Password"
-      "Verification code"
-      "Login Ip:")
-    t)
-   ".*:\0? *")))
+  :custom
+  (tramp-use-ssh-controlmaster-options nil) ; Don't override SSH config.
+  (tramp-default-method "ssh")    ; ssh is faster than scp and supports ports.
+  (tramp-password-prompt-regexp   ; Add verification code support.
+   (concat
+    "^.*"
+    (regexp-opt
+     '("passphrase" "Passphrase"
+       "password" "Password"
+       "Verification code"
+       "Login Ip:")
+     t)
+    ".*:\0? *")))
+(add-hook! LaTeX-mode
+  (add-to-list TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
+  (setq TeX-command-default "XeLaTeX"
+        TeX-save-query nil
+        TeX-show-compilation t))
