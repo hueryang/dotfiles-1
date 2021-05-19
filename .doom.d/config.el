@@ -26,7 +26,9 @@
       '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷"))
 
   ;; set org
-  (add-to-list 'org-latex-default-packages-alist '("" "xeCJK" t ("xelatex"))))
+  (setq org-latex-default-packages-alist '(("" "xeCJK" t  ("xelatex")) ("AUTO" "inputenc" t  ("pdflatex")) ("T1" "fontenc" t  ("pdflatex")) ("" "graphicx" t) ("" "grffile" t) ("" "longtable" nil) ("" "wrapfig" nil) ("" "rotating" nil) ("normalem" "ulem" t) ("" "amsmath" t) ("" "textcomp" t) ("" "amssymb" t) ("" "capt-of" nil) ("hidelinks" "hyperref" nil))
+))
+  ;; (add-to-list 'org-latex-default-packages-alist '("" "xeCJK" t ("xelatex"))))
 
 (use-package! org-projectile
    :after org
@@ -46,26 +48,6 @@
 
 (setq deft-directory "~/org/"
       deft-recursive t)
-(use-package! org-roam-server
-  :after org-roam
-  :config
-  (setq org-roam-server-host "0.0.0.0"
-        org-roam-server-port 8000
-        org-roam-server-authenticate nil
-        org-roam-server-export-inline-images t
-        org-roam-server-serve-files nil
-        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
-        org-roam-server-network-poll t
-        org-roam-server-network-arrows nil
-        org-roam-server-network-label-truncate t
-        org-roam-server-network-label-truncate-length 60
-        org-roam-server-network-label-wrap-length 20)
-
-  (defun org-roam-server-open ()
-    "Ensure the server is active, then open the roam graph."
-    (interactive)
-    (org-roam-server-mode 1)
-    (browse-url-xdg-open (format "http://localhost:%d" org-roam-server-port))))
 (setq plantuml-default-exec-mode 'jar)
 (setq display-line-numbers-type t)
 (setq which-key-idle-delay 0.01)

@@ -52,7 +52,9 @@
       '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷"))
 
   ;; set org
-  (add-to-list 'org-latex-default-packages-alist '("" "xeCJK" t ("xelatex"))))
+  (setq org-latex-default-packages-alist '(("" "xeCJK" t  ("xelatex")) ("AUTO" "inputenc" t  ("pdflatex")) ("T1" "fontenc" t  ("pdflatex")) ("" "graphicx" t) ("" "grffile" t) ("" "longtable" nil) ("" "wrapfig" nil) ("" "rotating" nil) ("normalem" "ulem" t) ("" "amsmath" t) ("" "textcomp" t) ("" "amssymb" t) ("" "capt-of" nil) ("hidelinks" "hyperref" nil))
+))
+  ;; (add-to-list 'org-latex-default-packages-alist '("" "xeCJK" t ("xelatex"))))
 
 (use-package! org-projectile
    :after org
@@ -74,7 +76,7 @@
       deft-recursive t)
 #+END_SRC
 *** org roam
-#+begin_src emacs-lisp
+#+begin_src
 (use-package! org-roam-server
   :after org-roam
   :config
