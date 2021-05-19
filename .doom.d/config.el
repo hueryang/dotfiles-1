@@ -118,8 +118,9 @@
        "Login Ip:")
      t)
     ".*:\0? *")))
-(add-hook! LaTeX-mode
+(add-hook! LaTeX-mode-hook
   (add-to-list TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
   (setq TeX-command-default "XeLaTeX"
         TeX-save-query nil
-        TeX-show-compilation t))
+        TeX-show-compilation t)
+  (setq pdf-latex-command "xelatex"))
