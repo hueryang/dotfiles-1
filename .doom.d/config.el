@@ -49,6 +49,9 @@
 (setq deft-directory "~/org/"
       deft-recursive t)
 (setq plantuml-default-exec-mode 'jar)
+(setq plantuml-java-args (list "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=1081" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=1081" "-Djava.awt.headless=true" "-jar" "--illegal-access=deny"))
+(add-to-list 'org-babel-default-header-args:plantuml
+             '((:java . -Dhttp.proxyHost=10.54.0.22 -Dhttp.proxyPort=3128 -Dhttps.proxyHost=10.54.0.22 -Dhttps.proxyPort=3128)))
 (setq display-line-numbers-type t)
 (setq which-key-idle-delay 0.01)
 (after! centaur-tabs

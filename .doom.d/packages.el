@@ -31,6 +31,11 @@
 (package! org-kanban)
 ;; Org kankan:1 ends here
 
+;; [[file:packages.org::*Org http][Org http:1]]
+(package! ob-http)
+(package! ob-restclient)
+;; Org http:1 ends here
+
 ;; [[file:packages.org::*Org Rifle][Org Rifle:1]]
 (package! helm-org-rifle)
 ;; Org Rifle:1 ends here

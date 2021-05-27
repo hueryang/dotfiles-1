@@ -30,7 +30,9 @@
     - [[#org-protocol-updates][Org Protocol Updates]]
     - [[#org-noter][Org Noter]]
     - [[#org-kankan][Org kankan]]
+    - [[#org-http][Org http]]
     - [[#org-rifle][Org Rifle]]
+    - [[#org-projectile][Org Projectile]]
   - [[#dockerfile-mode][Dockerfile Mode]]
   - [[#syntax-highlighting][Syntax Highlighting]]
     - [[#pkgbuild-mode][PKGBUILD Mode]]
@@ -155,6 +157,13 @@ This actually breaks the ~pdf-tools~ bindings.
 *** Org kankan
 #+begin_src emacs-lisp
 (package! org-kanban)
+#+end_src
+
+*** Org http
+#+begin_src emacs-lisp
+(package! ob-http)
+(package! ob-restclient)
+
 #+end_src
 *** Org Rifle
 Technically a helm addition. Perfect for monolithic ~org~ files. More details
