@@ -106,6 +106,10 @@
 (add-to-list 'org-babel-default-header-args:plantuml
              '((:java . -Dhttp.proxyHost=10.54.0.22 -Dhttp.proxyPort=3128 -Dhttps.proxyHost=10.54.0.22 -Dhttps.proxyPort=3128)))
 #+end_src
+
+*** org latex
+(setq org-latex-toc-command "\\tableofcontents \\clearpage")
+
 ** Line-number
 #+BEGIN_SRC emacs-lisp
 (setq display-line-numbers-type t)
