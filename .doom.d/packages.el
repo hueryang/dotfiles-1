@@ -59,20 +59,6 @@
 (package! flycheck-package)
 ;; MELPA Helper:1 ends here
 
-;; [[file:packages.org::*Doom][Doom:1]]
-(package! emacs-snippets
-  :recipe (:host github
-           :repo "hlissner/emacs-snippets"
-           :files ("*")))
-;; Doom:1 ends here
-
-;; [[file:packages.org::*Standard][Standard:1]]
-(package! yasnippet-snippets
-  :recipe (:host github
-           :repo "AndreaCrotti/yasnippet-snippets"
-           :files ("*")))
-;; Standard:1 ends here
-
 ;; [[file:packages.org::*Misc][Misc:1]]
 (package! sicp)
 (package! w3m)
