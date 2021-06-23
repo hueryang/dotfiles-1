@@ -97,6 +97,7 @@ sudo apt install -y \
     rofi \
     rxvt-unicode \
     sqlite3 \
+    xdotool \
     tigervnc-standalone-server \
     tigervnc-xorg-extension \
     tree \
