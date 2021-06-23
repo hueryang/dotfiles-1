@@ -40,7 +40,7 @@ sudo add-apt-repository -y ppa:kgilmer/speed-ricer
 # golang
 sudo add-apt-repository -y ppa:longsleep/golang-backports
 
-# emacs26
+# emacs27
 sudo add-apt-repository -y ppa:kelleyk/emacs
 
 # docker
@@ -56,6 +56,8 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > package
 sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
+#alacritty
+sudo add-apt-repository ppa:aslatter/ppa
 
 sudo apt update
 
@@ -66,60 +68,56 @@ sudo apt update
 #########################################################################################################
 
 sudo apt install -y \
-    arandr \
     arch-install-scripts \
+    alacritty \
+    arandr \
     bspwm \
-    breeze \
-    cmake \
+    bspwm \
     cmake \
     code \
     dbus-x11 \
-    default-jdk \
     docker-ce docker-ce-cli containerd.io \
-    dolphin \
     dunst \
-    editorconfig \
-    emacs26 \
+    emacs27 \
     feh \
-    firefox \
     flameshot \
     fontconfig \
     fonts-noto-cjk \
     fonts-noto-cjk-extra \
+    fzf \
     git \
     golang-go \
-    google-chrome-stable \
-    graphviz \
-    bspwm \
     ibus-gtk \
     ibus-gtk3 \
     ibus-rime \
-    inxi \
-    libtool \
-    libtool-bin \
     jq \
-    konsole \
-    kubectl \
-    lxappearance \
-    markdown \
-    neofetch \
+    polybar \
     qt5ct \
+    ripgrep \
     rofi \
     rxvt-unicode \
-    screenfetch \
-    shellcheck \
     sqlite3 \
     tigervnc-standalone-server \
     tigervnc-xorg-extension \
     tree \
-    yakuake \
-    zsh 
+    zsh
 
-wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb -P ~/tmp/
-wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb -P ~/tmp/
- 
-sudo apt install -y  ~/tmp/*.deb
-sudo usermod -aG docker $USER 
+sudo usermod -aG docker $USER
+
+#########################################################################################################
+#
+# config docker
+#
+# #######################################################################################################
+
+cat > /etc/docker/daemon.json <<EOF
+{
+        "registry-mirrors":["https://docker.mirrors.ustc.edu.cn","http://hub-mirror.c.163.com"],
+        "exec-root":"/work/var/run/docker",
+        "data-root":"/work/var/lib/docker",
+        "dns": ["10.4.192.27", "8.8.8.8"]
+}
+EOF
 
 #########################################################################################################
 #
