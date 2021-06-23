@@ -77,7 +77,6 @@ sudo apt install -y \
     arch-install-scripts \
     breeze \
     cmake \
-    cmake \
     code \
     dbus-x11 \
     default-jdk \
