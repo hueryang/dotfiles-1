@@ -34,6 +34,9 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ ${RELEASE}-backports main restr
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ ${RELEASE}-security main restricted universe multiverse
 EOF
 
+# i3 & polybar
+sudo add-apt-repository -y ppa:kgilmer/speed-ricer
+
 # golang
 sudo add-apt-repository -y ppa:longsleep/golang-backports
 
