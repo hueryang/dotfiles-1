@@ -68,10 +68,9 @@ sudo apt update
 #########################################################################################################
 
 sudo apt install -y \
-    arch-install-scripts \
     alacritty \
     arandr \
-    bspwm \
+    arch-install-scripts \
     bspwm \
     cmake \
     code \
@@ -87,6 +86,7 @@ sudo apt install -y \
     fzf \
     git \
     golang-go \
+    hsetroot \
     ibus-gtk \
     ibus-gtk3 \
     ibus-rime \
