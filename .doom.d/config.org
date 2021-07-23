@@ -88,6 +88,12 @@
 *** org export
 #+begin_src emacs-lisp
 (setq org-export-allow-bind-keywords t)
+(setq org-html-table-default-attributes
+      '(:class "table table-striped" ))
+#+end_src
+*** org crypt
+#+begin_src emacs-lisp
+(setq org-crypt-key "infraservice")
 #+end_src
 ** Line-number
 #+BEGIN_SRC emacs-lisp

@@ -52,6 +52,9 @@
 (setq plantuml-java-args (list "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=1081" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=1081" "-Djava.awt.headless=true" "-jar" "--illegal-access=deny"))
 (setq org-latex-toc-command "\\tableofcontents \\clearpage")
 (setq org-export-allow-bind-keywords t)
+(setq org-html-table-default-attributes
+      '(:class "table table-striped" ))
+(setq org-crypt-key "infraservice")
 (setq display-line-numbers-type t)
 (setq which-key-idle-delay 0.01)
 (after! centaur-tabs
