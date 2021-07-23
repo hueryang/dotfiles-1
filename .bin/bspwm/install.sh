@@ -57,7 +57,7 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 #alacritty
-sudo add-apt-repository ppa:aslatter/ppa
+sudo add-apt-repository -y ppa:aslatter/ppa
 
 sudo apt update
 
@@ -127,8 +127,7 @@ EOF
 # #######################################################################################################
 # download fonts for p10k
 
-mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts
+cd /usr/share/fonts
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf 
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf

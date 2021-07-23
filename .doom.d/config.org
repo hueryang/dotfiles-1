@@ -1,11 +1,29 @@
 #+TITLE: My emacs doom configuration
 #+AUTHOR: zhou mingjun
 #+EMAIL: zhoumingjun@gmail.com
-#+LANGUAGE: en
 #+PROPERTY: header-args :tangle yes :cache yes :results silent :padline no
-#+OPTIONS: toc:2          (only include two levels in TOC)
 
-#+TOC: headlines 2        insert TOC here, with two headline levels
+
+* TOC :TOC_3_gh:noexport:
+- [[#configuration][Configuration]]
+  - [[#personal-information][Personal Information]]
+    - [[#set-full-name][Set full name]]
+    - [[#set-email-address][Set email address]]
+  - [[#font][Font]]
+  - [[#theme][Theme]]
+  - [[#org][Org]]
+    - [[#set-org-directory][Set org-directory]]
+    - [[#org-plantuml][org plantuml]]
+    - [[#org-latex][org latex]]
+    - [[#org-export][org export]]
+    - [[#org-roam][org roam]]
+  - [[#line-number][Line-number]]
+  - [[#which-key][which-key]]
+  - [[#tabs][tabs]]
+  - [[#doom][doom]]
+    - [[#dashboard][dashboard]]
+  - [[#tramp][Tramp]]
+  - [[#latex][latex]]
 
 * Configuration
 ** Personal Information
@@ -88,6 +106,24 @@
 *** org export
 #+begin_src emacs-lisp
 (setq org-export-allow-bind-keywords t)
+#+end_src
+
+*** org roam
+#+begin_src emacs-lisp
+(use-package! org-roam-server
+  :config
+  (setq org-roam-server-host "127.0.0.1"
+        org-roam-server-port 3000
+        org-roam-server-authenticate nil
+        org-roam-server-export-inline-images t
+        org-roam-server-serve-files nil
+        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+        org-roam-server-network-poll t
+        org-roam-server-network-arrows nil
+        org-roam-server-network-label-truncate t
+        org-roam-server-network-label-truncate-length 60
+        org-roam-server-network-label-wrap-length 20))
+
 #+end_src
 ** Line-number
 #+BEGIN_SRC emacs-lisp
