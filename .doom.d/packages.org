@@ -1,73 +1,26 @@
-#+TITLE: Emacs Literate Package Additions
+#+TITLE: Org Mode Configuration
 #+AUTHOR: zhoumingjun <zhoumingjun@gmail.com>
-#+DATE: 2020:04:09
-#+PROPERTY: header-args :tangle (concat doom-private-dir "packages.el")
-#+PROPERTY: header-args+ :comments link
-#+STARTUP: outline
-#+OPTIONS: toc:nil
-
-# Now we set this with STARTUP
-# These can be set per subtree.
-# :PROPERTIES:
-# :VISIBILITY: children
-# :END:
+#+PROPERTY: header-args :emacs-lisp :tangle yes :comments link :cache yes :padline no :results silent
+#+STARTUP: org-startup-folded: showall
 
 ** Table of Contents :TOC_3_gh:noexport:
   - [[#reference][Reference]]
-  - [[#about-this-file][About this file]]
-    - [[#about-that-toc][About that TOC..]]
-    - [[#the-properties][The properties]]
   - [[#aesthetic-packages][Aesthetic Packages]]
     - [[#dired-icons][Dired Icons]]
     - [[#wakatime][Wakatime]]
-  - [[#later-magit-additions][LATER Magit Additions]]
-  - [[#key-chords-and-keybindings][Key Chords and Keybindings]]
-  - [[#evil-colemak][Evil Colemak]]
-  - [[#firestarter][Firestarter]]
   - [[#org-additions][Org Additions]]
-    - [[#org-download][Org Download]]
-    - [[#later-org-drill][LATER Org Drill]]
     - [[#org-protocol-updates][Org Protocol Updates]]
     - [[#org-noter][Org Noter]]
     - [[#org-kankan][Org kankan]]
     - [[#org-http][Org http]]
+    - [[#org-roam][Org Roam]]
     - [[#org-rifle][Org Rifle]]
     - [[#org-projectile][Org Projectile]]
-  - [[#dockerfile-mode][Dockerfile Mode]]
-  - [[#syntax-highlighting][Syntax Highlighting]]
-    - [[#pkgbuild-mode][PKGBUILD Mode]]
-    - [[#dart-mode][Dart Mode]]
-  - [[#flycheck-additions][Flycheck Additions]]
-    - [[#melpa-helper][MELPA Helper]]
   - [[#misc][Misc]]
 
 ** Reference
 I copy this from https://github.com/HaoZeke/dotdoom
-** About this file
-This is an Emacs literate package file and is meant to compliment [[file:config.org][my
-configuration]], as well as [[file:index.html][the init.el]]. It contains the basic structure along
-with some data about each package and why it's needed. This is to be used in
-tandem with the ~define-package!~ function in ~config.org~.
 
-Since it's primarily aimed at ~doom-emacs~ let's add their comments.
-
-#+BEGIN_SRC emacs-lisp
-;; -*- no-byte-compile: t; -*-
-;;; ~/.config/doom/packages.el
-#+END_SRC
-
-*** About that TOC..
-So as mentioned [[https://github.com/snosov1/toc-org/issues/35][here]] there is trouble when ~org-export~ tries to create files
-while keeping the ~org-toc~ tag.
-
-It's not really a problem since ~org-export~ actually generates a TOC for the
-files anyway.
-*** The properties
-Basically, the properties set imply that the file is to be tangled for every
-block and moreover the output directory is the ~doom-private-dir~. It's
-practically self explanatory but still.
-
-The filename is determined by the ~SRC~ block languages.
 ** Aesthetic Packages
 *** Dired Icons
 Since treemacs already uses ~all-the-icons~ it is silly to not use them in
@@ -77,63 +30,10 @@ dired, from the [[https://github.com/domtronn/all-the-icons.el/wiki][all-the-ico
 #+END_SRC
 *** Wakatime
 Not exactly aesthetic, but yeah, for stats.
-#+BEGIN_SRC emacs-lisp :tangle yes
+#+BEGIN_SRC emacs-lisp
 (package! wakatime-mode)
 #+END_SRC
-** LATER Magit Additions
-These basically allow for TODOs in magit along with enhanced github integration.
-These have been added upstream in ~develop~.
-
-#+BEGIN_SRC emacs-lisp :tangle no
-(package! magit-org-todos)
-(package! magithub)
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp :tangle no
-(package! magit-todos)
-#+END_SRC
-
-Actually [[https://github.com/alphapapa/magit-todos][magit-todos]] has been added upstream which collates all ~todo~ items.
-There might still be workflows where [[https://github.com/danielma/magit-org-todos.el][magit-org-todos]] is useful since that
-displays a global ~todo.org~ file.
-** DONE Key Chords and Keybindings
-It turns out that the switch to [[https://github.com/noctuid/general.el][general.el]] is both inevitable (doom version 2.1)
-and very rational. However, I really can't wait. So.. This is a stop gap solution.
-#+BEGIN_SRC emacs-lisp :tangle no
-(package! general)
-#+END_SRC
-- [x] Remove when it's merged upstream
-** Evil Colemak
-I guess I just gave up, [[https://github.com/wbolster/evil-colemak-basics][from here]]. Read about why [[https://rgoswami.me/posts/colemak-dots-refactor/][here]]. The visual line mode setup leverages [[https://github.com/YourFin/evil-better-visual-line/][this package]].
-#+begin_src emacs-lisp :tangle yes
-(package! evil-colemak-basics)
-(package! evil-better-visual-line)
-#+end_src
-
-** Firestarter
-For running shell commands on-save.
-#+BEGIN_SRC emacs-lisp :tangle yes
-(package! firestarter)
-#+END_SRC
-
 ** Org Additions
-The new ones need to be covered in the ~config.org~ file with the appropriate
-keybindings. The notes are [[https://rgoswami.me/posts/org-note-workflow][described here]].
-*** Org Download
-Now I load it here since I don't use ~+attach~.
-#+BEGIN_SRC emacs-lisp
-(package! org-download
-  :recipe (:host github
-            :repo "abo-abo/org-download"))
-#+END_SRC
-
-*** LATER Org Drill
-The [[https://bitbucket.org/eeeickythump/org-drill/src][actual repo]] has not been updated in 3 years, so I must use [[https://github.com/hakanserce/org-drill][this fork]].
-#+BEGIN_SRC emacs-lisp :tangle no
-(package! org-drill
-  :recipe (:host github
-            :repo "hakanserce/org-drill"))
-#+END_SRC
 *** Org Protocol Updates
 This needs to be installed specially, [[https://github.com/alphapapa/org-protocol-capture-html][from this repo]].
 #+BEGIN_SRC emacs-lisp
@@ -152,7 +52,7 @@ setup and stuff as well so this might move into a tree of it's own.
 This actually breaks the ~pdf-tools~ bindings.
 
 *** Org kankan
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp  :tangle yes
 (package! org-kanban)
 #+end_src
 
@@ -162,6 +62,11 @@ This actually breaks the ~pdf-tools~ bindings.
 (package! ob-restclient)
 
 #+end_src
+*** Org Roam
+#+begin_src emacs-lisp :tangle yes
+(package! org-roam-server)
+#+end_src
+
 *** Org Rifle
 Technically a helm addition. Perfect for monolithic ~org~ files. More details
 [[https://github.com/alphapapa/helm-org-rifle][here]].
@@ -173,40 +78,6 @@ Technically a helm addition. Perfect for monolithic ~org~ files. More details
 (package! org-projectile)
 #+end_src
 
-** Dockerfile Mode
-For syntax highlighting and inline builds. [[https://github.com/spotify/dockerfile-mode][From spotify]] weirdly.
-~## -*- docker-image-name: "your-image-name-here" -*-~ can be used to specify
-the image name.
-#+BEGIN_SRC emacs-lisp
-(package! dockerfile-mode)
-#+END_SRC
-** Syntax Highlighting
-These are additionally required to work with the sort of files I use often.
-The configuration and settings are as usual in ~config.org~
-*** PKGBUILD Mode
-No point using ~emacs~ if I can't get highlighting for all my needs. This needs
-some extra configuration. +Must figure out if this is well mantained+. The
-developer is very responsive to pull requests and the like.
-
-#+BEGIN_SRC emacs-lisp
-(package! pkgbuild-mode
-  :recipe (:host github
-            :repo "juergenhoetzel/pkgbuild-mode"))
-#+END_SRC
-*** Dart Mode
-Might eventually want to also get the companion [[https://github.com/bradyt/dart-server][dart server]] sometime, but for
-now this syntax-highlighter will do. Might actually want to see if ~prettier~
-has anything for it.
-#+BEGIN_SRC emacs-lisp :tangle no
-(package! dart-mode)
-#+END_SRC
-** Flycheck Additions
-*** MELPA Helper
-This is for linting files before submitting to MELPA.
-#+BEGIN_SRC emacs-lisp
-(package! package-lint)
-(package! flycheck-package)
-#+END_SRC
 ** Misc
 #+BEGIN_SRC emacs-lisp
 (package! sicp)

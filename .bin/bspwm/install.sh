@@ -34,13 +34,13 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ ${RELEASE}-backports main restr
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ ${RELEASE}-security main restricted universe multiverse
 EOF
 
-# i3-gaps
+# i3 & polybar
 sudo add-apt-repository -y ppa:kgilmer/speed-ricer
 
 # golang
 sudo add-apt-repository -y ppa:longsleep/golang-backports
 
-# emacs26
+# emacs27
 sudo add-apt-repository -y ppa:kelleyk/emacs
 
 # docker
@@ -51,18 +51,13 @@ sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/u
 wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
 sudo apt-add-repository -y "deb https://apt.kitware.com/ubuntu/ ${RELEASE} main"
 
-# chrome
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-
 # vscode
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
-# kubectl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+#alacritty
+sudo add-apt-repository -y ppa:aslatter/ppa
 
 sudo apt update
 
@@ -73,58 +68,57 @@ sudo apt update
 #########################################################################################################
 
 sudo apt install -y \
+    alacritty \
     arandr \
     arch-install-scripts \
-    breeze \
+    bspwm \
     cmake \
     code \
     dbus-x11 \
-    default-jdk \
     docker-ce docker-ce-cli containerd.io \
-    dolphin \
     dunst \
-    editorconfig \
-    emacs26 \
+    emacs27 \
     feh \
-    firefox \
     flameshot \
     fontconfig \
     fonts-noto-cjk \
     fonts-noto-cjk-extra \
+    fzf \
     git \
     golang-go \
-    google-chrome-stable \
-    graphviz \
-    i3-gaps \
+    hsetroot \
     ibus-gtk \
     ibus-gtk3 \
     ibus-rime \
-    inxi \
-    libtool \
-    libtool-bin \
     jq \
-    konsole \
-    kubectl \
-    lxappearance \
-    markdown \
-    neofetch \
+    polybar \
     qt5ct \
+    ripgrep \
     rofi \
     rxvt-unicode \
-    screenfetch \
-    shellcheck \
     sqlite3 \
+    xdotool \
     tigervnc-standalone-server \
     tigervnc-xorg-extension \
     tree \
-    yakuake \
-    zsh 
+    zsh
 
-wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb -P ~/tmp/
-wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb -P ~/tmp/
- 
-sudo apt install -y  ~/tmp/*.deb
-sudo usermod -aG docker $USER 
+sudo usermod -aG docker $USER
+
+#########################################################################################################
+#
+# config docker
+#
+# #######################################################################################################
+
+cat > /etc/docker/daemon.json <<EOF
+{
+        "registry-mirrors":["https://docker.mirrors.ustc.edu.cn","http://hub-mirror.c.163.com"],
+        "exec-root":"/work/var/run/docker",
+        "data-root":"/work/var/lib/docker",
+        "dns": ["10.4.192.27", "8.8.8.8"]
+}
+EOF
 
 #########################################################################################################
 #
@@ -133,8 +127,7 @@ sudo usermod -aG docker $USER
 # #######################################################################################################
 # download fonts for p10k
 
-mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts
+cd /usr/share/fonts
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf 
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
@@ -151,24 +144,9 @@ fc-cache -fv
 cd ~
 
 
-#########################################################################################################
-#
-# configuration
-#
-#########################################################################################################
-
-# fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --key-bindings --completion --no-update-rc
-
-# node-build
-mkdir -p "$(nodenv root)"/plugins
-git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
-
-# ruby-build
-mkdir -p "$(rbenv root)"/plugins
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-
+## install dotfiles
+bash -c "$(curl -sSL https://raw.githubusercontent.com/zhoumingjun/dotfiles/master/.bin/dotfiles-install.sh)"
+$HOME/.bin/dotfiles-init-submodules.sh
 #########################################################################################################
 #
 # emacs 
