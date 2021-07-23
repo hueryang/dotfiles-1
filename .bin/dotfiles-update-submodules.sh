@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-function dotfiles {
+function dots {
    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
-dotfiles submodule update --remote
+dots submodule update --remote

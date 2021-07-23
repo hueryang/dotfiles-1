@@ -1,24 +1,32 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+	branch = master
 [submodule ".zsh_custom/plugins/zsh-syntax-highlighting"]
 	path = .zsh_custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+	branch = master
 [submodule ".zsh_custom/plugins/zsh-autosuggestions"]
 	path = .zsh_custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+	branch = master
 [submodule ".zsh_custom/plugins/adr-tools"]
 	path = .zsh_custom/plugins/adr-tools
 	url = https://github.com/zhoumingjun/adr-tools.git
+	branch = master
 [submodule ".zsh_custom/themes/powerlevel10k"]
 	path = .zsh_custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+	branch = master
 [submodule ".zsh_custom/plugins/kubetail"]
 	path = .zsh_custom/plugins/kubetail
 	url = https://github.com/johanhaleby/kubetail.git
+	branch = master
 [submodule ".asdf"]
 	path = .asdf
 	url = https://github.com/asdf-vm/asdf.git
+	branch = master
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+	branch = master
