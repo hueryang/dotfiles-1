@@ -155,7 +155,7 @@
         +pomodoro        ; be fruitful with the tomato technique
         +present        ; using org-mode for presentations
         +pretty
-        +roam
+        +roam2
         )
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother

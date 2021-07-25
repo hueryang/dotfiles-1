@@ -1,7 +1,7 @@
 #+TITLE: My emacs doom configuration
 #+AUTHOR: zhou mingjun
 #+EMAIL: zhoumingjun@gmail.com
-#+PROPERTY: header-args :tangle yes :cache yes :results silent :padline no
+#+PROPERTY: header-args:emacs-lisp :tangle yes :comments link :cache yes :padline no :results silent
 
 
 * TOC :TOC_3_gh:noexport:
@@ -16,6 +16,7 @@
     - [[#org-plantuml][org plantuml]]
     - [[#org-latex][org latex]]
     - [[#org-export][org export]]
+    - [[#org-crypt][org crypt]]
     - [[#org-roam][org roam]]
   - [[#line-number][Line-number]]
   - [[#which-key][which-key]]
@@ -115,7 +116,7 @@
 #+end_src
 
 *** org roam
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (use-package! org-roam-server
   :config
   (setq org-roam-server-host "127.0.0.1"
