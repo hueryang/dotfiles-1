@@ -65,8 +65,9 @@ This actually breaks the ~pdf-tools~ bindings.
 
 #+end_src
 *** Org Roam
-#+begin_src emacs-lisp :tangle no
-(package! org-roam-server)
+#+begin_src emacs-lisp
+(package! websocket)
+(package! org-roam-ui :recipe (:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 #+end_src
 
 *** Org Rifle

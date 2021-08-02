@@ -19,6 +19,10 @@
 (package! ob-http)
 (package! ob-restclient)
 ;; Org http:1 ends here
+;; [[file:packages.org::*Org Roam][Org Roam:1]]
+(package! websocket)
+(package! org-roam-ui :recipe (:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
+;; Org Roam:1 ends here
 ;; [[file:packages.org::*Org Rifle][Org Rifle:1]]
 (package! helm-org-rifle)
 ;; Org Rifle:1 ends here

@@ -73,6 +73,23 @@
 ;; [[file:~/.doom.d/config.org::*org crypt][org crypt:1]]
 (setq org-crypt-key "infraservice")
 ;; org crypt:1 ends here
+;; [[file:~/.doom.d/config.org::*org roam][org roam:1]]
+(use-package! websocket
+    :after org-roam)
+
+(use-package! org-roam-ui
+    :after org-roam ;; or :after org
+;;  :hook
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+    :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
+;; org roam:1 ends here
 ;; [[file:~/.doom.d/config.org::*Line-number][Line-number:1]]
 (setq display-line-numbers-type t)
 ;; Line-number:1 ends here
