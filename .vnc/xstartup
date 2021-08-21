@@ -6,7 +6,7 @@ XDG_SESSION_TYPE=x11
 export XDG_SESSION_TYPE
 
 # x11 resources
-[ -r $HOME/.config/X11/xresources ] && xrdb -merge $HOME/.config/X11/xresources
+[ -r $HOME/.Xresources ] && xrdb -merge $HOME/.Xresources
 
 # wm
 vncconfig -nowin &
