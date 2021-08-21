@@ -133,10 +133,10 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # XDG
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+# export XDG_CONFIG_HOME="$HOME/.config"
+# export XDG_DATA_HOME="$HOME/.local/share"
+# export XDG_CACHE_HOME="$HOME/.cache"
+# export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 # dotfiles
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -145,7 +145,7 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 command -v colorls > /dev/null && alias ls='colorls --sd'
 
 # emacs
-export PATH=~/apps/bin:~/go/bin:~/.emacs.d/bin:$PATH
+export PATH=~/apps/bin:~/.emacs.d/bin:$PATH
 
 setopt no_nomatch
 export WINEARCH=win32
