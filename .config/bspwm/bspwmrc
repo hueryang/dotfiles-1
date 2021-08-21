@@ -73,7 +73,7 @@ command -v picom &> /dev/null && picom --config $HOME/.config/picom/picom.conf &
 command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 000000" &
 
 # set background
-feh --bg-fill ~/Pictures/dracula-gentoo.png  
+feh --bg-fill ~/Pictures/default.png  
 
 # launch sxhkd
 pgrep -x sxhkd > /dev/null || sxhkd &

@@ -81,6 +81,7 @@ plugins=(
   mvn
   ripgrep
   yarn
+  autojump
 
   # customized plugins
   adr-tools
