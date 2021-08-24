@@ -91,6 +91,7 @@ plugins=(
   openresty
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-aliases-lsd
 
   login
   oath
@@ -140,9 +141,6 @@ source $ZSH/oh-my-zsh.sh
 
 # dotfiles
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-# alias
-command -v colorls > /dev/null && alias ls='colorls --sd'
 
 # emacs
 export PATH=~/apps/bin:~/.emacs.d/bin:$PATH

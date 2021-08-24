@@ -30,3 +30,7 @@
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 	branch = master
+[submodule "/home/zhoumingjun/.zsh_custom/plugins/zsh-aliases-lsd"]
+	path = .zsh_custom/plugins/zsh-aliases-lsd
+	url = https://github.com/yuhonas/zsh-aliases-lsd.git
+	branch = master
