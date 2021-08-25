@@ -45,6 +45,8 @@ bspc rule -a youtube-music-desktop-app  state=floating
 bspc rule -a Org.gnome.Nautilus         state=floating
 bspc rule -a Zathura                    state=floating
 bspc rule -a Seahorse                   state=floating
+bspc rule -a Evolution                  state=floating
+bspc rule -a Liferea                    state=floating
 
 ##############################################################################
 #                                Monitors                                    #
