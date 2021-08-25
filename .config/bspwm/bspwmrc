@@ -36,14 +36,13 @@ bspc config ignore_ewmh_focus true
 #                                 WINDOW RULES                               #
 ##############################################################################
 bspc rule -a Blueman-manager            state=floating
-bspc rule -a keepassxc                  state=floating
-bspc rule -a dolphin                    state=floating
+bspc rule -a KeePassXC                  state=floating
 bspc rule -a netease-cloud-music        state=floating
 bspc rule -a realvnc-vncviewer          state=floating
 bspc rule -a wechat.exe                 state=floating
 bspc rule -a wxwork.exe                 state=floating
 bspc rule -a youtube-music-desktop-app  state=floating
-bspc rule -a Nautilus                   state=floating
+bspc rule -a Org.gnome.Nautilus         state=floating
 bspc rule -a Zathura                    state=floating
 bspc rule -a Seahorse                   state=floating
 
