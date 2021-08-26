@@ -47,7 +47,7 @@ bspc rule -a Zathura                    state=floating
 bspc rule -a Seahorse                   state=floating
 bspc rule -a Evolution                  state=floating
 bspc rule -a Liferea                    state=floating
-
+bspc rule -a Evolution-alarm-notify     state=floating
 ##############################################################################
 #                                Monitors                                    #
 ##############################################################################
