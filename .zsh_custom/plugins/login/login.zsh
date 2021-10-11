@@ -11,7 +11,7 @@ code=`oathtool --totp --base32 -d6 $OATH_SECRET`
 
 
 expect <(cat <<EOD
-spawn ssh $JUMPER_SERVER 
+spawn ssh $OPTIONS $JUMPER_SERVER
 
 expect  "*password:" 
 send "$AD_SECRET\r" 
