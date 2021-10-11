@@ -59,10 +59,11 @@ then
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 elif [ ${#monitors[@]} -eq 2 ]
 then
-    xrandr --output DP-1 --primary --mode 1920x1080 --pos 0x184 --rotate normal \
-        --output HDMI-1 --off \
-        --output HDMI-2 --mode 1920x1080 --pos 1920x0 --rotate left  \
-        --output HDMI-3 --off  
+    xrandr --output DP1 --primary --mode 1920x1080 --pos 0x315 --rotate normal \
+	--output HDMI1 --off \
+	--output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate left  \
+	--output HDMI3 --off
+
     bspc monitor ${monitors[0]} -d 1 2 3 4 5
     bspc monitor ${monitors[1]} -d 6 7 8 9 0
 fi

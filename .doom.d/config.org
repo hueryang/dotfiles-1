@@ -1,7 +1,7 @@
 #+TITLE: My emacs doom configuration
 #+AUTHOR: zhou mingjun
 #+EMAIL: zhoumingjun@gmail.com
-#+PROPERTY: header-args:emacs-lisp :tangle yes :comments link :cache yes :padline no :results silent
+#+PROPERTY: header-args:emacs-lisp :tangle yes :cache yes :padline no :results silent
 
 
 * TOC :TOC_3_gh:noexport:

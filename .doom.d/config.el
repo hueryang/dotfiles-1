@@ -1,17 +1,8 @@
-;; [[file:~/.doom.d/config.org::*Set full name][Set full name:1]]
 (setq user-full-name "zhou mingjun")
-;; Set full name:1 ends here
-;; [[file:~/.doom.d/config.org::*Set email address][Set email address:1]]
 (setq user-mail-address "zhoumingjun@gmail.com")
-;; Set email address:1 ends here
-;; [[file:~/.doom.d/config.org::*Font][Font:1]]
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 12)
       doom-variable-pitch-font (font-spec :family "sans"))
-;; Font:1 ends here
-;; [[file:~/.doom.d/config.org::*Theme][Theme:1]]
 (setq doom-theme 'doom-dracula) ;; << This line enables the theme
-;; Theme:1 ends here
-;; [[file:~/.doom.d/config.org::*Set org-directory][Set org-directory:1]]
 (after! org
   (setq org-log-done 'note
         org-log-into-drawer t)
@@ -57,23 +48,13 @@
 
 (setq deft-directory "~/org/"
       deft-recursive t)
-;; Set org-directory:1 ends here
-;; [[file:~/.doom.d/config.org::*org plantuml][org plantuml:1]]
 (setq plantuml-default-exec-mode 'jar)
 (setq plantuml-java-args (list "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=1081" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=1081" "-Djava.awt.headless=true" "-jar" "--illegal-access=deny"))
-;; org plantuml:1 ends here
-;; [[file:~/.doom.d/config.org::*org latex][org latex:1]]
 (setq org-latex-toc-command "\\tableofcontents \\clearpage")
-;; org latex:1 ends here
-;; [[file:~/.doom.d/config.org::*org export][org export:1]]
 (setq org-export-allow-bind-keywords t)
 (setq org-html-table-default-attributes
       '(:class "table table-striped" ))
-;; org export:1 ends here
-;; [[file:~/.doom.d/config.org::*org crypt][org crypt:1]]
 (setq org-crypt-key "infraservice")
-;; org crypt:1 ends here
-;; [[file:~/.doom.d/config.org::*org roam][org roam:1]]
 (use-package! websocket
     :after org-roam)
 
@@ -89,18 +70,10 @@
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
-;; org roam:1 ends here
-;; [[file:~/.doom.d/config.org::*Line-number][Line-number:1]]
 (setq display-line-numbers-type t)
-;; Line-number:1 ends here
-;; [[file:~/.doom.d/config.org::*which-key][which-key:1]]
 (setq which-key-idle-delay 0.01)
-;; which-key:1 ends here
-;; [[file:~/.doom.d/config.org::*tabs][tabs:1]]
 (after! centaur-tabs
   (centaur-tabs-group-by-projectile-project))
-;; tabs:1 ends here
-;; [[file:~/.doom.d/config.org::*dashboard][dashboard:1]]
 (setq +doom-dashboard-banner-padding '(0 . 2)
       +doom-dashboard-menu-sections
   '(("Reload last session"
@@ -134,8 +107,6 @@
       +doom-dashboard-banner-file "emacs.svg"
       +doom-dashboard-banner-dir "~/.doom.d/"
 )
-;; dashboard:1 ends here
-;; [[file:~/.doom.d/config.org::*Tramp][Tramp:1]]
 (use-package! tramp
   :custom
   (tramp-use-ssh-controlmaster-options nil) ; Don't override SSH config.
@@ -150,17 +121,12 @@
        "Login Ip:")
      t)
     ".*:\0? *")))
-;; Tramp:1 ends here
-;; [[file:~/.doom.d/config.org::*latex][latex:1]]
 (add-hook! LaTeX-mode-hook
   (add-to-list TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
   (setq TeX-command-default "XeLaTeX"
         TeX-save-query nil
         TeX-show-compilation t)
   (setq pdf-latex-command "xelatex"))
-;; latex:1 ends here
-;; [[file:~/.doom.d/config.org::*assembly][assembly:1]]
 (setq  x86-lookup-pdf "~/Documents/325383-sdm-vol-2abcd.pdf")
 
 (global-set-key (kbd "C-h x") #'x86-lookup)
-;; assembly:1 ends here
