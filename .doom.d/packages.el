@@ -29,6 +29,9 @@
 ;; [[file:packages.org::*Org Projectile][Org Projectile:1]]
 (package! org-projectile)
 ;; Org Projectile:1 ends here
+;; [[file:packages.org::*asm][asm:1]]
+(package! x86-lookup)
+;; asm:1 ends here
 ;; [[file:packages.org::*Misc][Misc:1]]
 (package! sicp)
 (package! w3m)

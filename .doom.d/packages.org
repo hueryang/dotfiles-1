@@ -17,6 +17,8 @@
     - [[#org-roam][Org Roam]]
     - [[#org-rifle][Org Rifle]]
     - [[#org-projectile][Org Projectile]]
+  - [[#lang][lang]]
+    - [[#asm][asm]]
   - [[#misc][Misc]]
 
 * Packages
@@ -81,6 +83,11 @@ Technically a helm addition. Perfect for monolithic ~org~ files. More details
 (package! org-projectile)
 #+end_src
 
+** lang
+*** asm
+#+begin_src emacs-lisp
+(package! x86-lookup)
+#+end_src
 ** Misc
 #+BEGIN_SRC emacs-lisp
 (package! sicp)

@@ -159,3 +159,8 @@
         TeX-show-compilation t)
   (setq pdf-latex-command "xelatex"))
 ;; latex:1 ends here
+;; [[file:~/.doom.d/config.org::*assembly][assembly:1]]
+(setq  x86-lookup-pdf "~/Documents/325383-sdm-vol-2abcd.pdf")
+
+(global-set-key (kbd "C-h x") #'x86-lookup)
+;; assembly:1 ends here

@@ -25,6 +25,7 @@
     - [[#dashboard][dashboard]]
   - [[#tramp][Tramp]]
   - [[#latex][latex]]
+  - [[#assembly][assembly]]
 
 * Configuration
 ** Personal Information
@@ -217,3 +218,9 @@ logo from https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
   (setq pdf-latex-command "xelatex"))
 
 #+END_SRC
+** assembly
+#+begin_src emacs-lisp
+ (setq  x86-lookup-pdf "~/Documents/325383-sdm-vol-2abcd.pdf")
+
+ (global-set-key (kbd "C-h x") #'x86-lookup)
+#+end_src
