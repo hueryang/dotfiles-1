@@ -59,13 +59,13 @@
   ;; set agenda files
   ;; (setq org-agenda-files (list org-files-directory))
 
-  (setq org-agenda-files
-    (apply 'append
-      (mapcar
-        (lambda (directory)
-          (directory-files-recursively
-            directory org-agenda-file-regexp))
-              '("~/plan" ))))
+  ;; (setq org-agenda-files
+  ;;   (apply 'append
+  ;;     (mapcar
+  ;;       (lambda (directory)
+  ;;         (directory-files-recursively
+  ;;           directory org-agenda-file-regexp))
+  ;;             '("~/plan" ))))
 
   ;; Set different bullets, with one getting a terminal fallback.
   (setq org-superstar-headline-bullets-list
