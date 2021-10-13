@@ -91,7 +91,6 @@ plugins=(
   openresty
   zsh-autosuggestions
   zsh-syntax-highlighting
-  zsh-aliases-lsd
 
   login
   oath
