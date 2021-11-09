@@ -54,11 +54,9 @@ bspc rule -a Wine                       state=floating
 ##############################################################################
 monitors=(`xrandr -q | grep " connected" | awk '{print $1}'`)
 
-if [ ${#monitors[@]} -eq 1 ]
-then
+if [ ${#monitors[@]} -eq 1 ] ; then
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-elif [ ${#monitors[@]} -eq 2 ]
-then
+elif [ ${#monitors[@]} -eq 2 ] ; then
     xrandr --output DP1 --primary --mode 1920x1080 --pos 0x315 --rotate normal \
 	--output HDMI1 --off \
 	--output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate left  \
@@ -76,7 +74,10 @@ command -v picom &> /dev/null && picom --config $HOME/.config/picom/picom.conf &
 command -v xautolock &> /dev/null && xautolock -time 10 -locker "i3lock -c 000000" &
 
 # set background
-feh --bg-fill ~/Pictures/default.png  
+test -e /etc/os-release && os_release='/etc/os-release' || os_release='/usr/lib/os-release'
+. "${os_release}"
+
+feh --bg-fill /work/Pictures/wallpapers/dracula/${ID:-linux}.png
 
 # launch sxhkd
 pgrep -x sxhkd > /dev/null || sxhkd &
