@@ -84,7 +84,6 @@ plugins=(
   autojump
 
   # customized plugins
-  adr-tools
   android
   goext
   krew
