@@ -36,9 +36,11 @@ import subprocess
 import platform
 
 # helper
-num_monitors = int(subprocess.run('xrandr|grep " connected"|wc -l', shell=True, stdout=subprocess.PIPE).stdout)
+num_monitors = int(subprocess.run(
+    'xrandr|grep " connected"|wc -l', shell=True, stdout=subprocess.PIPE).stdout)
 
-def go_to_group(group,nm):
+
+def go_to_group(group, nm):
     def f(qtile):
         if nm == 1:
             qtile.cmd_to_screen(0)
@@ -57,6 +59,14 @@ def go_to_group(group,nm):
 
 mod = "mod4"
 terminal = guess_terminal()
+color = {
+    'background': '#21222c',
+    'foreground': '#f8f8f2',
+    'active': '#6272a4',
+    'inactive': '#44475a',
+    'urgent': '#ff5555',
+    'floating': '#8be9fd',
+}
 
 keys = [
     # Switch between windows
@@ -106,7 +116,8 @@ keys = [
         desc="Spawn a command using a prompt widget"),
 
     Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle('term')),
-    Key([mod], "d", lazy.spawn("rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode"), desc="rofi"),
+    Key([mod], "d", lazy.spawn(
+        "rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode"), desc="rofi"),
 
 ]
 
@@ -117,23 +128,23 @@ for i in '1234567890':
 groups = [Group(i) for i in "1234567890"]
 
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "urxvt", opacity=0.8, width=0.96,height=0.4, x=0.02) ]),
+    DropDown("term", "urxvt", opacity=0.8, width=0.96, height=0.4, x=0.02)]),
 )
 
 layouts = [
     layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
-    #layout.Stack(num_stacks=2),
+    # layout.Stack(num_stacks=2),
     layout.Bsp(),
-    #layout.Matrix(),
-    #layout.MonadTall(),
-    #layout.MonadWide(),
-    #layout.RatioTile(),
-    #layout.Tile(),
+    # layout.Matrix(),
+    # layout.MonadTall(),
+    # layout.MonadWide(),
+    # layout.RatioTile(),
+    # layout.Tile(),
     layout.TreeTab(),
-    #layout.VerticalTile(),
-    #layout.Zoomy(),
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
@@ -148,12 +159,15 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
+                widget.Systray(),
+                widget.Prompt(),
                 widget.Spacer(),
                 widget.GroupBox(),
                 widget.Spacer(),
-                widget.Systray(),
+                widget.Clock(format='%Y-%m-%d %a %H:%M'),
+
             ],
-            24, # Bar Size
+            24,  # Bar Size
         ),
     )
 ]
