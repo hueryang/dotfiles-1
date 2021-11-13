@@ -1,63 +1,11 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
-from typing import List  # noqa: F401
-
-from libqtile import bar, layout, widget
+import os
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
-from libqtile.lazy import lazy
+from libqtile.command import lazy
+from libqtile import layout, bar, widget, hook
 from libqtile.utils import guess_terminal
 
-import os
-import subprocess
-import platform
-
-# helper
-num_monitors = int(subprocess.run(
-    'xrandr|grep " connected"|wc -l', shell=True, stdout=subprocess.PIPE).stdout)
-
-
-def go_to_group(group, nm):
-    def f(qtile):
-        if nm == 1:
-            qtile.cmd_to_screen(0)
-            qtile.groups_map[group].cmd_toscreen(toggle=False)
-
-        elif nm == 2:
-            if group in '12345':
-                qtile.cmd_to_screen(0)
-                qtile.groups_map[group].cmd_toscreen(toggle=False)
-            else:
-                qtile.cmd_to_screen(1)
-                qtile.groups_map[group].cmd_toscreen(toggle=False)
-
-    return f
-
-
 mod = "mod4"
+
 terminal = guess_terminal()
 color = {
     'background': '#21222c',
@@ -67,125 +15,167 @@ color = {
     'urgent': '#ff5555',
     'floating': '#8be9fd',
 }
+colors = {
+    "greybg": "#2d2d2d",
+    "greyfg": "#d3d0c8",
+    "red": "#f2777a",
+    "blue": "#6699cc",
+    "lgrey": "#747369",
+    "green": "#99cc99",
+}
 
-keys = [
-    # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(),
-        desc="Move window focus to other window"),
+base16_chalk = {
+    "black": "#151515",
+    "red": "#fb9fb1",
+    "green": "#acc267",
+    "yellow": "#ddb26f",
+    "blue": "#6fc2ef",
+    "magenta": "#e1a3ee",
+    "cyan": "#12cfc0",
+    "white": "#d0d0d0",
+    "gray": "#505050",
+}
 
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
-        desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(),
-        desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
-        desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(),
-        desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(),
-        desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(),
-        desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+@hook.subscribe.startup_once
+def autostart():
+    autostart = os.path.expanduser('~/.config/qtile/autostart.sh')
+    os.system(f'{autostart}')
 
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack"),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+def set_keybindings():
+    return [
+        # Switch between windows
+        Key([mod], "h", lazy.layout.left()),
+        Key([mod], "l", lazy.layout.right()),
+        Key([mod], "j", lazy.layout.down()),
+        Key([mod], "k", lazy.layout.up()),
 
-    Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"),
+        # Move windows between left/right columns or move up/down in current stack.
+        # Moving out of range in Columns layout will create new column.
+        Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
+        Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
+        Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+        Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
 
-    Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle('term')),
-    Key([mod], "d", lazy.spawn(
-        "rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode"), desc="rofi"),
+        # Grow windows. If current window is on the edge of screen and direction
+        # will be to screen edge - window would shrink.
+        Key([mod, "control"], "h", lazy.layout.grow_left()),
+        Key([mod, "control"], "l", lazy.layout.grow_right()),
+        Key([mod, "control"], "j", lazy.layout.grow_down()),
+        Key([mod, "control"], "k", lazy.layout.grow_up()),
 
-]
+        # Toggle between split and unsplit sides of stack.
+        # Split = all windows displayed
+        # Unsplit = 1 window displayed, like Max layout, but still with
+        # multiple stack panes
+        Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
+        Key([mod], "Return", lazy.spawn(terminal)),
 
-for i in '1234567890':
-    keys.append(Key([mod], i, lazy.function(go_to_group(i, num_monitors)))),
-    keys.append(Key([mod, 'shift'], i, lazy.window.togroup(i)))
+        # Toggle between different layouts as defined below
+        Key([mod], "Tab", lazy.next_layout()),
+        Key([mod], "w", lazy.window.kill()),
 
-groups = [Group(i) for i in "1234567890"]
+        Key([mod, "control"], "r", lazy.restart()),
+        Key([mod, "control"], "q", lazy.shutdown()),
 
-groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "urxvt", opacity=0.8, width=0.96, height=0.4, x=0.02)]),
-)
+        Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle('term')),
+        Key([mod], "d", lazy.spawn(
+            "rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode")),
 
-layouts = [
-    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
-]
+        # Toggle between different layouts
+        Key([mod], "space", lazy.window.toggle_floating()),
+        Key([mod], "f", lazy.window.toggle_fullscreen()),
+    ]
 
-widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
+
+def set_groups(g: str):
+
+    groups = [Group(i, label='♥') for i in g]
+
+    for i in groups:
+        # mod1 + letter of group = switch to group
+        keys.append(
+            Key([mod], i.name, lazy.group[i.name].toscreen(toggle=False))
+        )
+        # mod1 + shift + letter of group = switch to & move focused window to group
+        keys.append(
+            Key([mod, "shift"], i.name, lazy.window.togroup(i.name))
+        )
+
+    groups.append(
+        ScratchPad("scratchpad", [
+            DropDown("term",
+
+
+                     terminal, opacity=0.8, width=0.96, height=0.4, x=0.02)]),
+    )
+
+    return groups
+
+# My preferred layouts
+
+
+def set_layouts():
+    return [
+        layout.Columns(border_focus_stack=color['active'], border_width=2),
+        layout.Max(),
+        # Try more layouts by unleashing below layouts.
+        # layout.Stack(num_stacks=2),
+        layout.Bsp(),
+        # layout.Matrix(),
+        # layout.MonadTall(),
+        # layout.MonadWide(),
+        # layout.RatioTile(),
+        # layout.Tile(),
+        layout.TreeTab(),
+        # layout.VerticalTile(),
+        # layout.Zoomy(),
+    ]
+
+
+def set_widget_defaults():
+    return {
+        'font': 'JetBrainsMono Nerd Font Mono',
+        'fontsize': 12,
+        'padding': 2,
+    }
+
+
+def set_widgets():
+    return [
+        widget.CurrentLayoutIcon(),
+        widget.Systray(),
+        widget.Prompt(),
+        widget.Spacer(),
+        widget.GroupBox(
+            highlight_method="text",
+            urgent_alert_method="text",
+            inactive="777777",
+            active="777777",
+            block_highlight_text_color="FFFF00",
+            foreground="ff0000",
+            font="JetBrainsMono Nerd Font Mono",
+            fontsize=16,
+        ),
+        widget.Spacer(),
+        widget.Clock(format='📅%m-%d %a %H:%M'),
+    ]
+
+
+keys = set_keybindings()
+layouts = set_layouts()
+groups = set_groups('1234567890')
+widget_defaults = set_widget_defaults()
 
 screens = [
     Screen(
         top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.Systray(),
-                widget.Prompt(),
-                widget.Spacer(),
-                widget.GroupBox(),
-                widget.Spacer(),
-                widget.Clock(format='%Y-%m-%d %a %H:%M'),
-
-            ],
-            24,  # Bar Size
+            set_widgets(),
+            24, background=color['background'],
         ),
-    )
+    ),
 ]
-
-if num_monitors > 1:
-    for m in range(num_monitors - 1):
-        screens.append(
-            Screen(
-                top=bar.Bar(
-                    [
-                        widget.CurrentLayout(),
-                        widget.GroupBox(),
-                        widget.Prompt(),
-                    ],                    # other screens widgets
-                    24,
-                ),
-            )
-        )
 
 # Drag floating layouts.
 mouse = [
@@ -196,35 +186,16 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front())
 ]
 
+# Miscellaneous Config Variables
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: List
+dgroups_app_rules = []
+main = None
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
-])
+floating_layout = layout.Floating(
+    border_focus=color['floating'], border_width=2)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
-reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
-auto_minimize = True
-
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
+extentions = []
 wmname = "LG3D"
