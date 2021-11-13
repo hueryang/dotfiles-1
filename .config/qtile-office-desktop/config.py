@@ -114,11 +114,9 @@ screens = [
         top=bar.Bar(
             [
 
-                widget.Systray(),
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.CurrentLayoutIcon(scale=0.6),
-
                 widget.GroupBox(
                     highlight_method="text",
                     urgent_alert_method="text",
@@ -146,8 +144,9 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Systray(),
                 widget.Spacer(),
-                widget.CurrentLayout(),
+                widget.CurrentLayoutIcon(scale=0.6),
                 widget.GroupBox(
                     highlight_method="text",
                     urgent_alert_method="text",
