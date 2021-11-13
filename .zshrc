@@ -89,12 +89,12 @@ plugins=(
   openresty
   zsh-autosuggestions
   zsh-syntax-highlighting
+  fasd
 
   login
   oath
   proxy
   vpn
-  kubetail
 )
 
 source $ZSH/oh-my-zsh.sh

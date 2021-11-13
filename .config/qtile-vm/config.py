@@ -4,15 +4,15 @@ from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.utils import guess_terminal
 from libqtile import qtile
-mod = "mod4"
-terminal = guess_terminal()
-
 
 @hook.subscribe.startup_once
 def autostart():
     autostart = os.path.expanduser('~/.config/qtile/autostart.sh')
     os.system(f'{autostart}')
 
+
+mod = "mod4"
+terminal = guess_terminal()
 
 keys = [
     # Switch between windows
@@ -59,23 +59,8 @@ keys = [
     Key([mod], "d", lazy.spawn(
         "rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode")),
 ]
-
-groups = [Group(i, label="♥") for i in "1234567890"]
-
-for i in groups:
-    keys.append(
-        Key([mod], i.name, lazy.group[i.name].toscreen(toggle=False)))
-    keys.append(Key([mod, "shift"], i.name, lazy.window.togroup(i.name)))
-
-groups.append(
-    ScratchPad("scratchpad", [
-        DropDown("term",
-                 terminal, opacity=0.8, width=0.96, height=0.4, x=0.02)]),
-)
-
-
 layouts = [
-    layout.Columns(border_width=2),
+    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'],border_width=2),
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -97,7 +82,22 @@ widget_defaults = {
     'padding': 2,
 }
 
+extension_defaults = widget_defaults.copy()
 
+# groups
+for i in '1234567890':
+    keys.append(Key([mod], i, lazy.group[i].toscreen(toggle=False)))
+    keys.append(Key([mod, 'shift'], i, lazy.window.togroup(i)))
+
+groups = [Group(i, label="♥") for i in "1234567890"]
+
+groups.append(
+    ScratchPad("scratchpad", [
+        DropDown("term",
+                 terminal, opacity=0.8, width=0.96, height=0.4, x=0.02)]),
+)
+
+# screens
 screens = [
     Screen(
         top=bar.Bar(
@@ -145,7 +145,6 @@ mouse = [
 # Miscellaneous Config Variables
 dgroups_key_binder = None
 dgroups_app_rules = []
-main = None
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -153,9 +152,11 @@ floating_layout = layout.Floating(
     border_width=2)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
-extentions = []
+reconfigure_screens = True
+auto_minimize = True
 wmname = "LG3D"
 
 
 # references
 # https://github.com/FrostyX/dotfiles/blob/master/.config/qtile/config.py
+# https://github.com/qtile/qtile/issues/1271
