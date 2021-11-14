@@ -4,6 +4,9 @@ from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.utils import guess_terminal
 from libqtile import qtile
+import distro
+
+distro_logo = "/work/Pictures/distro/os_%s.png" % (distro.id())
 
 
 @hook.subscribe.startup_once
@@ -48,34 +51,36 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down()),
     Key([mod, "control"], "k", lazy.layout.grow_up()),
 
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
+    Key([mod, "control"], "g", lazy.layout.grow()),
+    Key([mod, "control"], "s", lazy.layout.shrink()),
+    Key([mod, "control"], "n", lazy.layout.normalize()),
+    Key([mod, "control"], "m", lazy.layout.maximize()),
 
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "space", lazy.window.toggle_floating()),
-    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    # Toggle between split and unsplit sides of stack.
+    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
 
     # qtile restart and quite
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
 
+    # Toggle between different layouts as defined below
+    Key([mod], "Tab", lazy.next_layout()),
 
-    # customize
+
+    # size
+    Key([mod], "t", lazy.window.toggle_floating()),
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "w", lazy.window.kill()),
+
     Key([mod], "Return", lazy.spawn(terminal)),
-    Key([mod], "e", lazy.spawn('emacsclient --alternate-editor "" --create-frame')),
     Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle('term')),
-    Key([mod], "d", lazy.spawn(
+    Key([mod], "r", lazy.spawn(
         "rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode")),
 ]
 
 layouts = [
     layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
-    # layout.Max(),
+    layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -85,7 +90,7 @@ layouts = [
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
-    # layout.VerticalTile(),
+    layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
@@ -113,7 +118,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-
+                widget.Image(filename=distro_logo),
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.CurrentLayoutIcon(scale=0.6),
@@ -126,6 +131,7 @@ screens = [
                     font="JetBrainsMono Nerd Font Mono",
                     fontsize=20,
                     visible_groups=['1', '2', '3', '4', '5']
+
                 ),
                 widget.TextBox(
                     text='✨',
@@ -135,7 +141,7 @@ screens = [
                     padding_y=5,
                 ),
                 widget.Spacer(),
-                widget.Clock(format='📅%m-%d %a %H:%M'),
+                widget.Clock(format='%H:%M'),
 
             ],
             24,
@@ -158,6 +164,8 @@ screens = [
                     visible_groups=['6', '7', '8', '9', '0']
                 ),
                 widget.Spacer(),
+                widget.Clock(format='%H:%M'),
+
             ],
             24,
         ),

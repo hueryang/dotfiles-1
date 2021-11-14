@@ -6,9 +6,7 @@ from libqtile.utils import guess_terminal
 from libqtile import qtile
 import distro
 
-
-distro_logo = "/work/Pictures/distro/%s.png" % (distro.id())
-print(distro_logo)
+distro_logo = "/work/Pictures/distro/os_%s.png" % (distro.id())
 
 
 @hook.subscribe.startup_once
@@ -114,7 +112,6 @@ screens = [
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.CurrentLayoutIcon(scale=0.6),
-
                 widget.GroupBox(
                     highlight_method="text",
                     urgent_alert_method="text",
