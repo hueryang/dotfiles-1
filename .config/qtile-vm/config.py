@@ -5,6 +5,7 @@ from libqtile import layout, bar, widget, hook
 from libqtile.utils import guess_terminal
 from libqtile import qtile
 import distro
+import subprocess
 
 distro_logo = "/work/Pictures/distro/os_%s.png" % (distro.id())
 
@@ -110,6 +111,9 @@ screens = [
             [
                 widget.Image(filename=distro_logo, mouse_callbacks={
                     'Button1': lambda: qtile.cmd_spawn("rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode")}),
+                widget.GenPollText(update_interval=1, func=lambda: subprocess.check_output(
+                    "hostname -i", shell=True).decode("utf-8").rstrip()),
+
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.CurrentLayoutIcon(scale=0.6),
