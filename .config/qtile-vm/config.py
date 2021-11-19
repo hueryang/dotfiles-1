@@ -108,7 +108,8 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Image(filename=distro_logo),
+                widget.Image(filename=distro_logo, mouse_callbacks={
+                    'Button1': lambda: qtile.cmd_spawn("rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode")}),
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.CurrentLayoutIcon(scale=0.6),
