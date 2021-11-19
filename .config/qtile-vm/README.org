@@ -1,0 +1,56 @@
+* Overview
+This is qtile configuration for vm
+
+* VncServer
+** configuration
+The vnc configuration can be found at =~/.vnc/xstartup=
+** commands
+- launch vncserver
+#+begin_src bash
+vncserver -geometry 1440x900
+#+end_src
+
+- adjust vncserver resolution
+#+begin_src
+~/.bin/vm-desktop.sh
+~/.bin/vm-macbook.sh
+#+end_src
+
+- list vnc session
+#+begin_src
+vncserver -list
+#+end_src
+
+- kill vnc session
+#+begin_src
+vncserver -kill <n>
+#+end_src
+
+* Window Manager
+[[http://www.qtile.org/][Qtile – A hackable tiling window manager written in Python | Qtile.org]]
+
+** configuration
+The Qtile configuration file can be found at =~/.config/qtile/config.py=
+You can find all the shortcuts in the file.
+
+Modify it if needed according to the official documents
+
+* Dotfiles
+I use dotfiles to make all dot files under version control
+https://github.com/zhoumingjun/dotfiles
+
+* Some useful command
+- use http proxy in cli
+#+begin_src
+tph-st1
+#+end_src
+
+- unset http proxy
+#+begin_src
+tpu
+#+end_src
+
+
+
+
+Enjoy it!
