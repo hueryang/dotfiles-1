@@ -9,12 +9,14 @@ import subprocess
 
 distro_logo = "/work/Pictures/distro/os_%s.png" % (distro.id())
 
-
 @hook.subscribe.startup_once
 def autostart():
     autostart = os.path.expanduser('~/.config/qtile/autostart.sh')
     os.system(f'{autostart}')
 
+@hook.subscribe.screen_change
+def randrchange(qtile, ev):
+    qtile.cmd_restart()
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -101,7 +103,7 @@ groups = [Group(i, label="♥") for i in "1234567890"]
 groups.append(
     ScratchPad("scratchpad", [
         DropDown("term",
-                 terminal, opacity=0.8, width=0.96, height=0.4, x=0.02)]),
+                 terminal, opacity=0.8, width=0.96, height=0.4, x=0.02, on_focus_lost_hide=False )]),
 )
 
 # screens

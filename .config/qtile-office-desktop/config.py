@@ -8,12 +8,14 @@ import distro
 
 distro_logo = "/work/Pictures/distro/os_%s.png" % (distro.id())
 
-
 @hook.subscribe.startup_once
 def autostart():
     autostart = os.path.expanduser('~/.config/qtile/autostart.sh')
     os.system(f'{autostart}')
 
+@hook.subscribe.screen_change
+def randrchange(qtile, ev):
+    qtile.cmd_restart()
 
 def go_to_group(group, nm):
     def f(qtile):
@@ -55,6 +57,7 @@ keys = [
     Key([mod, "control"], "s", lazy.layout.shrink()),
     Key([mod, "control"], "n", lazy.layout.normalize()),
     Key([mod, "control"], "m", lazy.layout.maximize()),
+    Key([mod, "control"], "l", lazy.spawn("i3lock -c 000000")),
 
     # Toggle between split and unsplit sides of stack.
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
@@ -86,7 +89,7 @@ layouts = [
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
-    # layout.MonadWide(),
+    layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
@@ -103,14 +106,18 @@ widget_defaults = {
 extension_defaults = widget_defaults.copy()
 
 # groups
-for i in '1234567890':
-    keys.append(Key([mod], i, lazy.function(go_to_group(i, num_monitors)))),
+for i in '12345':
+    keys.append(Key([mod], i, lazy.function(go_to_group(i, 0))))
+    keys.append(Key([mod, 'shift'], i, lazy.window.togroup(i)))
+
+for i in '67890':
+    keys.append(Key([mod], i, lazy.function(go_to_group(i, 1))))
     keys.append(Key([mod, 'shift'], i, lazy.window.togroup(i)))
 
 groups = [Group(i, label="♥") for i in "1234567890"]
 
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "urxvt", opacity=0.8, width=0.96, height=0.4, x=0.02)]),
+    DropDown("term", terminal, opacity=0.9, width=0.96, height=0.4, x=0.02)]),
 )
 
 # screens
@@ -150,8 +157,9 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Systray(),
-                widget.Spacer(),
+                                widget.Image(filename=distro_logo),
+
+                 widget.Spacer(),
                 widget.CurrentLayoutIcon(scale=0.6),
                 widget.GroupBox(
                     highlight_method="text",
@@ -163,7 +171,16 @@ screens = [
                     fontsize=20,
                     visible_groups=['6', '7', '8', '9', '0']
                 ),
+                        widget.TextBox(
+                    text='✨',
+                    fontsize=14,
+                    mouse_callbacks={
+                        'Button1': lambda: qtile.cmd_spawn('emacsclient --alternate-editor "" --create-frame')},
+                    padding_y=5,
+                ),
                 widget.Spacer(),
+                                widget.Systray(),
+
                 widget.Clock(format='%H:%M'),
 
             ],
