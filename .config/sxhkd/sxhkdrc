@@ -10,7 +10,7 @@ super + Return
 super + @space
     dmenu_run
 
-super + d
+super + r 
     rofi -combi-modi window,drun -show combi -show-icons -sidebar-mode
 
 
