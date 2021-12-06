@@ -144,3 +144,4 @@ export PATH=~/apps/bin:~/.emacs.d/bin:$PATH
 
 setopt no_nomatch
 export WINEARCH=win32
+tph-st1
