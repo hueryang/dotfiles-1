@@ -7,7 +7,7 @@
 bspc config border_width         1 
 bspc config window_gap           2
 
-bspc config top_padding          26 
+bspc config top_padding          26
 bspc config bottom_padding       0
 
 # from https://draculatheme.com/bspwm/
