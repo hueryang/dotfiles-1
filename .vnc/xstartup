@@ -35,5 +35,5 @@ elif [ -x "$(command -v ibus-daemon)" ]; then
 fi
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# exec bspwm
-exec qtile start
+exec bspwm
+#exec qtile start
