@@ -136,8 +136,11 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/IBMPlexMono.zip
 
-unzip JetBrainsMono.zip
-unzip IBMPlexMono.zip
+mkdir -p {IBMPlexMono,JetBrainsMono}
+unzip IBMPlexMono.zip -d IBMPlexMono
+unzip JetBrainsMono.zip -d JetBrainsMono
+
+rm -rf *.zip
 
 fc-cache -fv
 
