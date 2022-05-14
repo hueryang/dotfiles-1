@@ -1,27 +1,37 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true
-
 format = """
 $all\
 $fill\
 $username\
-$hostname\
+$localip\
 $line_break\
 $character
 """
+
+add_newline = true
+
 [username]
-format = "[$user]($style) "
+format = "[ $user]($style) "
 
 [hostname]
+disabled = true
 format = "[@](white bold) [$hostname]($style)"
 
-[character] 
-success_symbol = "[➜](bold green)" 
+[character]
+success_symbol = "[➜](bold green)"
+
+[fill]
+symbol = "—"
+style = "cyan"
 
 [package]
 disabled = true
 
 [gcloud]
 disabled = true
+
+[localip]
+disabled = false
+format = "[@](white bold) [$localipv4]($style) "
