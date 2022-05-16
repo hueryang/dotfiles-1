@@ -28,11 +28,13 @@ zi snippet OMZL::misc.zsh
 zi snippet OMZL::termsupport.zsh
 
 
-zi snippet OMZP::git
 zi ice svn
 zi snippet OMZP::emacs
+zi snippet OMZP::git
 zi snippet OMZP::asdf
 zi snippet OMZP::kubectl
+zi snippet OMZP::autojump
+
 
 zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/login/login.plugin.zsh'
 zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/proxy/proxy.plugin.zsh'
