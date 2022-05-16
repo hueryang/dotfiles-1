@@ -1,97 +1,35 @@
-# If you come from bash you might have to change your $PATH.
-#export PATH=$HOME/bin:/usr/local/bin:$PATH
+if [[ -r "$HOME/.config/zi/init.zsh" ]]; then
+  source "$HOME/.config/zi/init.zsh" && zzinit
+fi
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+zi light-mode for \
+  z-shell/z-a-meta-plugins \
+  @annexes # <- https://z.digitalclouds.dev/ecosystem/annexes
+# examples here -> https://z.digitalclouds.dev/docs/gallery/collection
+zicompinit # <- https://z.digitalclouds.dev/docs/guides/commands
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-ZSH_CUSTOM=$HOME/.zsh_custom
+zi light zsh-users/zsh-autosuggestions
+zi light zsh-users/zsh-syntax-highlighting
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  docker
-  emacs
-  fzf
-  git
-  asdf
-  golang
-  gitignore
-  helm
-  kube-ps1
-  kubectl
-  mvn
-  ripgrep
-  yarn
+zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
+  atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+  atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zi light trapd00r/LS_COLORS
 
-  # customized plugins
-  android
-  goext
-  krew
-  openresty
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  fasd
+zi snippet OMZP::git
+zi snippet OMZP::emacs
+zi snippet OMZP::asdf
 
-  login
-  oath
-  proxy
-  vpn
-)
-
-source $ZSH/oh-my-zsh.sh
+zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/login/login.plugin.zsh'
+zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/proxy/proxy.plugin.zsh'
 
 eval "$(starship init zsh)"
 
-
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-# XDG
-# export XDG_CONFIG_HOME="$HOME/.config"
-# export XDG_DATA_HOME="$HOME/.local/share"
-# export XDG_CACHE_HOME="$HOME/.cache"
-# export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-
-# dotfiles
+# alias
+alias ls="ls --color=auto"
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# emacs
-export PATH=~/apps/bin:~/.emacs.d/bin:$PATH
-
+# environments
 setopt no_nomatch
 export WINEARCH=win32
 tph-st1
-
-
-
