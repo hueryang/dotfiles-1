@@ -3,7 +3,6 @@ if [[ -r "$HOME/.config/zi/init.zsh" ]]; then
   source "$HOME/.config/zi/init.zsh" && zzinit
 fi
 
-
 # zi
 zi light-mode for \
   z-shell/z-a-meta-plugins \
@@ -34,11 +33,10 @@ zi snippet OMZP::git
 zi snippet OMZP::asdf
 zi snippet OMZP::kubectl
 zi snippet OMZP::autojump
-
+zi snippet OMZP::helm
 
 zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/login/login.plugin.zsh'
 zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/proxy/proxy.plugin.zsh'
-
 
 
 # prompt
