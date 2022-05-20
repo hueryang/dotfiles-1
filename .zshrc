@@ -26,17 +26,20 @@ zi snippet OMZL::key-bindings.zsh
 zi snippet OMZL::misc.zsh
 zi snippet OMZL::termsupport.zsh
 
+zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/login/login.plugin.zsh'
+zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/proxy/proxy.plugin.zsh'
+zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/krew/krew.plugin.zsh'
 
 zi ice svn
 zi snippet OMZP::emacs
 zi snippet OMZP::git
 zi snippet OMZP::asdf
 zi snippet OMZP::kubectl
-zi snippet OMZP::autojump
 zi snippet OMZP::helm
+zi snippet OMZP::golang
+zi snippet OMZP::zoxide
 
-zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/login/login.plugin.zsh'
-zi snippet 'https://github.com/zhoumingjun/zsh-plugins/blob/master/proxy/proxy.plugin.zsh'
+
 
 
 # prompt
@@ -46,7 +49,13 @@ eval "$(starship init zsh)"
 alias ls="ls --color=auto"
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# path
+export PATH=`go env GOPATH`/bin:~/.emacs.d/bin:$PATH
+
 # environments
 setopt no_nomatch
 export WINEARCH=win32
+export EDITOR=vim
+
+# set proxy
 tph-st1
