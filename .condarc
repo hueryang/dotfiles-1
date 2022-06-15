@@ -1,4 +1,0 @@
-show_channel_urls: true
-channels:
-  - pytorch 
-  - defaults
