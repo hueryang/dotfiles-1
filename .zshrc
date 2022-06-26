@@ -142,5 +142,3 @@ setopt no_nomatch
 export WINEARCH=win32
 export EDITOR=vim
 
-# set proxy
-tph-st1
