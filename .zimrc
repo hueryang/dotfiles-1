@@ -23,7 +23,8 @@ zmodule zsh-users/zsh-autosuggestions
 zmodule ohmyzsh/ohmyzsh \
   -f 'plugins/emacs' -s 'plugins/emacs/emacs.plugin.zsh' \
   -f 'plugins/zoxide' -s 'plugins/zoxide/zoxide.plugin.zsh' \
-  -f 'plugins/git' -s 'plugins/git/git.plugin.zsh'
+  -f 'plugins/git' -s 'plugins/git/git.plugin.zsh' \
+  -f 'plugins/kubectl' -s 'plugins/kubectl/kubectl.plugin.zsh'
 
 # custom
 zmodule zhoumingjun/zsh-plugins -s proxy/proxy.plugin.zsh -s login/login.plugin.zsh
