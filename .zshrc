@@ -135,7 +135,7 @@ eval "$(starship init zsh)"
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # PATH
-export PATH=`go env GOPATH`/bin:~/.emacs.d/bin:$PATH
+export PATH=`go env GOPATH`/bin:~/.emacs.d/bin:~/.krew/bin:$PATH
 
 # environments
 setopt no_nomatch
