@@ -18,7 +18,7 @@ https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare
    :END:
 
 #+BEGIN_SRC sh
-bash -c "$(curl -sSL https://raw.githubusercontent.com/zhoumingjun/dotfiles/master/.bin/dotfiles-install.sh)"
+bash -c "$(curl -sSL https://raw.githubusercontent.com/zhoumingjun/dotfiles/ohmyzsh/.bin/dotfiles-install.sh)"
 $HOME/.bin/dotfiles-init-submodules.sh
 #+END_SRC
 
